@@ -59,7 +59,7 @@ public class ChessPiece {
         //TODO implement the move calculators for the other pieces
         ChessPieceMoveCalculator moveCalculator = switch (pieceType) {
             case KING -> new KingMoveCalculator();
-            case QUEEN -> throw new RuntimeException("Must implement Queen Move Calculator");
+            case QUEEN -> new QueenMoveCalculator();
             case BISHOP -> new BishopMoveCalculator();
             case KNIGHT -> throw new RuntimeException("Must implement Knight Move Calculator");
             case ROOK -> new RookMoveCalculator();
