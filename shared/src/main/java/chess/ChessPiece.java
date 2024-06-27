@@ -58,7 +58,7 @@ public class ChessPiece {
         //determine which moves calculator to create based on the pieceType field on the object and create a new instance of that object
         //TODO implement the move calculators for the other pieces
         ChessPieceMoveCalculator moveCalculator = switch (pieceType) {
-            case KING -> throw new RuntimeException("Must implement King Move Calculator");
+            case KING -> new KingMoveCalculator();
             case QUEEN -> throw new RuntimeException("Must implement Queen Move Calculator");
             case BISHOP -> new BishopMoveCalculator();
             case KNIGHT -> throw new RuntimeException("Must implement Knight Move Calculator");
