@@ -50,8 +50,45 @@ public class ChessBoard {
      * Sets the board to the default starting board
      * (How the game of chess normally starts)
      */
+
+    private ChessPiece[] addBackRow(ChessGame.TeamColor teamColor)
+    {
+        ChessPiece[] row = new ChessPiece[chessBoardSize];
+        row[0] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK);
+        row[1] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT);
+        row[2] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP);
+        row[3] = new ChessPiece(teamColor, ChessPiece.PieceType.QUEEN);
+        row[4] = new ChessPiece(teamColor, ChessPiece.PieceType.KING);
+        row[5] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP);
+        row[6] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT);
+        row[7] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK);
+
+        return row;
+    }
+
+    private ChessPiece[] addPawnRow(ChessGame.TeamColor teamColor)
+    {
+        ChessPiece[] row = new ChessPiece[chessBoardSize];
+        for (int i = 0; i < chessBoardSize; i++) {
+            row[i] = new ChessPiece(teamColor,ChessPiece.PieceType.PAWN);
+        }
+        return row;
+    }
+
     public void resetBoard() {
-        throw new RuntimeException("Not implemented");
+
+        board[0] = addBackRow(ChessGame.TeamColor.WHITE);
+        board[1] = addPawnRow(ChessGame.TeamColor.WHITE);
+        board[chessBoardSize-1] = addBackRow(ChessGame.TeamColor.BLACK);
+        board[chessBoardSize-2] = addPawnRow(ChessGame.TeamColor.BLACK);
+
+        for (int i = 2; i < chessBoardSize-2; i++)
+        {
+            for (int j = 0; j < chessBoardSize; j++)
+            {
+                board[i][j] = null;
+            }
+        }
     }
 
 
