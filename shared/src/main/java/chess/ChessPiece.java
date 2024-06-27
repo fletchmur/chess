@@ -62,7 +62,7 @@ public class ChessPiece {
             case QUEEN -> throw new RuntimeException("Must implement Queen Move Calculator");
             case BISHOP -> new BishopMoveCalculator();
             case KNIGHT -> throw new RuntimeException("Must implement Knight Move Calculator");
-            case ROOK -> throw new RuntimeException("Must implement Rook Move Calculator");
+            case ROOK -> new RookMoveCalculator();
             case PAWN -> throw new RuntimeException("Must implement Pawn Move Calculator");
             default -> throw new RuntimeException("Must implement Null Move Calculator");
         };
