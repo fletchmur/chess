@@ -4,7 +4,8 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class KingMoveCalculator implements ChessPieceMoveCalculator
-{
+{int[][] relativePositions = {{0,1},{0,-1},{1,0},{-1,0},{1,1},{1,-1},{-1,1},{-1,-1}};
+
     private boolean positionOnBoard(ChessBoard board, int row, int col)
     {
         int boardSize = board.getChessBoardSize();
@@ -15,37 +16,27 @@ public class KingMoveCalculator implements ChessPieceMoveCalculator
 
     public Collection<ChessMove> calculateMoves(ChessBoard board, ChessPosition myPosition, ChessGame.TeamColor myColor)
     {
-        int currentRow = myPosition.getRow();
-        int currentColumn = myPosition.getColumn();
-
 
         Collection<ChessMove> moves = new HashSet<>();
-        //start at -1 to get all 9 spots
-        for(int i = -1; i < 2; i++)
+        for(int[] relPos : relativePositions)
         {
-            for (int j = -1; j < 2; j++)
-            {
-                // don't count center position
-                if (i == 0 && j == 0)
-                {
-                    continue;
-                }
-                // don't let piece go off the board
-                if (!positionOnBoard(board, currentRow + i, currentColumn + j))
-                {
-                    continue;
-                }
-                ChessPosition currentPosition = new ChessPosition(currentRow + i, currentColumn + j);
-                ChessPiece pieceAtCurrent = board.getPiece(currentPosition);
+            int currentRow = myPosition.getRow() + relPos[1];
+            int currentCol = myPosition.getColumn() + relPos[0];
 
-                // can't move onto pieces of my same team
-                if (pieceAtCurrent != null && pieceAtCurrent.getTeamColor() == myColor)
-                {
-                    continue;
-                }
-                moves.add(new ChessMove(myPosition,currentPosition,null));
+            if(!positionOnBoard(board, currentRow, currentCol))
+            {
+                continue;
             }
 
+            ChessPosition currentPosition = new ChessPosition(currentRow, currentCol);
+            ChessPiece pieceAtCurrent = board.getPiece(currentPosition);
+
+            if (pieceAtCurrent != null && pieceAtCurrent.getTeamColor() == myColor)
+            {
+                continue;
+            }
+
+            moves.add(new ChessMove(myPosition,currentPosition,null));
         }
         return moves;
     }
