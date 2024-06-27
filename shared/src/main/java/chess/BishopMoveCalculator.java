@@ -22,12 +22,12 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
     private Collection<ChessMove> movesOnDiagonal(Direction dir, ChessBoard board, ChessPosition myPosition,ChessGame.TeamColor myTeam) {
         Collection<ChessMove> moves = new HashSet<>();
 
-        int rowIncrement = switch (dir) {
+        int colIncrement = switch (dir) {
             case UPRIGHT, DOWNRIGHT -> 1;
             case UPLEFT, DOWNLEFT -> -1;
         };
 
-        int colIncrement = switch (dir) {
+        int rowIncrement = switch (dir) {
             case UPRIGHT, UPLEFT -> 1;
             case DOWNRIGHT, DOWNLEFT -> -1;
         };
@@ -42,6 +42,8 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
             // if empty it is a valid move and add to the set
             if (pieceAtCurrent == null) {
                 moves.add(new ChessMove(myPosition, currentPosition, null));
+                currentRow += rowIncrement;
+                currentColumn += colIncrement;
                 continue;
             }
             //if it is a friendly piece then it is not a valid move, and we stop looking in this direction
@@ -59,7 +61,7 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
     @Override
     public Collection<ChessMove> calculateMoves(ChessBoard board, ChessPosition myPosition, ChessGame.TeamColor myTeam)
     {
-        //calcualte all the valid moves for a bishop, the x pattern
+        //calculate all the valid moves for a bishop, the x pattern
 
         //RULES FOR THE BISHOP
         /*
@@ -72,7 +74,7 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
         Collection<ChessMove> downRight = movesOnDiagonal(Direction.DOWNRIGHT, board, myPosition, myTeam);
         Collection<ChessMove> downLeft = movesOnDiagonal(Direction.DOWNLEFT, board, myPosition, myTeam);
 
-        Collection<ChessMove> allMoves = new HashSet<ChessMove>();
+        Collection<ChessMove> allMoves = new HashSet<>();
 
         allMoves.addAll(upRight);
         allMoves.addAll(upLeft);

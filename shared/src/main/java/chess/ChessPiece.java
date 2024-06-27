@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * Represents a single chess piece
@@ -67,5 +68,23 @@ public class ChessPiece {
         };
         // return the valid moves based on the functionality of that move calculator
         return moveCalculator.calculateMoves(board, myPosition, pieceColor);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", pieceColor, pieceType);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChessPiece that = (ChessPiece) o;
+        return pieceColor == that.pieceColor && getPieceType() == that.getPieceType();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pieceColor, getPieceType());
     }
 }
