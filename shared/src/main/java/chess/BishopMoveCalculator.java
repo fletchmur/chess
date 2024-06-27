@@ -52,8 +52,7 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
             }
             //if it is an enemy piece then capture it
             moves.add(new ChessMove(myPosition, currentPosition, null));
-            currentRow += rowIncrement;
-            currentColumn += colIncrement;
+            break;
         }
         return moves;
     }
