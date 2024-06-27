@@ -10,7 +10,12 @@ import java.util.Collection;
  */
 public class ChessPiece {
 
+    private final ChessGame.TeamColor pieceColor;
+    private final ChessPiece.PieceType pieceType;
+
     public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
+        this.pieceColor = pieceColor;
+        this.pieceType = type;
     }
 
     /**
@@ -29,14 +34,16 @@ public class ChessPiece {
      * @return Which team this chess piece belongs to
      */
     public ChessGame.TeamColor getTeamColor() {
-        throw new RuntimeException("Not implemented");
+
+        return pieceColor;
     }
 
     /**
      * @return which type of chess piece this piece is
      */
     public PieceType getPieceType() {
-        throw new RuntimeException("Not implemented");
+
+        return pieceType;
     }
 
     /**
@@ -47,6 +54,18 @@ public class ChessPiece {
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
-        throw new RuntimeException("Not implemented");
+        //determine which moves calculator to create based on the pieceType field on the object and create a new instance of that object
+        //TODO implement the move calculators for the other pieces
+        ChessPieceMoveCalculator moveCalculator = switch (pieceType) {
+            case KING -> throw new RuntimeException("Must implement King Move Calculator");
+            case QUEEN -> throw new RuntimeException("Must implement Queen Move Calculator");
+            case BISHOP -> new BishopMoveCalculator();
+            case KNIGHT -> throw new RuntimeException("Must implement Knight Move Calculator");
+            case ROOK -> throw new RuntimeException("Must implement Rook Move Calculator");
+            case PAWN -> throw new RuntimeException("Must implement Pawn Move Calculator");
+            default -> throw new RuntimeException("Must implement Null Move Calculator");
+        };
+        // return the valid moves based on the functionality of that move calculator
+        return moveCalculator.calculateMoves(board, myPosition, pieceColor);
     }
 }
