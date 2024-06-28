@@ -5,8 +5,8 @@ import java.util.HashSet;
 
 public class PawnMoveCalculator implements ChessPieceMoveCalculator
 {
-    private int[][] relativePositionsWhite = {{0,2},{0,1},{1,1},{-1,1}};
-    private int[][] relativePositionsBlack = {{0,-2},{0,-1},{1,-1},{-1,-1}};
+    private final int[][] relativePositionsWhite = {{0,1},{1,1},{-1,1},{0,2}};
+    private final int[][] relativePositionsBlack = {{0,-1},{1,-1},{-1,-1},{0,-2}};
 
     ChessPiece.PieceType[] promotions = {ChessPiece.PieceType.ROOK,ChessPiece.PieceType.KNIGHT,ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.QUEEN};
 
@@ -18,67 +18,90 @@ public class PawnMoveCalculator implements ChessPieceMoveCalculator
         return row_in_range && column_in_range;
     }
 
+
     public Collection<ChessMove> calculateMoves(ChessBoard board, ChessPosition myPosition, ChessGame.TeamColor myColor)
     {
         Collection<ChessMove> moves = new HashSet<>();
+        int[][] relativePositions;
+        int firstMoveRow;
 
-        // pawns move different directions based on the color
-        int[][] relativePositions = switch (myColor)
+        //change behavior depending on the color
+        if (myColor == ChessGame.TeamColor.WHITE)
         {
-            case WHITE -> relativePositionsWhite;
-            case BLACK -> relativePositionsBlack;
-        };
-
-        //pawns can move two on their first movement
-
+            relativePositions = relativePositionsWhite;
+            firstMoveRow = 2;
+        }
+        else
+        {
+            relativePositions = relativePositionsBlack;
+            firstMoveRow = 7;
+        }
 
         for (int i = 0; i < relativePositions.length; i++)
         {
             int[] relPos = relativePositions[i];
-            int currentRow = myPosition.getRow() + relPos[1];
-            int currentColumn = myPosition.getColumn() + relPos[0];
+            int checkRow = myPosition.getRow() + relPos[1];
+            int checkCol = myPosition.getColumn() + relPos[0];
 
             //check if move is on board
-            if (!positionOnBoard(board,currentRow,currentColumn))
+            if (!positionOnBoard(board,checkRow,checkCol))
             {
                 continue;
             }
 
-            ChessPosition currentPosition = new ChessPosition(currentRow, currentColumn);
-            ChessPiece pieceAtCurrent = board.getPiece(currentPosition);
+            ChessPosition checkPosition = new ChessPosition(checkRow, checkCol);
+            ChessPiece checkPiece = board.getPiece(checkPosition);
 
-            // check to see if there is not a piece blocking
-            if ((i == 0 || i == 1) && pieceAtCurrent != null)
+            //FORWARD MOVEMENT CHECKS
+            //if we are checking the double move but not in the correct move, don't add position
+            if (i == 3 && myPosition.getRow() != firstMoveRow)
             {
                 continue;
             }
+
+            //check to see if there is a piece blocking our forward movement
+            if (i == 0  && checkPiece != null)
+            {
+                continue;
+            }
+
+            // for the double move you must check two spaces
+            if (i == 3)
+            {
+                ChessPosition secondCheckPosition = new ChessPosition(myPosition.getRow() + relativePositions[0][1], myPosition.getColumn());
+                ChessPiece secondPieceAtCheck = board.getPiece(secondCheckPosition);
+
+                if (secondPieceAtCheck != null || checkPiece != null)
+                {
+                    continue;
+                }
+            }
+
+            //DIAGONAL MOVEMENT CHECKS
+
             //check to see if there are even pieces on the diagonals
-            else if ((i == 2 || i == 3) && pieceAtCurrent == null)
-            {
-                continue;
-            }
-            // check to see if the pieces on my diagonal are on my team
-            else if (pieceAtCurrent != null && pieceAtCurrent.getTeamColor() == myColor)
+            if ((i == 1 || i == 2) && checkPiece == null)
             {
                 continue;
             }
 
+            // check to see if the pieces on my diagonal are on my team
+            if (checkPiece != null && checkPiece.getTeamColor() == myColor)
+            {
+                continue;
+            }
 
             // if we are in the 1st or 8th row then do promotions otherwise just add one move
-            if (currentRow == 1 || currentRow == 8)
+            if (checkRow == 1 || checkRow == 8)
             {
                 for (ChessPiece.PieceType promotionType : promotions)
                 {
-                    moves.add(new ChessMove(myPosition,currentPosition,promotionType));
+                    moves.add(new ChessMove(myPosition,checkPosition,promotionType));
                 }
             }
             else
             {
-                if (i == 0 && !board.getPiece(myPosition).getFirstMove())
-                {
-                    continue;
-                }
-                moves.add(new ChessMove(myPosition,currentPosition,null));
+                moves.add(new ChessMove(myPosition,checkPosition,null));
             }
         }
 
