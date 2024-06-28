@@ -19,7 +19,7 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
         UPLEFT, DOWNLEFT, UPRIGHT, DOWNRIGHT;
     }
 
-    private Collection<ChessMove> movesOnDiagonal(Direction dir, ChessBoard board, ChessPosition myPosition,ChessGame.TeamColor myTeam) {
+    private Collection<ChessMove> movesOnDiagonal(Direction dir, ChessBoard board, ChessPosition myPosition,ChessGame.TeamColor myTeamColor) {
         Collection<ChessMove> moves = new HashSet<>();
 
         int colIncrement = switch (dir) {
@@ -33,26 +33,27 @@ public class BishopMoveCalculator implements ChessPieceMoveCalculator
         };
 
         //2 conditions for stop on board, fall off, or encounter piece to capture
-        int currentRow = myPosition.getRow() + rowIncrement;
-        int currentColumn = myPosition.getColumn() + colIncrement;
+        int checkRow = myPosition.getRow() + rowIncrement;
+        int checkCol = myPosition.getColumn() + colIncrement;
 
-        while (positionOnBoard(board, currentRow, currentColumn)) {
-            ChessPosition currentPosition = new ChessPosition(currentRow, currentColumn);
-            ChessPiece pieceAtCurrent = board.getPiece(currentPosition);
-            // if empty it is a valid move and add to the set
-            if (pieceAtCurrent == null) {
-                moves.add(new ChessMove(myPosition, currentPosition, null));
-                currentRow += rowIncrement;
-                currentColumn += colIncrement;
-                continue;
-            }
-            //if it is a friendly piece then it is not a valid move, and we stop looking in this direction
-            if (pieceAtCurrent.getTeamColor() == myTeam) {
+        while (positionOnBoard(board, checkRow, checkCol)) {
+            ChessPosition checkPosition = new ChessPosition(checkRow, checkCol);
+            ChessPiece checkPiece = board.getPiece(checkPosition);
+            // if its not empty
+            if (checkPiece != null)
+            {
+                //if it's not on my team then capture the piece
+                if (checkPiece.getTeamColor() != myTeamColor)
+                {
+                    moves.add(new ChessMove(myPosition,checkPosition,null));
+                }
+                //exit the loop when you encounter a non empty space
                 break;
             }
-            //if it is an enemy piece then capture it
-            moves.add(new ChessMove(myPosition, currentPosition, null));
-            break;
+
+            moves.add(new ChessMove(myPosition,checkPosition,null));
+            checkRow += rowIncrement;
+            checkCol += colIncrement;
         }
         return moves;
     }
