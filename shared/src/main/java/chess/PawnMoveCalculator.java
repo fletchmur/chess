@@ -50,7 +50,7 @@ public class PawnMoveCalculator implements ChessPieceMoveCalculator
             }
 
             ChessPosition checkPosition = new ChessPosition(checkRow, checkCol);
-            ChessPiece checkPiece = board.getPiece(checkPosition);
+            ChessPiece pieceToCheck = board.getPiece(checkPosition);
 
             //FORWARD MOVEMENT CHECKS
             //if we are checking the double move but not in the correct move, don't add position
@@ -60,7 +60,7 @@ public class PawnMoveCalculator implements ChessPieceMoveCalculator
             }
 
             //check to see if there is a piece blocking our forward movement
-            if (i == 0  && checkPiece != null)
+            if (i == 0  && pieceToCheck != null)
             {
                 continue;
             }
@@ -69,9 +69,9 @@ public class PawnMoveCalculator implements ChessPieceMoveCalculator
             if (i == 3)
             {
                 ChessPosition secondCheckPosition = new ChessPosition(myPosition.getRow() + relativePositions[0][1], myPosition.getColumn());
-                ChessPiece secondPieceAtCheck = board.getPiece(secondCheckPosition);
+                ChessPiece secondPieceToCheck = board.getPiece(secondCheckPosition);
 
-                if (secondPieceAtCheck != null || checkPiece != null)
+                if (secondPieceToCheck != null || pieceToCheck != null)
                 {
                     continue;
                 }
@@ -80,13 +80,13 @@ public class PawnMoveCalculator implements ChessPieceMoveCalculator
             //DIAGONAL MOVEMENT CHECKS
 
             //check to see if there are even pieces on the diagonals
-            if ((i == 1 || i == 2) && checkPiece == null)
+            if ((i == 1 || i == 2) && pieceToCheck == null)
             {
                 continue;
             }
 
             // check to see if the pieces on my diagonal are on my team
-            if (checkPiece != null && checkPiece.getTeamColor() == myColor)
+            if (pieceToCheck != null && pieceToCheck.getTeamColor() == myColor)
             {
                 continue;
             }

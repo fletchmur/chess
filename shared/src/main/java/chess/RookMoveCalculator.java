@@ -18,7 +18,7 @@ public class RookMoveCalculator implements ChessPieceMoveCalculator
         UP, DOWN, LEFT, RIGHT;
     }
 
-    private Collection<ChessMove> moveStraight(Direction dir, ChessBoard board, ChessPosition myPosition, ChessGame.TeamColor myTeamColor)
+    private Collection<ChessMove> moveStraight(Direction dir, ChessBoard board, ChessPosition myPosition, ChessGame.TeamColor myColor)
     {
         Collection<ChessMove> moves = new HashSet<>();
 
@@ -41,12 +41,12 @@ public class RookMoveCalculator implements ChessPieceMoveCalculator
 
         while (positionOnBoard(board, checkRow, checkCol)) {
             ChessPosition checkPosition = new ChessPosition(checkRow, checkCol);
-            ChessPiece checkPiece = board.getPiece(checkPosition);
+            ChessPiece pieceToCheck = board.getPiece(checkPosition);
             // if its not empty
-            if (checkPiece != null)
+            if (pieceToCheck != null)
             {
                 //if it's not on my team then capture the piece
-                if (checkPiece.getTeamColor() != myTeamColor)
+                if (pieceToCheck.getTeamColor() != myColor)
                 {
                     moves.add(new ChessMove(myPosition,checkPosition,null));
                 }

@@ -20,23 +20,23 @@ public class KingMoveCalculator implements ChessPieceMoveCalculator
         Collection<ChessMove> moves = new HashSet<>();
         for(int[] relPos : relativePositions)
         {
-            int currentRow = myPosition.getRow() + relPos[1];
-            int currentCol = myPosition.getColumn() + relPos[0];
+            int checkRow = myPosition.getRow() + relPos[1];
+            int checkCol = myPosition.getColumn() + relPos[0];
 
-            if(!positionOnBoard(board, currentRow, currentCol))
+            if(!positionOnBoard(board, checkRow, checkCol))
             {
                 continue;
             }
 
-            ChessPosition currentPosition = new ChessPosition(currentRow, currentCol);
-            ChessPiece pieceAtCurrent = board.getPiece(currentPosition);
+            ChessPosition checkPosition = new ChessPosition(checkRow, checkCol);
+            ChessPiece checkPiece = board.getPiece(checkPosition);
 
-            if (pieceAtCurrent != null && pieceAtCurrent.getTeamColor() == myColor)
+            if (checkPiece != null && checkPiece.getTeamColor() == myColor)
             {
                 continue;
             }
 
-            moves.add(new ChessMove(myPosition,currentPosition,null));
+            moves.add(new ChessMove(myPosition,checkPosition,null));
         }
         return moves;
     }
