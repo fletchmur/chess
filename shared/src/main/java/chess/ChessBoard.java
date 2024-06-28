@@ -54,14 +54,14 @@ public class ChessBoard {
     private ChessPiece[] addBackRow(ChessGame.TeamColor teamColor)
     {
         ChessPiece[] row = new ChessPiece[chessBoardSize];
-        row[0] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK);
-        row[1] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT);
-        row[2] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP);
-        row[3] = new ChessPiece(teamColor, ChessPiece.PieceType.QUEEN);
-        row[4] = new ChessPiece(teamColor, ChessPiece.PieceType.KING);
-        row[5] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP);
-        row[6] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT);
-        row[7] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK);
+        row[0] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK,true);
+        row[1] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT,true);
+        row[2] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP,true);
+        row[3] = new ChessPiece(teamColor, ChessPiece.PieceType.QUEEN,true);
+        row[4] = new ChessPiece(teamColor, ChessPiece.PieceType.KING,true);
+        row[5] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP,true);
+        row[6] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT,true);
+        row[7] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK,true);
 
         return row;
     }
@@ -70,7 +70,7 @@ public class ChessBoard {
     {
         ChessPiece[] row = new ChessPiece[chessBoardSize];
         for (int i = 0; i < chessBoardSize; i++) {
-            row[i] = new ChessPiece(teamColor,ChessPiece.PieceType.PAWN);
+            row[i] = new ChessPiece(teamColor,ChessPiece.PieceType.PAWN,true);
         }
         return row;
     }

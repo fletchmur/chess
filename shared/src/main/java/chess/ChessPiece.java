@@ -13,11 +13,20 @@ public class ChessPiece {
 
     private final ChessGame.TeamColor pieceColor;
     private final ChessPiece.PieceType pieceType;
+    private boolean firstMove;
 
     public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
         this.pieceColor = pieceColor;
         this.pieceType = type;
+        this.firstMove = false;
     }
+
+    public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type, boolean firstMove) {
+        this.pieceColor = pieceColor;
+        this.pieceType = type;
+        this.firstMove = true;
+    }
+
 
     /**
      * The various different chess piece options
@@ -47,6 +56,8 @@ public class ChessPiece {
         return pieceType;
     }
 
+    public boolean getFirstMove() {return firstMove;}
+
     /**
      * Calculates all the positions a chess piece can move to
      * Does not take into account moves that are illegal due to leaving the king in
@@ -63,8 +74,7 @@ public class ChessPiece {
             case BISHOP -> new BishopMoveCalculator();
             case KNIGHT -> new KnightMovesCalculator();
             case ROOK -> new RookMoveCalculator();
-            case PAWN -> throw new RuntimeException("Must implement Pawn Move Calculator");
-            default -> throw new RuntimeException("Must implement Null Move Calculator");
+            case PAWN -> new PawnMoveCalculator();
         };
         // return the valid moves based on the functionality of that move calculator
         return moveCalculator.calculateMoves(board, myPosition, pieceColor);
