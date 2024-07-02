@@ -11,16 +11,17 @@ import java.util.Objects;
  */
 public class ChessBoard {
 
-    private final int chessBoardSize = 8;
-    private ChessPiece[][] board = new ChessPiece[chessBoardSize][chessBoardSize];
+    private static final ChessPiece.PieceType[] backRow = {ChessPiece.PieceType.ROOK, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.BISHOP,
+                                                            ChessPiece.PieceType.QUEEN, ChessPiece.PieceType.KING,
+                                                            ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.ROOK};
+    private static final ChessPiece.PieceType[] pawnRow = {ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN,
+                                                            ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN};
+
+    private final int size = 8;
+    private ChessPiece[][] board = new ChessPiece[size][size];
 
     public ChessBoard() {
-
-    }
-
-    public int getChessBoardSize()
-    {
-        return chessBoardSize;
+        
     }
 
     /**
@@ -30,7 +31,15 @@ public class ChessBoard {
      * @param piece    the piece to add
      */
     public void addPiece(ChessPosition position, ChessPiece piece) {
-        board[position.getRow()-1][position.getColumn()-1] = piece;
+        if (!position.isOnBoard(this))
+        {
+            throw new IllegalArgumentException("cannot add to position not on board");
+        }
+
+        int row_index = position.getRow() - 1;
+        int column_index = position.getColumn() - 1;
+
+        board[row_index][column_index] = piece;
     }
 
     /**
@@ -41,9 +50,18 @@ public class ChessBoard {
      * position
      */
     public ChessPiece getPiece(ChessPosition position) {
-        int rowIndex = position.getRow()-1;
-        int colIndex = position.getColumn()-1;
-        return board[rowIndex][colIndex];
+        if (!position.isOnBoard(this))
+        {
+            throw new IllegalArgumentException("cannot get piece from position not on board");
+        }
+        int row_index = position.getRow() - 1;
+        int column_index = position.getColumn() - 1;
+        return board[row_index][column_index];
+    }
+
+    public int getSize()
+    {
+        return this.size;
     }
 
     /**
@@ -51,57 +69,52 @@ public class ChessBoard {
      * (How the game of chess normally starts)
      */
 
-    private ChessPiece[] addBackRow(ChessGame.TeamColor teamColor)
+    private ChessPiece[] generateRow(ChessPiece.PieceType[] rowTemplate, ChessGame.TeamColor color)
     {
-        ChessPiece[] row = new ChessPiece[chessBoardSize];
-        row[0] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK,true);
-        row[1] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT,true);
-        row[2] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP,true);
-        row[3] = new ChessPiece(teamColor, ChessPiece.PieceType.QUEEN,true);
-        row[4] = new ChessPiece(teamColor, ChessPiece.PieceType.KING,true);
-        row[5] = new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP,true);
-        row[6] = new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT,true);
-        row[7] = new ChessPiece(teamColor, ChessPiece.PieceType.ROOK,true);
-
-        return row;
-    }
-
-    private ChessPiece[] addPawnRow(ChessGame.TeamColor teamColor)
-    {
-        ChessPiece[] row = new ChessPiece[chessBoardSize];
-        for (int i = 0; i < chessBoardSize; i++) {
-            row[i] = new ChessPiece(teamColor,ChessPiece.PieceType.PAWN,true);
+        if (rowTemplate.length != this.size)
+        {
+            throw new IllegalArgumentException("row template length does not match board size");
         }
+        ChessPiece[] row = new ChessPiece[rowTemplate.length];
+
+        for (int i = 0; i < rowTemplate.length; i++)
+        {
+            ChessPiece.PieceType pieceType = rowTemplate[i];
+            row[i] = new ChessPiece(color, pieceType);
+        }
+
         return row;
     }
 
     public void resetBoard() {
+        ChessPiece[][] newBoard = new ChessPiece[size][size];
 
-        board[0] = addBackRow(ChessGame.TeamColor.WHITE);
-        board[1] = addPawnRow(ChessGame.TeamColor.WHITE);
-        board[chessBoardSize-1] = addBackRow(ChessGame.TeamColor.BLACK);
-        board[chessBoardSize-2] = addPawnRow(ChessGame.TeamColor.BLACK);
+        newBoard[0] = generateRow(backRow, ChessGame.TeamColor.WHITE);
+        newBoard[1] = generateRow(pawnRow, ChessGame.TeamColor.WHITE);
+        newBoard[size-1] = generateRow(backRow, ChessGame.TeamColor.BLACK);
+        newBoard[size-2] = generateRow(pawnRow, ChessGame.TeamColor.BLACK);
 
-        for (int i = 2; i < chessBoardSize-2; i++)
-        {
-            for (int j = 0; j < chessBoardSize; j++)
-            {
-                board[i][j] = null;
-            }
-        }
+        board = newBoard;
     }
 
+    @Override
+    public String toString() {
+        return "ChessBoard{" +
+                "size=" + size +
+                ", board=" + Arrays.toString(board) +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ChessBoard that = (ChessBoard) o;
-        return getChessBoardSize() == that.getChessBoardSize() && Objects.deepEquals(board, that.board);
+        return getSize() == that.getSize() && Objects.deepEquals(board, that.board);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getChessBoardSize(), Arrays.deepHashCode(board));
+        return Objects.hash(getSize(), Arrays.deepHashCode(board));
     }
 }

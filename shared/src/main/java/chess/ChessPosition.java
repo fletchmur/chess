@@ -10,12 +10,23 @@ import java.util.Objects;
  */
 public class ChessPosition {
 
-    private final int row;
-    private final int col;
+    private int row;
+    private int column;
 
     public ChessPosition(int row, int col) {
         this.row = row;
-        this.col = col;
+        this.column = col;
+    }
+
+    public boolean isOnBoard(ChessBoard board)
+    {
+        int row = getRow();
+        int col = getColumn();
+
+        boolean rowsInRange = row >= 1 && row <= board.getSize();
+        boolean colsInRange = col >= 1 && col <= board.getSize();
+
+        return rowsInRange && colsInRange;
     }
 
     /**
@@ -31,12 +42,12 @@ public class ChessPosition {
      * 1 codes for the left row
      */
     public int getColumn() {
-        return this.col;
+        return this.column;
     }
 
     @Override
     public String toString() {
-        return "(" + this.col + "," + this.row + ")";
+        return String.format("(%d,%d)", getColumn(), getRow());
     }
 
     @Override
@@ -44,11 +55,11 @@ public class ChessPosition {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ChessPosition that = (ChessPosition) o;
-        return getRow() == that.getRow() && col == that.col;
+        return getRow() == that.getRow() && getColumn() == that.getColumn();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRow(), col);
+        return Objects.hash(getRow(), getColumn());
     }
 }

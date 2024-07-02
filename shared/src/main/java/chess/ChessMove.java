@@ -10,14 +10,13 @@ import java.util.Objects;
  */
 public class ChessMove {
 
-    ChessPosition startPosition;
-    ChessPosition endPosition;
-
-    ChessPiece.PieceType promotionPiece;
+    private ChessPosition startPosition;
+    private ChessPosition endPosition;
+    private ChessPiece.PieceType promotionPiece;
 
     public ChessMove(ChessPosition startPosition, ChessPosition endPosition,
-                     ChessPiece.PieceType promotionPiece)
-    {
+                     ChessPiece.PieceType promotionPiece) {
+
         this.startPosition = startPosition;
         this.endPosition = endPosition;
         this.promotionPiece = promotionPiece;
@@ -26,16 +25,14 @@ public class ChessMove {
     /**
      * @return ChessPosition of starting location
      */
-    public ChessPosition getStartPosition()
-    {
+    public ChessPosition getStartPosition() {
         return startPosition;
     }
 
     /**
      * @return ChessPosition of ending location
      */
-    public ChessPosition getEndPosition()
-    {
+    public ChessPosition getEndPosition() {
         return endPosition;
     }
 
@@ -45,16 +42,13 @@ public class ChessMove {
      *
      * @return Type of piece to promote a pawn to, or null if no promotion
      */
-    public ChessPiece.PieceType getPromotionPiece()
-    {
+    public ChessPiece.PieceType getPromotionPiece() {
         return promotionPiece;
     }
 
     @Override
-    public String toString()
-    {
-        //return String.format("%s -> %s : %s", startPosition, endPosition, promotionPiece);
-        return String.format("%s",endPosition);
+    public String toString() {
+        return String.format("%s -> %s, promotion: %s", startPosition, endPosition, promotionPiece);
     }
 
     @Override
