@@ -10,15 +10,19 @@ import java.util.Collection;
  */
 public class ChessGame {
 
-    public ChessGame() {
+    TeamColor currentTeam;
 
+    public ChessGame(TeamColor startingTeam) {
+
+        currentTeam = startingTeam;
     }
 
     /**
      * @return Which team's turn it is
      */
     public TeamColor getTeamTurn() {
-        throw new RuntimeException("Not implemented");
+
+        return currentTeam;
     }
 
     /**
