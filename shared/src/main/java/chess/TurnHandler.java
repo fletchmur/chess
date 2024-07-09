@@ -16,11 +16,21 @@ public class TurnHandler {
         currentTeam = opponentTeam;
         opponentTeam = temp;
     }
+
+    public void setTeamTurn(ChessGame.TeamColor team)
+    {
+        currentTeam = team;
+        opponentTeam = switch (team)
+        {
+            case WHITE -> ChessGame.TeamColor.BLACK;
+            case BLACK -> ChessGame.TeamColor.WHITE;
+        };
+    }
     
-    public boolean checkCurrentTeam(ChessGame.TeamColor checkTeam) {
+    public boolean myTurn(ChessGame.TeamColor checkTeam) {
         return currentTeam == checkTeam;
     }
-    public boolean checkOpponentTeam(ChessGame.TeamColor checkTeam) {
+    public boolean opponentTurn(ChessGame.TeamColor checkTeam) {
         return opponentTeam == checkTeam;
     }
     public ChessGame.TeamColor getCurrentTeam() {

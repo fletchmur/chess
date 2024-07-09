@@ -11,12 +11,12 @@ import java.util.HashSet;
  */
 public class ChessGame {
 
-    private TeamColor currentTeam;
+    private final TurnHandler turnHandler;
     private ChessBoard board;
 
     public ChessGame() {
 
-        currentTeam = TeamColor.WHITE;
+        turnHandler = new TurnHandler();
         board = new ChessBoard();
         board.resetBoard();
     }
@@ -26,7 +26,7 @@ public class ChessGame {
      */
     public TeamColor getTeamTurn() {
 
-        return currentTeam;
+        return turnHandler.getCurrentTeam();
     }
 
     /**
@@ -34,8 +34,10 @@ public class ChessGame {
      *
      * @param team the team whose turn it is
      */
+
+    //THIS IS JUST FOR TESTING PURPOSES USE TAKE TURN INSTEAD
     public void setTeamTurn(TeamColor team) {
-        currentTeam = team;
+        turnHandler.setTeamTurn(team);
     }
 
     /**
@@ -86,7 +88,7 @@ public class ChessGame {
         //check to see if the move is illegal
         if(movePiece == null) throw new InvalidMoveException();
         TeamColor pieceColor = movePiece.getTeamColor();
-        if(currentTeam != pieceColor) throw new InvalidMoveException();
+        if(!turnHandler.myTurn(pieceColor)) throw new InvalidMoveException();
         Collection<ChessMove> potentialMoves = validMoves(startPosition);
         if(!potentialMoves.contains(move)) throw new InvalidMoveException();
 
@@ -100,14 +102,7 @@ public class ChessGame {
         board.addPiece(endPosition, movePiece);
         board.addPiece(startPosition, null);
 
-        TeamColor nextTeam = switch (currentTeam)
-        {
-            case WHITE -> TeamColor.BLACK;
-            case BLACK -> TeamColor.WHITE;
-        };
-
-        setTeamTurn(nextTeam);
-
+        turnHandler.takeTurn();
     }
 
     private boolean leavesInCheck(ChessMove move, TeamColor team)
