@@ -15,32 +15,6 @@ public class ChessGame {
     private final TurnHandler turnHandler;
     private ChessBoard board;
 
-    public ChessGame() {
-
-        turnHandler = new TurnHandler();
-        board = new ChessBoard();
-        board.resetBoard();
-    }
-
-    /**
-     * @return Which team's turn it is
-     */
-    public TeamColor getTeamTurn() {
-
-        return turnHandler.getCurrentTeam();
-    }
-
-    /**
-     * Set's which teams turn it is
-     *
-     * @param team the team whose turn it is
-     */
-
-    //THIS IS JUST FOR TESTING PURPOSES USE TAKE TURN INSTEAD
-    public void setTeamTurn(TeamColor team) {
-        turnHandler.setTeamTurn(team);
-    }
-
     /**
      * Enum identifying the 2 possible teams in a chess game
      */
@@ -48,6 +22,47 @@ public class ChessGame {
         WHITE,
         BLACK
     }
+
+    public ChessGame() {
+
+        turnHandler = new TurnHandler();
+        board = new ChessBoard();
+        board.resetBoard();
+    }
+    /**
+     * @return Which team's turn it is
+     */
+
+    public TeamColor getTeamTurn() {
+
+        return turnHandler.getCurrentTeam();
+    }
+    /**
+     * Set's which teams turn it is
+     *
+     * @param team the team whose turn it is
+     */
+    //THIS IS JUST FOR TESTING PURPOSES USE TAKE TURN INSTEAD
+    public void setTeamTurn(TeamColor team) {
+        turnHandler.setTeamTurn(team);
+    }
+    /**
+     * Gets the current chessboard
+     *
+     * @return the chessboard
+     */
+    public ChessBoard getBoard() {
+        return this.board;
+    }
+    /**
+     * Sets this game's chessboard with a given board
+     *
+     * @param board the new board to use
+     */
+    public void setBoard(ChessBoard board) {
+        this.board = board;
+    }
+
 
     /**
      * Gets a valid moves for a piece at the given location
@@ -73,15 +88,12 @@ public class ChessGame {
 
         return validMoves;
     }
-
-
     /**
      * Makes a move in a chess game
      *
      * @param move chess move to preform
      * @throws InvalidMoveException if move is invalid
      */
-    //
     public void makeMove(ChessMove move) throws InvalidMoveException {
         ChessPosition startPosition = move.getStartPosition();
         ChessPiece movePiece = board.getPiece(startPosition);
@@ -106,57 +118,12 @@ public class ChessGame {
         turnHandler.takeTurn();
     }
 
-    private boolean leavesInCheck(ChessMove move, TeamColor team)
-    {
-        //enact a move temporarily, see if the king is in check in this new state, then undo the move
-
-        ChessPiece originalPieceAtEnd = board.getPiece(move.getEndPosition());
-        ChessPiece pieceAtStart = board.getPiece(move.getStartPosition());
-
-        board.addPiece(move.getEndPosition(), pieceAtStart);
-        board.addPiece(move.getStartPosition(), null);
-
-        boolean check = isInCheck(team);
-
-        board.addPiece(move.getStartPosition(), pieceAtStart);
-        board.addPiece(move.getEndPosition(), originalPieceAtEnd);
-
-        return check;
-    }
-
     /**
      * Determines if the given team is in check
      *
      * @param teamColor which team to check for check
      * @return True if the specified team is in check
      */
-    private ChessPosition getKingPosition(TeamColor color) {
-        HashMap<ChessPosition, ChessPiece> pieces = board.getPiecesForTeam(color);
-
-        for(HashMap.Entry<ChessPosition, ChessPiece> entry : pieces.entrySet())
-        {
-            ChessPosition position = entry.getKey();
-            ChessPiece piece = entry.getValue();
-
-            if(piece.getPieceType() == ChessPiece.PieceType.KING)
-            {
-                return position;
-            }
-        }
-        return null;
-    }
-
-    private Collection<ChessMove> getTeamPseudoMoves(TeamColor color) {
-        Collection<ChessMove> moves = new HashSet<>();
-        HashMap<ChessPosition,ChessPiece> pieces = board.getPiecesForTeam(color);
-        for(HashMap.Entry<ChessPosition,ChessPiece> entry : pieces.entrySet()) {
-            ChessPosition position = entry.getKey();
-            ChessPiece piece = entry.getValue();
-            moves.addAll(piece.pieceMoves(board,position));
-        }
-        return moves;
-    }
-
     public boolean isInCheck(TeamColor teamColor) {
 
         //find the king's position
@@ -176,7 +143,6 @@ public class ChessGame {
         }
         return endPositions.contains(kingPosition);
     }
-
     /**
      * Determines if the given team is in checkmate
      *
@@ -195,7 +161,6 @@ public class ChessGame {
         //if we can't move then we are in checkmate
         return true;
     }
-
     /**
      * Determines if the given team is in stalemate, which here is defined as having
      * no valid moves
@@ -216,21 +181,47 @@ public class ChessGame {
 
     }
 
-    /**
-     * Sets this game's chessboard with a given board
-     *
-     * @param board the new board to use
-     */
-    public void setBoard(ChessBoard board) {
-        this.board = board;
+    private boolean leavesInCheck(ChessMove move, TeamColor team)
+    {
+        //enact a move temporarily, see if the king is in check in this new state, then undo the move
+
+        ChessPiece originalPieceAtEnd = board.getPiece(move.getEndPosition());
+        ChessPiece pieceAtStart = board.getPiece(move.getStartPosition());
+
+        board.addPiece(move.getEndPosition(), pieceAtStart);
+        board.addPiece(move.getStartPosition(), null);
+
+        boolean check = isInCheck(team);
+
+        board.addPiece(move.getStartPosition(), pieceAtStart);
+        board.addPiece(move.getEndPosition(), originalPieceAtEnd);
+
+        return check;
+    }
+    private ChessPosition getKingPosition(TeamColor color) {
+        HashMap<ChessPosition, ChessPiece> pieces = board.getPiecesForTeam(color);
+
+        for(HashMap.Entry<ChessPosition, ChessPiece> entry : pieces.entrySet())
+        {
+            ChessPosition position = entry.getKey();
+            ChessPiece piece = entry.getValue();
+
+            if(piece.getPieceType() == ChessPiece.PieceType.KING)
+            {
+                return position;
+            }
+        }
+        return null;
+    }
+    private Collection<ChessMove> getTeamPseudoMoves(TeamColor color) {
+        Collection<ChessMove> moves = new HashSet<>();
+        HashMap<ChessPosition,ChessPiece> pieces = board.getPiecesForTeam(color);
+        for(HashMap.Entry<ChessPosition,ChessPiece> entry : pieces.entrySet()) {
+            ChessPosition position = entry.getKey();
+            ChessPiece piece = entry.getValue();
+            moves.addAll(piece.pieceMoves(board,position));
+        }
+        return moves;
     }
 
-    /**
-     * Gets the current chessboard
-     *
-     * @return the chessboard
-     */
-    public ChessBoard getBoard() {
-        return this.board;
-    }
 }
