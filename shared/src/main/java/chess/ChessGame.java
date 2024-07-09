@@ -78,34 +78,24 @@ public class ChessGame {
      * @param move chess move to preform
      * @throws InvalidMoveException if move is invalid
      */
+    //
     public void makeMove(ChessMove move) throws InvalidMoveException {
         ChessPosition startPosition = move.getStartPosition();
         ChessPiece movePiece = board.getPiece(startPosition);
 
         //check to see if the move is illegal
-        if(movePiece == null)
-        {
-            throw new InvalidMoveException();
-        }
-
+        if(movePiece == null) throw new InvalidMoveException();
         TeamColor pieceColor = movePiece.getTeamColor();
-
-        if(currentTeam != pieceColor) {
-            throw new InvalidMoveException();
-        }
-
+        if(currentTeam != pieceColor) throw new InvalidMoveException();
         Collection<ChessMove> potentialMoves = validMoves(startPosition);
-        if(!potentialMoves.contains(move)) {
-            throw new InvalidMoveException();
-        }
+        if(!potentialMoves.contains(move)) throw new InvalidMoveException();
 
         ChessPosition endPosition = move.getEndPosition();
 
         //handle promotions
         if(move.getPromotionPiece() != null)
-        {
             movePiece = new ChessPiece(pieceColor, move.getPromotionPiece());
-        }
+
 
         board.addPiece(endPosition, movePiece);
         board.addPiece(startPosition, null);
@@ -194,7 +184,6 @@ public class ChessGame {
             endPositions.add(move.getEndPosition());
         }
         return endPositions.contains(kingPosition);
-
     }
 
     /**
