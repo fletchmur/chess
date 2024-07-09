@@ -146,7 +146,7 @@ public class ChessGame {
         return null;
     }
 
-    private Collection<ChessMove> getTeamMoves(TeamColor color) {
+    private Collection<ChessMove> getTeamPseudoMoves(TeamColor color) {
         Collection<ChessMove> moves = new HashSet<>();
         HashMap<ChessPosition,ChessPiece> pieces = board.getPiecesForTeam(color);
         for(HashMap.Entry<ChessPosition,ChessPiece> entry : pieces.entrySet()) {
@@ -169,7 +169,7 @@ public class ChessGame {
         };
 
         ChessPosition kingPosition = getKingPosition(teamColor);
-        Collection<ChessMove> moves = getTeamMoves(opposingTeamColor);
+        Collection<ChessMove> moves = getTeamPseudoMoves(opposingTeamColor);
         HashSet<ChessPosition> endPositions = new HashSet<>();
         for(ChessMove move : moves) {
             endPositions.add(move.getEndPosition());
@@ -186,27 +186,15 @@ public class ChessGame {
     public boolean isInCheckmate(TeamColor teamColor) {
 
         if(!isInCheck(teamColor)) return false;
-        //loop through every spot on the board
-        for(int i =0; i<board.getSize(); i++) {
-            for(int j =0; j<board.getSize(); j++) {
-                //get the piece at that position
-                ChessPosition position = new ChessPosition(i+1, j+1);
-                ChessPiece piece = board.getPiece(position);
-                if(piece == null) continue;
-
-                //don't include enemy pieces
-                TeamColor pieceTeamColor = piece.getTeamColor();
-                if(pieceTeamColor != teamColor) continue;
-
-                //get the valid moves for the piece if there are any then we still can move
-                Collection<ChessMove> validMoves = validMoves(position);
-                if(!validMoves.isEmpty())
-                {
-                    return false;
-                }
-            }
+        //loop through all my pieces
+        //check to see if I have any valid moves
+        // if I do return false
+        //otherwise return true
+        HashMap<ChessPosition, ChessPiece> pieces = board.getPiecesForTeam(teamColor);
+        for(ChessPosition position : pieces.keySet()) {
+            Collection<ChessMove> moves = validMoves(position);
+            if(!moves.isEmpty()) return false;
         }
-
         //if we can't move then we are in checkmate
         return true;
     }
