@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * For a class that can manage a chess game, making moves on a board
@@ -10,11 +11,14 @@ import java.util.Collection;
  */
 public class ChessGame {
 
-    TeamColor currentTeam;
+    private TeamColor currentTeam;
+    private ChessBoard board;
 
-    public ChessGame(TeamColor startingTeam) {
+    public ChessGame() {
 
-        currentTeam = startingTeam;
+        currentTeam = TeamColor.WHITE;
+        board = new ChessBoard();
+        board.resetBoard();
     }
 
     /**
@@ -31,7 +35,7 @@ public class ChessGame {
      * @param team the team whose turn it is
      */
     public void setTeamTurn(TeamColor team) {
-        throw new RuntimeException("Not implemented");
+        currentTeam = team;
     }
 
     /**
@@ -50,8 +54,23 @@ public class ChessGame {
      * startPosition
      */
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
-        throw new RuntimeException("Not implemented");
+        //get the moves you could potentially make based on the piece at start position
+        //then filter them out if doing that move would leave the king in check
+        ChessPiece currentPiece = board.getPiece(startPosition);
+        TeamColor pieceColor = currentPiece.getTeamColor();
+        Collection<ChessMove> potentialMoves = currentPiece.pieceMoves(board, startPosition);
+        Collection<ChessMove> validMoves = new HashSet<>();
+
+        for(ChessMove move : potentialMoves) {
+            if(!leavesInCheck(move,pieceColor))
+            {
+                validMoves.add(move);
+            }
+        }
+
+        return validMoves;
     }
+
 
     /**
      * Makes a move in a chess game
@@ -63,14 +82,81 @@ public class ChessGame {
         throw new RuntimeException("Not implemented");
     }
 
+    private boolean leavesInCheck(ChessMove move, TeamColor team)
+    {
+        //enact a move temporarily, see if the king is in check in this new state, then undo the move
+
+        ChessPiece originalPieceAtEnd = board.getPiece(move.getEndPosition());
+        ChessPiece pieceAtStart = board.getPiece(move.getStartPosition());
+
+        board.addPiece(move.getEndPosition(), pieceAtStart);
+        board.addPiece(move.getStartPosition(), null);
+
+        boolean check = isInCheck(team);
+
+        board.addPiece(move.getStartPosition(), pieceAtStart);
+        board.addPiece(move.getEndPosition(), originalPieceAtEnd);
+
+        return check;
+    }
+
     /**
      * Determines if the given team is in check
      *
      * @param teamColor which team to check for check
      * @return True if the specified team is in check
      */
+    private ChessPosition getKingPosition(TeamColor color) {
+        for(int i =0; i<board.getSize(); i++) {
+            for(int j =0; j<board.getSize(); j++) {
+                ChessPosition position = new ChessPosition(i+1, j+1);
+                ChessPiece piece = board.getPiece(position);
+
+                if(piece != null && piece.getPieceType() == ChessPiece.PieceType.KING && piece.getTeamColor() == color)
+                {
+                    return position;
+                }
+            }
+        }
+        return null;
+    }
+
+    private Collection<ChessMove> getTeamMoves(TeamColor color) {
+        Collection<ChessMove> moves = new HashSet<>();
+        for(int i =0; i<board.getSize(); i++) {
+            for(int j =0; j<board.getSize(); j++) {
+                ChessPosition position = new ChessPosition(i+1, j+1);
+                ChessPiece piece = board.getPiece(position);
+
+                if(piece != null && piece.getTeamColor() == color)
+                {
+                    moves.addAll(piece.pieceMoves(board,position));
+                }
+            }
+        }
+
+        return moves;
+    }
+
     public boolean isInCheck(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
+
+        //find the king's position
+        //look through all responses my opponent could do
+        //if any of the responses land on my king position then I am in check
+
+        TeamColor opposingTeamColor = switch(teamColor){
+            case WHITE -> TeamColor.BLACK;
+            case BLACK -> TeamColor.WHITE;
+        };
+
+        ChessPosition kingPosition = getKingPosition(teamColor);
+        Collection<ChessMove> moves = getTeamMoves(opposingTeamColor);
+        HashSet<ChessPosition> endPositions = new HashSet<>();
+        for(ChessMove move : moves) {
+            endPositions.add(move.getEndPosition());
+        }
+        return endPositions.contains(kingPosition);
+
     }
 
     /**
@@ -100,7 +186,7 @@ public class ChessGame {
      * @param board the new board to use
      */
     public void setBoard(ChessBoard board) {
-        throw new RuntimeException("Not implemented");
+        this.board = board;
     }
 
     /**
@@ -109,6 +195,6 @@ public class ChessGame {
      * @return the chessboard
      */
     public ChessBoard getBoard() {
-        throw new RuntimeException("Not implemented");
+        return this.board;
     }
 }
