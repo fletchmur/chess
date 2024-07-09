@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -59,6 +60,20 @@ public class ChessBoard {
         return board[row_index][column_index];
     }
 
+    public HashMap<ChessPosition, ChessPiece> getPiecesForTeam(ChessGame.TeamColor teamColor) {
+        HashMap<ChessPosition, ChessPiece> pieces = new HashMap<>();
+        for(int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                ChessPosition position = new ChessPosition(i+1,j+1);
+                ChessPiece piece = getPiece(position);
+
+                if (piece != null && piece.getTeamColor() == teamColor)
+                    pieces.put(position, piece);
+            }
+        }
+        return pieces;
+    }
+
     public int getSize()
     {
         return this.size;
@@ -85,7 +100,6 @@ public class ChessBoard {
 
         return row;
     }
-
     public void resetBoard() {
         ChessPiece[][] newBoard = new ChessPiece[size][size];
 
@@ -96,7 +110,6 @@ public class ChessBoard {
 
         board = newBoard;
     }
-
     @Override
     public String toString() {
         return "ChessBoard{" +
@@ -104,7 +117,6 @@ public class ChessBoard {
                 ", board=" + Arrays.toString(board) +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,7 +124,6 @@ public class ChessBoard {
         ChessBoard that = (ChessBoard) o;
         return getSize() == that.getSize() && Objects.deepEquals(board, that.board);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getSize(), Arrays.deepHashCode(board));

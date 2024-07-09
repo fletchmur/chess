@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -146,18 +147,12 @@ public class ChessGame {
 
     private Collection<ChessMove> getTeamMoves(TeamColor color) {
         Collection<ChessMove> moves = new HashSet<>();
-        for(int i =0; i<board.getSize(); i++) {
-            for(int j =0; j<board.getSize(); j++) {
-                ChessPosition position = new ChessPosition(i+1, j+1);
-                ChessPiece piece = board.getPiece(position);
-
-                if(piece != null && piece.getTeamColor() == color)
-                {
-                    moves.addAll(piece.pieceMoves(board,position));
-                }
-            }
+        HashMap<ChessPosition,ChessPiece> pieces = board.getPiecesForTeam(color);
+        for(HashMap.Entry<ChessPosition,ChessPiece> entry : pieces.entrySet()) {
+            ChessPosition position = entry.getKey();
+            ChessPiece piece = entry.getValue();
+            moves.addAll(piece.pieceMoves(board,position));
         }
-
         return moves;
     }
 
