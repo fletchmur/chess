@@ -79,7 +79,45 @@ public class ChessGame {
      * @throws InvalidMoveException if move is invalid
      */
     public void makeMove(ChessMove move) throws InvalidMoveException {
-        throw new RuntimeException("Not implemented");
+        ChessPosition startPosition = move.getStartPosition();
+        ChessPiece movePiece = board.getPiece(startPosition);
+
+        //check to see if the move is illegal
+        if(movePiece == null)
+        {
+            throw new InvalidMoveException();
+        }
+
+        TeamColor pieceColor = movePiece.getTeamColor();
+
+        if(currentTeam != pieceColor) {
+            throw new InvalidMoveException();
+        }
+
+        Collection<ChessMove> potentialMoves = validMoves(startPosition);
+        if(!potentialMoves.contains(move)) {
+            throw new InvalidMoveException();
+        }
+
+        ChessPosition endPosition = move.getEndPosition();
+
+        //handle promotions
+        if(move.getPromotionPiece() != null)
+        {
+            movePiece = new ChessPiece(pieceColor, move.getPromotionPiece());
+        }
+
+        board.addPiece(endPosition, movePiece);
+        board.addPiece(startPosition, null);
+
+        TeamColor nextTeam = switch (currentTeam)
+        {
+            case WHITE -> TeamColor.BLACK;
+            case BLACK -> TeamColor.WHITE;
+        };
+
+        setTeamTurn(nextTeam);
+
     }
 
     private boolean leavesInCheck(ChessMove move, TeamColor team)
@@ -166,7 +204,31 @@ public class ChessGame {
      * @return True if the specified team is in checkmate
      */
     public boolean isInCheckmate(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
+
+        if(!isInCheck(teamColor)) return false;
+        //loop through every spot on the board
+        for(int i =0; i<board.getSize(); i++) {
+            for(int j =0; j<board.getSize(); j++) {
+                //get the piece at that position
+                ChessPosition position = new ChessPosition(i+1, j+1);
+                ChessPiece piece = board.getPiece(position);
+                if(piece == null) continue;
+
+                //don't include enemy pieces
+                TeamColor pieceTeamColor = piece.getTeamColor();
+                if(pieceTeamColor != teamColor) continue;
+
+                //get the valid moves for the piece if there are any then we still can move
+                Collection<ChessMove> validMoves = validMoves(position);
+                if(!validMoves.isEmpty())
+                {
+                    return false;
+                }
+            }
+        }
+
+        //if we can't move then we are in checkmate
+        return true;
     }
 
     /**
@@ -177,7 +239,31 @@ public class ChessGame {
      * @return True if the specified team is in stalemate, otherwise false
      */
     public boolean isInStalemate(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
+        if(isInCheckmate(teamColor)) return false;
+        //loop through every spot on the board
+        for(int i =0; i<board.getSize(); i++) {
+            for(int j =0; j<board.getSize(); j++) {
+                //get the piece at that position
+                ChessPosition position = new ChessPosition(i+1, j+1);
+                ChessPiece piece = board.getPiece(position);
+                if(piece == null) continue;
+
+                //don't include enemy pieces
+                TeamColor pieceTeamColor = piece.getTeamColor();
+                if(pieceTeamColor != teamColor) continue;
+
+                //get the valid moves for the piece if there are any then we still can move
+                Collection<ChessMove> validMoves = validMoves(position);
+                if(!validMoves.isEmpty())
+                {
+                    return false;
+                }
+            }
+        }
+
+        //if we can't move then we are in stalemate
+        return true;
+
     }
 
     /**
