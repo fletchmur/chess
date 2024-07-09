@@ -131,15 +131,16 @@ public class ChessGame {
      * @return True if the specified team is in check
      */
     private ChessPosition getKingPosition(TeamColor color) {
-        for(int i =0; i<board.getSize(); i++) {
-            for(int j =0; j<board.getSize(); j++) {
-                ChessPosition position = new ChessPosition(i+1, j+1);
-                ChessPiece piece = board.getPiece(position);
+        HashMap<ChessPosition, ChessPiece> pieces = board.getPiecesForTeam(color);
 
-                if(piece != null && piece.getPieceType() == ChessPiece.PieceType.KING && piece.getTeamColor() == color)
-                {
-                    return position;
-                }
+        for(HashMap.Entry<ChessPosition, ChessPiece> entry : pieces.entrySet())
+        {
+            ChessPosition position = entry.getKey();
+            ChessPiece piece = entry.getValue();
+
+            if(piece.getPieceType() == ChessPiece.PieceType.KING)
+            {
+                return position;
             }
         }
         return null;
