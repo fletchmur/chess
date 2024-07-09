@@ -186,10 +186,7 @@ public class ChessGame {
     public boolean isInCheckmate(TeamColor teamColor) {
 
         if(!isInCheck(teamColor)) return false;
-        //loop through all my pieces
-        //check to see if I have any valid moves
-        // if I do return false
-        //otherwise return true
+
         HashMap<ChessPosition, ChessPiece> pieces = board.getPiecesForTeam(teamColor);
         for(ChessPosition position : pieces.keySet()) {
             Collection<ChessMove> moves = validMoves(position);
@@ -208,29 +205,14 @@ public class ChessGame {
      */
     public boolean isInStalemate(TeamColor teamColor) {
         if(isInCheckmate(teamColor)) return false;
-        //loop through every spot on the board
-        for(int i =0; i<board.getSize(); i++) {
-            for(int j =0; j<board.getSize(); j++) {
-                //get the piece at that position
-                ChessPosition position = new ChessPosition(i+1, j+1);
-                ChessPiece piece = board.getPiece(position);
-                if(piece == null) continue;
-
-                //don't include enemy pieces
-                TeamColor pieceTeamColor = piece.getTeamColor();
-                if(pieceTeamColor != teamColor) continue;
-
-                //get the valid moves for the piece if there are any then we still can move
-                Collection<ChessMove> validMoves = validMoves(position);
-                if(!validMoves.isEmpty())
-                {
-                    return false;
-                }
-            }
+        HashMap<ChessPosition, ChessPiece> pieces = board.getPiecesForTeam(teamColor);
+        for(ChessPosition position : pieces.keySet()) {
+            Collection<ChessMove> moves = validMoves(position);
+            if(!moves.isEmpty()) return false;
         }
-
         //if we can't move then we are in stalemate
         return true;
+
 
     }
 
