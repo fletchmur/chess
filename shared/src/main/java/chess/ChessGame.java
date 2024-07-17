@@ -129,7 +129,6 @@ public class ChessGame {
         //find the king's position
         //look through all responses my opponent could do
         //if any of the responses land on my king position then I am in check
-
         TeamColor opposingTeamColor = switch(teamColor){
             case WHITE -> TeamColor.BLACK;
             case BLACK -> TeamColor.WHITE;
