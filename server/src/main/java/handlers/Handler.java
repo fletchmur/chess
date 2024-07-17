@@ -1,7 +1,6 @@
-package server.handlers;
+package handlers;
 import com.google.gson.reflect.TypeToken;
-import server.serializer.Serializer;
-import server.services.AuthorizationService;
+import services.AuthorizationService;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -15,7 +14,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     private RequestType deserialize(Request httpRequest) {
         //java has type erasure with generics, so the type token is used to preserve the type data at runtime
         Type requestType = new TypeToken<RequestType>(){}.getType();
-        //serializer returns a generic Object class, but since we gave it the request type we know it is afe to cast it
+        //serializer returns a generic Object class, since it has the request type it is safe to cast the return
         return (RequestType) serialzer.deserialize(httpRequest,requestType);
     }
     private String serialize(ResponseType response) {
@@ -23,8 +22,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     }
 
 
-    // the authenticate method is on the abstract class so that each normal handler can authenticate
-    // if it is necessary for it to authenticate before performing the service
+    // the authenticate method is on the abstract class so that each normal handler can authenticate if necessary
     protected boolean authenticate(String authToken) {
         AuthorizationService authorizer = new AuthorizationService();
         return authorizer.authorize(authToken);

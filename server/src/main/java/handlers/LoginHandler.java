@@ -1,10 +1,11 @@
-package server.handlers;
+package handlers;
 
-import server.requests.LoginRequest;
+import requests.LoginRequest;
+import responses.LoginResponse;
 import spark.Route;
 
 
-public class LoginHandler extends Handler<LoginRequest,LoginResponse> implements Route {
+public class LoginHandler extends Handler<LoginRequest, LoginResponse> implements Route {
 
     @Override
     LoginResponse fulfillRequest(LoginRequest requestObj)
