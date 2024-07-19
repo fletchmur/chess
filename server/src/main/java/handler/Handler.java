@@ -1,5 +1,4 @@
 package handler;
-import com.google.gson.reflect.TypeToken;
 
 import service.AuthorizationService;
 import service.ErrorException;
@@ -8,19 +7,28 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-import java.lang.reflect.Type;
-
 abstract class Handler<RequestType,ResponseType>  implements Route {
 
-    private final Serializer serializer = new Serializer();
+    protected final Serializer serializer = new Serializer();
     protected record ErrorMessage(String message) {};
     protected record ErrorResponse(int status, ErrorMessage message) {};
 
+    //Because of generic type erasure, the type of the generics are lost at runtime
+    //this is problematic for deserializing into the correct request objects
+    //this cache object uses a technique called reflection to store the type of the request object
+    //for this to work the constructors of the subclasses must explicitly pass an instance of the request type they want
+    private final RequestType requestTypeCache;
+
+    public Handler(RequestType requestType) {
+        this.requestTypeCache = requestType;
+    }
+    //method to get the class from the cached request type
+    private Class<?> getClazz() {
+        return this.requestTypeCache.getClass();
+    }
     private RequestType deserialize(Request httpRequest) {
-        //java has type erasure with generics, so the type token is used to preserve the type data at runtime
-        Type requestType = new TypeToken<RequestType>(){}.getType();
-        //serializer returns a generic Object class, since it has the request type it is safe to cast the return
-        return (RequestType) serializer.deserialize(httpRequest.body(),requestType);
+        RequestType requestObj = (RequestType) serializer.deserialize(httpRequest.body(), getClazz());
+        return requestObj;
     }
     private String serialize(ResponseType response) {
         return serializer.serialize(response);

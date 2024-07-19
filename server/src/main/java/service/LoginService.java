@@ -21,7 +21,8 @@ public class LoginService {
 
         try {
             registeredUser = userDAO.getUser(requestUsername);
-            if(!requestUsername.equals(registeredUser.username()) || !requestPassword.equals(registeredUser.password()))
+
+            if(registeredUser == null || !requestUsername.equals(registeredUser.username()) || !requestPassword.equals(registeredUser.password()))
             {
                 throw new ErrorException(401,"Unauthorized");
             }

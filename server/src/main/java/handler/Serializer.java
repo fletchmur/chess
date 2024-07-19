@@ -3,14 +3,14 @@ package handler;
 import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
-import spark.Request;
+import com.google.gson.reflect.TypeToken;
 
 public class Serializer {
 
     private Gson gson = new Gson();
 
-    public Object deserialize(String httpRequest,Type requestType) {
-        return gson.fromJson(httpRequest,requestType);
+    public Object deserialize(String httpRequest, Type type) {
+        return gson.fromJson(httpRequest,type);
     }
 
     public String serialize(Object response)

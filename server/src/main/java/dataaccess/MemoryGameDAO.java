@@ -17,12 +17,8 @@ public class MemoryGameDAO implements GameDAO {
         return gameID;
     }
     @Override
-    public GameData getGame(int gameID) throws DataAccessException {
-        GameData gameData = games.get(gameID);
-        if (gameData == null) {
-            throw new DataAccessException("trying to access nonexistent game");
-        }
-        return gameData;
+    public GameData getGame(int gameID) {
+        return games.get(gameID);
     }
     @Override
     public void updateGame(int gameID, GameData newData) throws DataAccessException {

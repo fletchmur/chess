@@ -17,12 +17,8 @@ public class MemoryAuthDAO implements AuthDAO {
        return authToken;
     }
     @Override
-    public AuthData getAuth(String authToken) throws DataAccessException {
-        AuthData authorization = authData.get(authToken);
-        if (authorization == null) {
-            throw new DataAccessException("trying to access nonexistent authorization");
-        }
-        return authorization;
+    public AuthData getAuth(String authToken) {
+        return authData.get(authToken);
     }
     @Override
     public void updateAuth(String authToken, AuthData newData) throws DataAccessException {

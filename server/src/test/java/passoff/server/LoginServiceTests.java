@@ -4,7 +4,6 @@ import dataaccess.AuthDAO;
 import dataaccess.MemoryAuthDAO;
 import dataaccess.MemoryUserDAO;
 import dataaccess.UserDAO;
-import model.AuthData;
 import model.UserData;
 import org.junit.jupiter.api.*;
 import request.LoginRequest;
@@ -53,7 +52,7 @@ public class LoginServiceTests {
             Assertions.fail("logged in an nonexistent user");
         }
         catch (ErrorException e) {
-            Assertions.assertEquals(e.getErrorCode(),500);
+            Assertions.assertEquals(e.getErrorCode(),401);
         }
     }
 

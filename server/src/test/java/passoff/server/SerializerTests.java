@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import handler.Serializer;
 import org.junit.jupiter.api.*;
 import request.LoginRequest;
+import request.RegisterRequest;
 
 public class SerializerTests {
 
@@ -24,8 +25,19 @@ public class SerializerTests {
     @Test
     public void loginRequestDeserialize()
     {
-        TypeToken<LoginRequest> loginRequestTypeToken = new TypeToken<LoginRequest>(){};
+        TypeToken<LoginRequest> loginRequestTypeToken = new TypeToken<>(){};
         String json = "{\"username\":\"fletcher\",\"password\":\"1234\"}";
-        Assertions.assertEquals(new LoginRequest("fletcher","1234"),serializer.deserialize(json,loginRequestTypeToken.getType()));
+        LoginRequest result = (LoginRequest) serializer.deserialize(json,loginRequestTypeToken.getType());
+        Assertions.assertEquals(new LoginRequest("fletcher","1234"),result);
+    }
+
+    @Test
+    public void registerRequestDeserialize()
+    {
+        TypeToken<RegisterRequest> requestTypeToken = new TypeToken<>(){};
+        String json = "{\"username\":\"fletcher\",\"password\":\"1234\",\"email\":\"fletcher@gmail.com\"}";
+        RegisterRequest result = (RegisterRequest) serializer.deserialize(json,requestTypeToken.getType());
+        System.out.println(result.getClass());
+        Assertions.assertEquals(new RegisterRequest("fletcher","1234","fletcher@gmail.com"),result);
     }
 }
