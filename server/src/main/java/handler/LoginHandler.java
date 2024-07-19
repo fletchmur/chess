@@ -12,9 +12,6 @@ import service.LoginService;
 
 public class LoginHandler extends Handler<LoginRequest, LoginResponse> implements Route {
 
-    public LoginHandler() {
-        super(new LoginRequest("store type request", "a"));
-    }
     @Override
     LoginResponse fulfillRequest(LoginRequest requestObj) throws ErrorException
     {
@@ -22,11 +19,10 @@ public class LoginHandler extends Handler<LoginRequest, LoginResponse> implement
         return loginService.login(requestObj);
     }
 
-    LoginRequest deserialize(Request httpRequest)
-    {
-        TypeToken<LoginRequest> typeToken = new TypeToken<>(){};
-        LoginRequest requestObj = (LoginRequest) serializer.deserialize(httpRequest.body(), typeToken.getType());
-        return requestObj;
+    @Override
+    Class<?> getRequestType() {
+        return LoginRequest.class;
     }
+
 
 }

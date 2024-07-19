@@ -8,10 +8,13 @@ import model.AuthData;
 public class AuthorizationService {
     private final AuthDAO authDataAccess = new MemoryAuthDAO();
 
-    public boolean authorize(String authToken)
+    public void authorize(String authToken) throws ErrorException
     {
         AuthData authorization = authDataAccess.getAuth(authToken);
-        return authorization != null;
+        if(authorization == null)
+        {
+            throw new ErrorException(401,"unauthorized");
+        }
     }
 
 }

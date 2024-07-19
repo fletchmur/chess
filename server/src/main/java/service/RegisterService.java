@@ -18,7 +18,7 @@ public class RegisterService {
         String password = registerRequest.password();
         String email = registerRequest.email();
 
-        if(username.isEmpty() || password.isEmpty() || email.isEmpty()) {
+        if(username == null || password == null || email == null) {
             throw new ErrorException(400,"bad request");
         }
 

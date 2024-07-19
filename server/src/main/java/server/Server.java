@@ -13,9 +13,9 @@ public class Server {
         // Register your endpoints and handle exceptions here.
         /*
         clear complete
-        TODO register
+        register complete
         login complete
-        TODO logout
+        logout complete
         TODO listGames
         TODO createGame
         TODO joinGame
@@ -23,6 +23,8 @@ public class Server {
         Spark.delete("/db", new ClearHandler());
         Spark.post("/user", new RegisterHandler());
         Spark.post("/session",new LoginHandler());
+        Spark.delete("/session", new LogoutHandler());
+        Spark.post("/post", new CreateGameHandler());
 
         Spark.awaitInitialization();
         return Spark.port();
