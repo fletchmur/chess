@@ -1,46 +1,47 @@
 package dataaccess;
 
 import model.AuthData;
+import java.util.HashMap;
 
-import javax.xml.crypto.Data;
-import java.util.HashSet;
-
+//TODO implement inheritance to reduce code duplication in all DAO
 public class MemoryAuthDAO implements AuthDAO {
 
-    private static HashSet<AuthData> authDataSet;
+    private static HashMap<String,AuthData> authData = new HashMap<>();
     @Override
-    public void createAuth(AuthData data)
-    {
-        authDataSet.add(data);
+    public String createAuth(AuthData authorization) throws DataAccessException {
+       String authToken = authorization.authToken();
+       if (authData.containsKey(authToken)) {
+           throw new DataAccessException("user already has authorization");
+       }
+       authData.put(authToken,authorization);
+       return authToken;
     }
     @Override
-    public AuthData getAuth(String authToken) throws DataAccessException
-    {
-        for (AuthData authData : authDataSet) {
-            if(authData.authToken().equals(authToken))
-            {
-                return authData;
-            }
+    public AuthData getAuth(String authToken) throws DataAccessException {
+        AuthData authorization = authData.get(authToken);
+        if (authorization == null) {
+            throw new DataAccessException("trying to access nonexistent authorization");
         }
-
-        throw new DataAccessException("Auth token not found");
+        return authorization;
     }
     @Override
-    public void updateAuth(String authToken, AuthData data) throws DataAccessException
-    {
-        deleteAuth(authToken);
-        createAuth(data);
-    }
-    @Override
-    public void deleteAuth(String authToken) throws DataAccessException
-    {
-        for (AuthData authData : authDataSet) {
-            if(authData.authToken().equals(authToken))
-            {
-                authDataSet.remove(authData);
-                return;
-            }
+    public void updateAuth(String authToken, AuthData newData) throws DataAccessException {
+        AuthData authorization = authData.get(authToken);
+        if (authorization == null) {
+            throw new DataAccessException("trying to update nonexistent authorization");
         }
-        throw new DataAccessException("Auth token not found when deleting");
+        authData.put(authToken,newData);
+    }
+    @Override
+    public void deleteAuth(String authToken) throws DataAccessException {
+        AuthData authorization = authData.get(authToken);
+        if (authorization == null) {
+            throw new DataAccessException("trying to delete nonexistent authorization");
+        }
+        authData.remove(authToken);
+    }
+    @Override
+    public void clear() {
+        authData.clear();
     }
 }

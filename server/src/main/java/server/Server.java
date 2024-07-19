@@ -1,8 +1,7 @@
 package server;
 
-import handlers.LoginHandler;
+import handler.*;
 import spark.*;
-import handlers.*;
 
 public class Server {
 
@@ -15,16 +14,14 @@ public class Server {
         /*
         TODO clear
         TODO register
-        TODO login
+        login complete
         TODO logout
         TODO listGames
         TODO createGame
         TODO joinGame
          */
+        Spark.delete("/db", new ClearHandler());
         Spark.post("/session",new LoginHandler());
-
-        //This line initializes the server and can be removed once you have a functioning endpoint 
-        Spark.init();
 
         Spark.awaitInitialization();
         return Spark.port();

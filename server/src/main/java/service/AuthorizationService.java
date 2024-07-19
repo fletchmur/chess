@@ -1,10 +1,11 @@
-package services;
+package service;
 
 import dataaccess.AuthDAO;
 import dataaccess.DataAccessException;
+import dataaccess.MemoryAuthDAO;
 
 public class AuthorizationService {
-    private AuthDAO authDataAccess;
+    private final AuthDAO authDataAccess = new MemoryAuthDAO();
 
     public boolean authorize(String authToken)
     {

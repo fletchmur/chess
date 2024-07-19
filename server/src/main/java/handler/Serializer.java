@@ -1,4 +1,4 @@
-package handlers;
+package handler;
 
 import java.lang.reflect.Type;
 
@@ -7,10 +7,10 @@ import spark.Request;
 
 public class Serializer {
 
-    private Gson gson;
+    private Gson gson = new Gson();
 
-    public Object deserialize(Request httpRequest,Type requestType) {
-        return gson.fromJson(httpRequest.body(),requestType);
+    public Object deserialize(String httpRequest,Type requestType) {
+        return gson.fromJson(httpRequest,requestType);
     }
 
     public String serialize(Object response)
