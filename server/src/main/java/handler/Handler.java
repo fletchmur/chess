@@ -19,10 +19,12 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
         String body = httpRequest.body();
 
         if(!body.isEmpty() && authToken != null) {
-            body = body.substring(1, body.length() - 2);
+            body = body.substring(1, body.length() - 1);
         }
 
-        String json = authToken != null ? "{authToken: " + authToken + body + "}" : body;
+        String comma = !body.isEmpty() ? "," : "";
+
+        String json = authToken != null ? "{authToken: " + authToken + comma + body + "}" : body;
         return json;
     }
     private RequestType deserialize(Request httpRequest) {

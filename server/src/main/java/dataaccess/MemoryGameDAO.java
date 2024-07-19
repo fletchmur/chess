@@ -5,6 +5,7 @@ import model.GameData;
 import java.util.HashMap;
 
 public class MemoryGameDAO implements GameDAO {
+    private static int currentID = 0;
     private static HashMap<Integer, GameData> games = new HashMap<>();
 
     @Override
@@ -35,5 +36,13 @@ public class MemoryGameDAO implements GameDAO {
     @Override
     public void clear() {
         games.clear();
+        currentID = 0;
+    }
+
+    public static int newGameID() {
+        return ++currentID;
+    }
+    public static int getCurrentID() {
+        return currentID;
     }
 }
