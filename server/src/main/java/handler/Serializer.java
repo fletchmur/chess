@@ -10,6 +10,10 @@ public class Serializer {
     private Gson gson = new Gson();
 
     public Object deserialize(String httpRequest, Type type) {
+        if (type == null)
+        {
+            System.out.println("Subbmited null type to deserializer, did you implement getRequestType on the subclass?");
+        }
         return gson.fromJson(httpRequest,type);
     }
 

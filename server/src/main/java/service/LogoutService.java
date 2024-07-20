@@ -2,7 +2,7 @@ package service;
 
 import dataaccess.AuthDAO;
 import dataaccess.DataAccessException;
-import dataaccess.MemoryAuthDAO;
+import dataaccess.memory.MemoryAuthDAO;
 import request.LogoutRequest;
 import response.LogoutResponse;
 
@@ -11,8 +11,6 @@ public class LogoutService {
 
     public LogoutResponse logout(LogoutRequest logoutRequest) throws ErrorException {
         try {
-            AuthorizationService authService = new AuthorizationService();
-            authService.authorize(logoutRequest.authToken());
             authDAO.deleteAuth(logoutRequest.authToken());
             return new LogoutResponse();
         }

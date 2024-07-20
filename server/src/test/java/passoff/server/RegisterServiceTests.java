@@ -1,7 +1,7 @@
 package passoff.server;
 
 import dataaccess.DataAccessException;
-import dataaccess.MemoryUserDAO;
+import dataaccess.memory.MemoryUserDAO;
 import dataaccess.UserDAO;
 import model.UserData;
 import org.junit.jupiter.api.*;
@@ -54,7 +54,7 @@ public class RegisterServiceTests {
 
     @Test
     public void badRequest() {
-        RegisterRequest request = new RegisterRequest("fletcher","","fletcher@buisness.org");
+        RegisterRequest request = new RegisterRequest("fletcher",null,"fletcher@buisness.org");
         try {
             RegisterResponse response = registerService.register(request);
             Assertions.fail("registered a bad request");

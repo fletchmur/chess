@@ -13,9 +13,16 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     protected record ErrorMessage(String message) {};
     protected record ErrorResponse(int status, ErrorMessage message) {};
 
+    private void authorize(Request httpRequest) throws ErrorException {
+        String authToken = httpRequest.headers("authorization");
+        if (authToken != null) {
+            new AuthorizationService().authorize(authToken);
+        }
+    }
     private String httpToJson(Request httpRequest) {
         //inject the authToken into the json of the body to construct the correct Request object
         String authToken = httpRequest.headers("authorization");
+
         String body = httpRequest.body();
 
         if(!body.isEmpty() && authToken != null) {
@@ -48,9 +55,9 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     }
 
     public Object handle(Request httpRequest, Response httpResponse) {
-
-        RequestType requestObj = deserialize(httpRequest);
         try {
+            authorize(httpRequest);
+            RequestType requestObj = deserialize(httpRequest);
             ResponseType successResponse = fulfillRequest(requestObj);
             return sendSuccess(successResponse, httpResponse);
         }
@@ -67,5 +74,4 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     //To get around this we have the subclasses implement this method that returns an actual (non-generic) reference
     //to the requestType we want to deserialize into.
     abstract Class<?> getRequestType();
-
 }

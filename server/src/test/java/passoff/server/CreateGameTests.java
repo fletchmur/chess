@@ -2,13 +2,12 @@ package passoff.server;
 
 import dataaccess.AuthDAO;
 import dataaccess.GameDAO;
-import dataaccess.MemoryAuthDAO;
-import dataaccess.MemoryGameDAO;
+import dataaccess.memory.MemoryAuthDAO;
+import dataaccess.memory.MemoryGameDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
-import service.AuthorizationService;
 import service.CreateGameService;
 import service.ErrorException;
 

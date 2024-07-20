@@ -1,7 +1,10 @@
-package dataaccess;
+package dataaccess.memory;
 
+import dataaccess.DataAccessException;
+import dataaccess.GameDAO;
 import model.GameData;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 public class MemoryGameDAO implements GameDAO {
@@ -21,8 +24,14 @@ public class MemoryGameDAO implements GameDAO {
     public GameData getGame(int gameID) {
         return games.get(gameID);
     }
+
     @Override
-    public void updateGame(int gameID, GameData newData) throws DataAccessException {
+    public Collection<GameData> getAllGames() {
+        return games.values();
+    }
+
+    @Override
+    public void updateGame(int gameID, GameData newData) {
         GameData game = getGame(gameID);
         games.put(gameID, newData);
     }
