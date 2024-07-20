@@ -9,8 +9,7 @@ import spark.Route;
 public class LogoutHandler extends Handler<LogoutRequest, LogoutResponse> implements Route {
     @Override
     LogoutResponse fulfillRequest(LogoutRequest requestObj) throws ErrorException {
-        LogoutService logoutService = new LogoutService();
-        return logoutService.logout(requestObj);
+        return new LogoutService().logout(requestObj);
     }
 
     @Override

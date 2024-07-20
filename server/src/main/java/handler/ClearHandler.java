@@ -11,8 +11,7 @@ public class ClearHandler extends Handler<ClearRequest, ClearResponse> implement
 
     @Override
     ClearResponse fulfillRequest(ClearRequest requestObj) throws ErrorException {
-        ClearService clearService = new ClearService();
-        return clearService.clear();
+        return new ClearService().clear();
     }
 
     @Override

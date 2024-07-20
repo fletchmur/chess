@@ -10,8 +10,7 @@ public class RegisterHandler extends Handler<RegisterRequest, RegisterResponse> 
 
     @Override
     RegisterResponse fulfillRequest(RegisterRequest requestObj) throws ErrorException {
-        RegisterService registerService = new RegisterService();
-        return registerService.register(requestObj);
+        return new RegisterService().register(requestObj);
     }
 
     @Override

@@ -11,15 +11,7 @@ public class Server {
         Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
-        /*
-        clear complete
-        register complete
-        login complete
-        logout complete
-        TODO listGames
-        createGame complete
-        joinGame complete
-         */
+
         Spark.delete("/db", new ClearHandler());
         Spark.post("/user", new RegisterHandler());
         Spark.post("/session",new LoginHandler());

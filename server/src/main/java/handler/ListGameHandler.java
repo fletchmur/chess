@@ -10,7 +10,7 @@ public class ListGameHandler extends Handler<ListGamesRequest, ListGamesResponse
 
     @Override
     ListGamesResponse fulfillRequest(ListGamesRequest requestObj) throws ErrorException {
-        return new ListGamesService().listGames(requestObj);
+        return new ListGamesService().listGames();
     }
 
     @Override

@@ -20,7 +20,7 @@ public class ListGameTests {
 
     @Test
     public void listNoGames() {
-        ListGamesResponse response = listGameService.listGames(new ListGamesRequest());
+        ListGamesResponse response = listGameService.listGames();
         Assertions.assertEquals(0,response.games().length);
     }
 
@@ -34,7 +34,7 @@ public class ListGameTests {
             e.printStackTrace();
         }
 
-        ListGamesResponse response = listGameService.listGames(new ListGamesRequest());
+        ListGamesResponse response = listGameService.listGames();
         Assertions.assertEquals(2,response.games().length);
     }
 

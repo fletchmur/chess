@@ -13,10 +13,8 @@ import service.LoginService;
 public class LoginHandler extends Handler<LoginRequest, LoginResponse> implements Route {
 
     @Override
-    LoginResponse fulfillRequest(LoginRequest requestObj) throws ErrorException
-    {
-        LoginService loginService = new LoginService();
-        return loginService.login(requestObj);
+    LoginResponse fulfillRequest(LoginRequest requestObj) throws ErrorException {
+        return new LoginService().login(requestObj);
     }
 
     @Override
