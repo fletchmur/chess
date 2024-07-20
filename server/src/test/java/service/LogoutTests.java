@@ -1,11 +1,9 @@
-package passoff.server;
+package service;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
 import response.LogoutResponse;
-import service.ErrorException;
-import service.LogoutService;
 
 public class LogoutTests {
     private final LogoutService logoutService = new LogoutService();

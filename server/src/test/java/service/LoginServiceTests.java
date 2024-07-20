@@ -1,4 +1,4 @@
-package passoff.server;
+package service;
 
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
@@ -8,8 +8,6 @@ import model.UserData;
 import org.junit.jupiter.api.*;
 import request.LoginRequest;
 import response.LoginResponse;
-import service.ErrorException;
-import service.LoginService;
 
 public class LoginServiceTests {
 

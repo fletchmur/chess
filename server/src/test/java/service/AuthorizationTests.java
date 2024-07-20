@@ -1,11 +1,9 @@
-package passoff.server;
+package service;
 
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import model.AuthData;
-import service.AuthorizationService;
 import org.junit.jupiter.api.*;
-import service.ErrorException;
 
 public class AuthorizationTests {
     private AuthorizationService authService = new AuthorizationService();

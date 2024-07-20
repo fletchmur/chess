@@ -1,4 +1,4 @@
-package passoff.server;
+package service;
 
 import chess.ChessGame;
 import dataaccess.*;
@@ -11,8 +11,6 @@ import model.GameData;
 import org.junit.jupiter.api.*;
 import request.JoinGameRequest;
 import response.JoinGameResponse;
-import service.ErrorException;
-import service.JoinGameService;
 
 public class JoinGameTests {
     GameDAO gameDAO = new MemoryGameDAO();

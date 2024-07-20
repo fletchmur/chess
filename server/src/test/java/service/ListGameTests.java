@@ -1,11 +1,10 @@
-package passoff.server;
+package service;
 import chess.ChessGame;
 import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryGameDAO;
 import model.GameData;
 import org.junit.jupiter.api.*;
 import response.ListGamesResponse;
-import service.ListGamesService;
 
 public class ListGameTests {
 

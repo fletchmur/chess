@@ -1,4 +1,4 @@
-package passoff.server;
+package service;
 
 import com.google.gson.reflect.TypeToken;
 import handler.Serializer;

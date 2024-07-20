@@ -1,4 +1,4 @@
-package passoff.server;
+package service;
 import chess.ChessGame;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;

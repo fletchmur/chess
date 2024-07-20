@@ -1,4 +1,4 @@
-package passoff.server;
+package service;
 
 import dataaccess.DataAccessException;
 import dataaccess.memory.MemoryUserDAO;
@@ -7,8 +7,6 @@ import model.UserData;
 import org.junit.jupiter.api.*;
 import request.RegisterRequest;
 import response.RegisterResponse;
-import service.ErrorException;
-import service.RegisterService;
 
 public class RegisterServiceTests {
     private final RegisterService registerService = new RegisterService();

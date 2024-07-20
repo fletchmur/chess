@@ -1,4 +1,4 @@
-package passoff.server;
+package service;
 
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
@@ -8,8 +8,6 @@ import model.AuthData;
 import org.junit.jupiter.api.*;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
-import service.CreateGameService;
-import service.ErrorException;
 
 public class CreateGameTests {
     private final CreateGameService createGameService = new CreateGameService();
