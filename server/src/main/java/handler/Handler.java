@@ -39,17 +39,17 @@ abstract class Handler<T, F>  implements Route {
         return serializer.serialize(error.message());
     }
 
-    public Object handle(Request httpRequest, Response httpResponse) {
+    public Object handle(Request request, Response response) {
         try {
-            authToken = httpRequest.headers("authorization");
-            authorize(httpRequest);
-            T requestObj = deserialize(httpRequest);
+            authToken = request.headers("authorization");
+            authorize(request);
+            T requestObj = deserialize(request);
             F successResponse = fulfillRequest(requestObj);
-            return sendSuccess(successResponse, httpResponse);
+            return sendSuccess(successResponse, response);
         }
         catch(ErrorException e) {
             ErrorResponse error = new ErrorResponse(e.getErrorCode(),new ErrorMessage(e.getMessage()));
-            return sendError(error,httpResponse);
+            return sendError(error,response);
         }
     }
 
