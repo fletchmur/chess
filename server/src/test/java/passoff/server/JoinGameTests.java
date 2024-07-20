@@ -33,9 +33,9 @@ public class JoinGameTests {
     @Test
     public void joinWhite() {
         setUp(new GameData(123,null,null,"test",new ChessGame()));
-        JoinGameRequest request = new JoinGameRequest("123",ChessGame.TeamColor.WHITE,123);
+        JoinGameRequest request = new JoinGameRequest(ChessGame.TeamColor.WHITE,123);
         try {
-            JoinGameResponse response = joinGameService.joinGame(request);
+            JoinGameResponse response = joinGameService.joinGame(request,"123");
             Assertions.assertEquals(new JoinGameResponse(), response);
         }
         catch (ErrorException e) {
@@ -46,9 +46,9 @@ public class JoinGameTests {
     @Test
     public void joinBlack() {
         setUp(new GameData(123,null,null,"test",new ChessGame()));
-        JoinGameRequest request = new JoinGameRequest("123", ChessGame.TeamColor.BLACK,123);
+        JoinGameRequest request = new JoinGameRequest(ChessGame.TeamColor.BLACK,123);
         try {
-            JoinGameResponse response = joinGameService.joinGame(request);
+            JoinGameResponse response = joinGameService.joinGame(request,"123");
             Assertions.assertEquals(new JoinGameResponse(), response);
         }
         catch (ErrorException e) {
@@ -59,9 +59,9 @@ public class JoinGameTests {
     @Test
     public void badJoinWhite() {
         setUp(new GameData(123,"emily",null,"test",new ChessGame()));
-        JoinGameRequest request = new JoinGameRequest("123", ChessGame.TeamColor.WHITE,123);
+        JoinGameRequest request = new JoinGameRequest(ChessGame.TeamColor.WHITE,123);
         try {
-            JoinGameResponse response = joinGameService.joinGame(request);
+            JoinGameResponse response = joinGameService.joinGame(request,"123");
             Assertions.fail("joined game that already had white player");
         }
         catch (ErrorException e) {
@@ -72,9 +72,9 @@ public class JoinGameTests {
     @Test
     public void badJoinBlack() {
         setUp(new GameData(123,"emily","emily","test",new ChessGame()));
-        JoinGameRequest request = new JoinGameRequest("123", ChessGame.TeamColor.BLACK,123);
+        JoinGameRequest request = new JoinGameRequest(ChessGame.TeamColor.BLACK,123);
         try {
-            JoinGameResponse response = joinGameService.joinGame(request);
+            JoinGameResponse response = joinGameService.joinGame(request,"123");
             Assertions.fail("joined game that already had white player");
         }
         catch (ErrorException e) {

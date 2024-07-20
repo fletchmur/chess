@@ -12,6 +12,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     protected final Serializer serializer = new Serializer();
     protected record ErrorMessage(String message) {};
     protected record ErrorResponse(int status, ErrorMessage message) {};
+    protected String authToken;
 
     private void authorize(Request httpRequest) throws ErrorException {
         String authToken = httpRequest.headers("authorization");
@@ -36,7 +37,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     }
     private RequestType deserialize(Request httpRequest) {
         String json = httpToJson(httpRequest);
-        RequestType requestObj = (RequestType) serializer.deserialize(json,getRequestType());
+        RequestType requestObj = (RequestType) serializer.deserialize(httpRequest.body(),getRequestType());
         return requestObj;
     }
     private String serialize(ResponseType response) {
@@ -56,6 +57,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
 
     public Object handle(Request httpRequest, Response httpResponse) {
         try {
+            authToken = httpRequest.headers("authorization");
             authorize(httpRequest);
             RequestType requestObj = deserialize(httpRequest);
             ResponseType successResponse = fulfillRequest(requestObj);

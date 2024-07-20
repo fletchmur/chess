@@ -2,7 +2,6 @@ package handler;
 
 import request.ClearRequest;
 import response.ClearResponse;
-import response.RegisterResponse;
 import service.ClearService;
 import service.ErrorException;
 import spark.Route;

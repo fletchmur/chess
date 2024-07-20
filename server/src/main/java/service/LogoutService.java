@@ -9,9 +9,9 @@ import response.LogoutResponse;
 public class LogoutService {
     AuthDAO authDAO = new MemoryAuthDAO();
 
-    public LogoutResponse logout(LogoutRequest logoutRequest) throws ErrorException {
+    public LogoutResponse logout(String authToken) throws ErrorException {
         try {
-            authDAO.deleteAuth(logoutRequest.authToken());
+            authDAO.deleteAuth(authToken);
             return new LogoutResponse();
         }
         catch (DataAccessException e) {

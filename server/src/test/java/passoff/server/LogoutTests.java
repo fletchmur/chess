@@ -26,9 +26,9 @@ public class LogoutTests {
 
     @Test
     void logoutUser() {
-        LogoutRequest request = new LogoutRequest("1234");
+        LogoutRequest request = new LogoutRequest();
         try {
-            LogoutResponse response = logoutService.logout(request);
+            LogoutResponse response = logoutService.logout("1234");
             Assertions.assertEquals(new LogoutResponse(),response);
         }
         catch (Exception e) {
@@ -38,9 +38,9 @@ public class LogoutTests {
 
     @Test
     void nonExistentUser() {
-        LogoutRequest request = new LogoutRequest("45678");
+        LogoutRequest request = new LogoutRequest();
         try {
-            LogoutResponse response = logoutService.logout(request);
+            LogoutResponse response = logoutService.logout("45678");
             Assertions.fail("logged out an unauthorized user");
         }
         catch (ErrorException e) {

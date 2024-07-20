@@ -13,10 +13,9 @@ public class CreateGameService {
     private GameDAO gameDAO = new MemoryGameDAO();
 
     public CreateGameResponse createGame(CreateGameRequest creationRequest) throws ErrorException {
-        String authToken = creationRequest.authToken();
         String gameName = creationRequest.gameName();
 
-        if(authToken == null || gameName == null) {
+        if(gameName == null) {
             throw new ErrorException(400, "bad request");
         }
 

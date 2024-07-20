@@ -9,7 +9,7 @@ import spark.Route;
 public class JoinGameHandler extends Handler<JoinGameRequest, JoinGameResponse> implements Route {
     @Override
     JoinGameResponse fulfillRequest(JoinGameRequest requestObj) throws ErrorException {
-        return new JoinGameService().joinGame(requestObj);
+        return new JoinGameService().joinGame(requestObj,authToken);
     }
 
     @Override

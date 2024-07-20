@@ -32,7 +32,7 @@ public class CreateGameTests {
 
     @Test
     public void createNewGame() {
-        CreateGameRequest request = new CreateGameRequest("1234","fletcher's game");
+        CreateGameRequest request = new CreateGameRequest("fletcher's game");
         try {
             CreateGameResponse response = createGameService.createGame(request);
             Assertions.assertEquals(new CreateGameResponse(1),response);
@@ -45,7 +45,7 @@ public class CreateGameTests {
 
     @Test
     public void createGameBadRequest() {
-        CreateGameRequest request = new CreateGameRequest("1234",null);
+        CreateGameRequest request = new CreateGameRequest(null);
         try {
             CreateGameResponse response = createGameService.createGame(request);
             Assertions.fail("created game from bad request");

@@ -22,10 +22,10 @@ public class JoinGameService {
         return canJoin;
     }
 
-    public JoinGameResponse joinGame(JoinGameRequest request) throws ErrorException {
+    public JoinGameResponse joinGame(JoinGameRequest request,String authToken) throws ErrorException {
         ChessGame.TeamColor playerColor = request.playerColor();
         Integer gameID = request.gameID();
-        String username = authDAO.getAuth(request.authToken()).username();
+        String username = authDAO.getAuth(authToken).username();
 
         if (playerColor == null || gameID == null) {
             throw new ErrorException(400, "bad request");
