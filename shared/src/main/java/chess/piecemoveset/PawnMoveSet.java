@@ -1,11 +1,16 @@
-package chess;
+package chess.piecemoveset;
+
+import chess.*;
 
 import java.util.Collection;
 import java.util.HashSet;
 
 public class PawnMoveSet implements MoveSet
 {
-    private static final ChessPiece.PieceType[] promotionTypes = {ChessPiece.PieceType.ROOK, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.QUEEN};
+    private static final ChessPiece.PieceType[] PROMOTION_TYPES =
+            {ChessPiece.PieceType.ROOK, ChessPiece.PieceType.KNIGHT,
+            ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.QUEEN};
+
     public Collection<ChessMove> calculateMoves(ChessBoard board, ChessPosition startingPosition, ChessGame.TeamColor myColor)
     {
         Collection<ChessMove> moves = new HashSet<>();
@@ -76,7 +81,7 @@ public class PawnMoveSet implements MoveSet
             //MOVE PIECE AND PROMOTION
 
             if (checkRow == promotionRow) {
-                for (ChessPiece.PieceType pieceType : promotionTypes)
+                for (ChessPiece.PieceType pieceType : PROMOTION_TYPES)
                 {
                     moves.add(new ChessMove(startingPosition,checkPosition,pieceType));
                 }

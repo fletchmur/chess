@@ -12,11 +12,14 @@ import java.util.Objects;
  */
 public class ChessBoard {
 
-    private static final ChessPiece.PieceType[] backRow = {ChessPiece.PieceType.ROOK, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.BISHOP,
-                                                            ChessPiece.PieceType.QUEEN, ChessPiece.PieceType.KING,
-                                                            ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.ROOK};
-    private static final ChessPiece.PieceType[] pawnRow = {ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN,
-                                                            ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN};
+    private static final ChessPiece.PieceType[] BACK_ROW =
+            {ChessPiece.PieceType.ROOK, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.BISHOP,
+            ChessPiece.PieceType.QUEEN, ChessPiece.PieceType.KING,
+            ChessPiece.PieceType.BISHOP, ChessPiece.PieceType.KNIGHT, ChessPiece.PieceType.ROOK};
+
+    private static final ChessPiece.PieceType[] PAWN_ROW =
+            {ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN,
+            ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN, ChessPiece.PieceType.PAWN};
 
     private final int size = 8;
     private ChessPiece[][] board = new ChessPiece[size][size];
@@ -37,10 +40,10 @@ public class ChessBoard {
             throw new IllegalArgumentException("cannot add to position not on board");
         }
 
-        int row_index = position.getRow() - 1;
-        int column_index = position.getColumn() - 1;
+        int rowIndex = position.getRow() - 1;
+        int columnIndex = position.getColumn() - 1;
 
-        board[row_index][column_index] = piece;
+        board[rowIndex][columnIndex] = piece;
     }
 
     /**
@@ -55,9 +58,9 @@ public class ChessBoard {
         {
             throw new IllegalArgumentException("cannot get piece from position not on board");
         }
-        int row_index = position.getRow() - 1;
-        int column_index = position.getColumn() - 1;
-        return board[row_index][column_index];
+        int rowIndex = position.getRow() - 1;
+        int columnIndex = position.getColumn() - 1;
+        return board[rowIndex][columnIndex];
     }
 
     public HashMap<ChessPosition, ChessPiece> getPiecesForTeam(ChessGame.TeamColor teamColor) {
@@ -103,10 +106,10 @@ public class ChessBoard {
     public void resetBoard() {
         ChessPiece[][] newBoard = new ChessPiece[size][size];
 
-        newBoard[0] = generateRow(backRow, ChessGame.TeamColor.WHITE);
-        newBoard[1] = generateRow(pawnRow, ChessGame.TeamColor.WHITE);
-        newBoard[size-1] = generateRow(backRow, ChessGame.TeamColor.BLACK);
-        newBoard[size-2] = generateRow(pawnRow, ChessGame.TeamColor.BLACK);
+        newBoard[0] = generateRow(BACK_ROW, ChessGame.TeamColor.WHITE);
+        newBoard[1] = generateRow(PAWN_ROW, ChessGame.TeamColor.WHITE);
+        newBoard[size-1] = generateRow(BACK_ROW, ChessGame.TeamColor.BLACK);
+        newBoard[size-2] = generateRow(PAWN_ROW, ChessGame.TeamColor.BLACK);
 
         board = newBoard;
     }
