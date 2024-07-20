@@ -70,8 +70,9 @@ public class ChessBoard {
                 ChessPosition position = new ChessPosition(i+1,j+1);
                 ChessPiece piece = getPiece(position);
 
-                if (piece != null && piece.getTeamColor() == teamColor)
+                if (piece != null && piece.getTeamColor() == teamColor) {
                     pieces.put(position, piece);
+                }
             }
         }
         return pieces;
@@ -122,8 +123,8 @@ public class ChessBoard {
     }
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         ChessBoard that = (ChessBoard) o;
         return getSize() == that.getSize() && Objects.deepEquals(board, that.board);
     }
