@@ -30,9 +30,6 @@ public class TurnHandler {
     public boolean myTurn(ChessGame.TeamColor checkTeam) {
         return currentTeam == checkTeam;
     }
-    public boolean opponentTurn(ChessGame.TeamColor checkTeam) {
-        return opponentTeam == checkTeam;
-    }
     public ChessGame.TeamColor getCurrentTeam() {
         return currentTeam;
     }
