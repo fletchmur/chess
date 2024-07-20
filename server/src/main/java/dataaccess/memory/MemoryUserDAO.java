@@ -23,18 +23,6 @@ public class MemoryUserDAO implements UserDAO {
         return user;
     }
     @Override
-    public void updateUser(String username, UserData newData) throws DataAccessException {
-        UserData user = getUser(username);
-        users.put(username, newData);
-    }
-    @Override
-    public void deleteUser(String username) throws DataAccessException {
-        if (!users.containsKey(username)) {
-            throw new DataAccessException("trying to remove nonexistent user");
-        }
-        users.remove(username);
-    }
-    @Override
     public void clear() {
         users.clear();
     }
