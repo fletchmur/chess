@@ -7,7 +7,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-abstract class Handler<RequestType,ResponseType>  implements Route {
+abstract class Handler<T, F>  implements Route {
 
     protected final Serializer serializer = new Serializer();
     protected record ErrorMessage(String message) {};
@@ -20,14 +20,14 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
             new AuthorizationService().authorize(authToken);
         }
     }
-    private RequestType deserialize(Request httpRequest) throws ErrorException {
-        RequestType requestObj = (RequestType) serializer.deserialize(httpRequest.body(),getRequestType());
+    private T deserialize(Request httpRequest) throws ErrorException {
+        T requestObj = (T) serializer.deserialize(httpRequest.body(),getRequestType());
         return requestObj;
     }
-    private String serialize(ResponseType response) {
+    private String serialize(F response) {
         return serializer.serialize(response);
     }
-    private String sendSuccess(ResponseType success,Response response) {
+    private String sendSuccess(F success, Response response) {
         response.status(200);
         String serializedResponse = serialize(success);
         response.body(serializedResponse);
@@ -43,8 +43,8 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
         try {
             authToken = httpRequest.headers("authorization");
             authorize(httpRequest);
-            RequestType requestObj = deserialize(httpRequest);
-            ResponseType successResponse = fulfillRequest(requestObj);
+            T requestObj = deserialize(httpRequest);
+            F successResponse = fulfillRequest(requestObj);
             return sendSuccess(successResponse, httpResponse);
         }
         catch(ErrorException e) {
@@ -54,7 +54,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
     }
 
     //ABSTRACT METHODS
-    abstract ResponseType fulfillRequest(RequestType requestObj) throws ErrorException;
+    abstract F fulfillRequest(T requestObj) throws ErrorException;
     //Because of generic type erasure in java, the type of the generics are lost at runtime
     //this is problematic for deserialization where we want to know the type so we can create the object.
     //To get around this we have the subclasses implement this method that returns an actual (non-generic) reference
