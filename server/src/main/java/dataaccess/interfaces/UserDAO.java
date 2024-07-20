@@ -1,6 +1,6 @@
-package dataaccess;
+package dataaccess.interfaces;
 
-import model.AuthData;
+import dataaccess.DataAccessException;
 import model.UserData;
 
 public interface UserDAO {

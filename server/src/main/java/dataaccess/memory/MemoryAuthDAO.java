@@ -1,11 +1,10 @@
 package dataaccess.memory;
 
-import dataaccess.AuthDAO;
+import dataaccess.interfaces.AuthDAO;
 import dataaccess.DataAccessException;
 import model.AuthData;
 import java.util.HashMap;
 
-//TODO implement inheritance to reduce code duplication in all DAO
 public class MemoryAuthDAO implements AuthDAO {
 
     private static HashMap<String,AuthData> authData = new HashMap<>();

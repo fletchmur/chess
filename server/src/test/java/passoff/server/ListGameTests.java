@@ -1,10 +1,9 @@
 package passoff.server;
 import chess.ChessGame;
-import dataaccess.GameDAO;
+import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryGameDAO;
 import model.GameData;
 import org.junit.jupiter.api.*;
-import request.ListGamesRequest;
 import response.ListGamesResponse;
 import service.ListGamesService;
 

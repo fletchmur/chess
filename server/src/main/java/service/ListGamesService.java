@@ -1,9 +1,8 @@
 package service;
 
-import dataaccess.GameDAO;
+import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryGameDAO;
 import model.GameData;
-import request.ListGamesRequest;
 import response.ListGamesResponse;
 
 import java.util.ArrayList;

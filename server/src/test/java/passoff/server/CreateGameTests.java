@@ -1,7 +1,7 @@
 package passoff.server;
 
-import dataaccess.AuthDAO;
-import dataaccess.GameDAO;
+import dataaccess.interfaces.AuthDAO;
+import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryGameDAO;
 import model.AuthData;

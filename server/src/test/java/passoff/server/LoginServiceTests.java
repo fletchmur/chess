@@ -1,9 +1,9 @@
 package passoff.server;
 
-import dataaccess.AuthDAO;
+import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryUserDAO;
-import dataaccess.UserDAO;
+import dataaccess.interfaces.UserDAO;
 import model.UserData;
 import org.junit.jupiter.api.*;
 import request.LoginRequest;

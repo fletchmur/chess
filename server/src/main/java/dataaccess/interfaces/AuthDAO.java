@@ -1,7 +1,6 @@
-package dataaccess;
+package dataaccess.interfaces;
 
-import java.util.HashSet;
-
+import dataaccess.DataAccessException;
 import model.AuthData;
 
 public interface AuthDAO {

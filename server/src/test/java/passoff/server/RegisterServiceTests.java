@@ -2,7 +2,7 @@ package passoff.server;
 
 import dataaccess.DataAccessException;
 import dataaccess.memory.MemoryUserDAO;
-import dataaccess.UserDAO;
+import dataaccess.interfaces.UserDAO;
 import model.UserData;
 import org.junit.jupiter.api.*;
 import request.RegisterRequest;

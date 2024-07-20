@@ -1,9 +1,8 @@
 package service;
 
-import dataaccess.AuthDAO;
+import dataaccess.interfaces.AuthDAO;
 import dataaccess.DataAccessException;
 import dataaccess.memory.MemoryAuthDAO;
-import request.LogoutRequest;
 import response.LogoutResponse;
 
 public class LogoutService {

@@ -1,9 +1,8 @@
 package passoff.server;
-import dataaccess.AuthDAO;
+import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
-import request.LogoutRequest;
 import response.LogoutResponse;
 import service.ErrorException;
 import service.LogoutService;
@@ -26,7 +25,6 @@ public class LogoutTests {
 
     @Test
     void logoutUser() {
-        LogoutRequest request = new LogoutRequest();
         try {
             LogoutResponse response = logoutService.logout("1234");
             Assertions.assertEquals(new LogoutResponse(),response);
@@ -38,7 +36,6 @@ public class LogoutTests {
 
     @Test
     void nonExistentUser() {
-        LogoutRequest request = new LogoutRequest();
         try {
             LogoutResponse response = logoutService.logout("45678");
             Assertions.fail("logged out an unauthorized user");

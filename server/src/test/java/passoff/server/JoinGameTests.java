@@ -2,6 +2,8 @@ package passoff.server;
 
 import chess.ChessGame;
 import dataaccess.*;
+import dataaccess.interfaces.AuthDAO;
+import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryGameDAO;
 import model.AuthData;

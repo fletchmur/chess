@@ -20,23 +20,7 @@ abstract class Handler<RequestType,ResponseType>  implements Route {
             new AuthorizationService().authorize(authToken);
         }
     }
-    private String httpToJson(Request httpRequest) {
-        //inject the authToken into the json of the body to construct the correct Request object
-        String authToken = httpRequest.headers("authorization");
-
-        String body = httpRequest.body();
-
-        if(!body.isEmpty() && authToken != null) {
-            body = body.substring(1, body.length() - 1);
-        }
-
-        String comma = !body.isEmpty() ? "," : "";
-
-        String json = authToken != null ? "{authToken: " + authToken + comma + body + "}" : body;
-        return json;
-    }
-    private RequestType deserialize(Request httpRequest) {
-        String json = httpToJson(httpRequest);
+    private RequestType deserialize(Request httpRequest) throws ErrorException {
         RequestType requestObj = (RequestType) serializer.deserialize(httpRequest.body(),getRequestType());
         return requestObj;
     }
