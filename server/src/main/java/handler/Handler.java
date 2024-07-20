@@ -39,6 +39,7 @@ abstract class Handler<T, F>  implements Route {
         return serializer.serialize(error.message());
     }
 
+    @Override
     public Object handle(Request request, Response response) {
         try {
             authToken = request.headers("authorization");
