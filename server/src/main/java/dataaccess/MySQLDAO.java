@@ -6,19 +6,13 @@ import java.sql.*;
 
 public abstract class MySQLDAO {
 
-    protected final String[] createStatements;
-
-    protected MySQLDAO()  {
-        this.createStatements = getCreateStatements();
-    }
-
     protected abstract String[] getCreateStatements();
 
     protected void configureDatabase() throws ErrorException {
         try {
             DatabaseManager.createDatabase();
             try(Connection connection = DatabaseManager.getConnection()) {
-                for(String statement : createStatements) {
+                for(String statement : getCreateStatements()) {
                     try(PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
                         preparedStatement.executeUpdate();
                     }
@@ -33,7 +27,7 @@ public abstract class MySQLDAO {
         }
     }
 
-    protected int executeUpdate(String statement, Object... params) throws ErrorException {
+    protected int executeUpdate(String statement, Object... params) throws SQLException, DataAccessException {
         try(Connection connection = DatabaseManager.getConnection()) {
             try(PreparedStatement ps = connection.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS)) {
                 for(int i = 0; i < params.length; i++) {
@@ -51,12 +45,6 @@ public abstract class MySQLDAO {
 
                 return 0;
             }
-            catch (SQLException ex) {
-                throw new ErrorException(500,String.format("Unable to update database: %s",ex.getMessage()));
-            }
-        }
-        catch (DataAccessException | SQLException ex) {
-            throw new ErrorException(500,String.format("Unable to establish connection to database: %s",ex.getMessage()));
         }
     }
 }

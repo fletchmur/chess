@@ -6,6 +6,8 @@ import dataaccess.interfaces.UserDAO;
 import model.UserData;
 import service.ErrorException;
 
+import java.sql.SQLException;
+
 public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
     public MySQLUserDAO() throws ErrorException {
@@ -29,8 +31,14 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
     @Override
     public String createUser(UserData user) throws DataAccessException {
-        //TODO write method to add a user to the database
-        return "";
+        String statement = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
+        try {
+            executeUpdate(statement,user.username(),user.password(),user.email());
+            return user.username();
+        }
+        catch (SQLException e) {
+            throw new DataAccessException("username taken");
+        }
     }
 
     @Override
