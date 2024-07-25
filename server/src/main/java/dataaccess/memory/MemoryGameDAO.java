@@ -8,15 +8,22 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class MemoryGameDAO implements GameDAO {
-    private static int currentID = 0;
+    private static int currentID = 1;
     private static HashMap<Integer, GameData> games = new HashMap<>();
 
     @Override
     public int createGame(GameData gameData) throws DataAccessException {
-        int gameID = gameData.gameID();
+        Integer gameID = gameData.gameID();
+
+        if(gameID == null) {
+            gameID = currentID;
+            currentID++;
+        }
+
         if (games.containsKey(gameID)) {
             throw new DataAccessException("Game already exists");
         }
+
         games.put(gameID, gameData);
         return gameID;
     }
@@ -38,13 +45,6 @@ public class MemoryGameDAO implements GameDAO {
     @Override
     public void clear() {
         games.clear();
-        currentID = 0;
-    }
-
-    public static int newGameID() {
-        return ++currentID;
-    }
-    public static int getCurrentID() {
-        return currentID;
+        currentID = 1;
     }
 }

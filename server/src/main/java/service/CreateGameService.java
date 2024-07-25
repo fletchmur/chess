@@ -20,9 +20,9 @@ public class CreateGameService {
         }
 
         try {
-            GameData game = new GameData(MemoryGameDAO.newGameID(),null,null,gameName,new ChessGame());
-            gameDAO.createGame(game);
-            return new CreateGameResponse(MemoryGameDAO.getCurrentID());
+            GameData game = new GameData(null,null,null,gameName,new ChessGame());
+            int id = gameDAO.createGame(game);
+            return new CreateGameResponse(id);
         }
         catch (DataAccessException e) {
             throw new ErrorException(500, e.getMessage());
