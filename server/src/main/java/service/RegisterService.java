@@ -22,12 +22,11 @@ public class RegisterService {
             throw new ErrorException(400,"bad request");
         }
 
-        UserData user = userDAO.getUser(username);
-        if(user != null) {
-            throw new ErrorException(403,"already taken");
-        }
-
         try {
+            UserData user = userDAO.getUser(username);
+            if(user != null) {
+                throw new ErrorException(403,"already taken");
+            }
             userDAO.createUser(new UserData(username,password,email));
         }
         catch(DataAccessException e)

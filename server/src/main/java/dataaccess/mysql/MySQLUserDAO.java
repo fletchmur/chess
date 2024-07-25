@@ -1,11 +1,14 @@
 package dataaccess.mysql;
 
 import dataaccess.DataAccessException;
-import dataaccess.MySQLDAO;
 import dataaccess.interfaces.UserDAO;
 import model.UserData;
 import service.ErrorException;
 
+import javax.xml.crypto.Data;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
@@ -42,13 +45,34 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
     }
 
     @Override
-    public UserData getUser(String username) {
+    public UserData getUser(String username) throws DataAccessException {
         //TODO write method to get a user from the database
+        String statement = "SELECT * FROM user WHERE username = ?";
+        try(Connection connection = DatabaseManager.getConnection()) {
+            try(PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
+                preparedStatement.setString(1,username);
+                try(ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if(resultSet.next()) {
+                        String result_username = resultSet.getString("username");
+                        String result_password = resultSet.getString("password");
+                        String result_email = resultSet.getString("email");
+                        return new UserData(result_username,result_password,result_email);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException(e.getMessage());
+        }
         return null;
     }
 
     @Override
-    public void clear() {
-        //TODO write method to clear everything from the user table in the database
+    public void clear() throws DataAccessException{
+        String statement = "TRUNCATE TABLE user";
+        try {
+            executeUpdate(statement);
+        } catch (DataAccessException | SQLException e) {
+            throw new DataAccessException(e.getMessage());
+        }
     }
 }

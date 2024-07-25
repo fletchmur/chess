@@ -1,5 +1,6 @@
-package dataaccess;
+package dataaccess.mysql;
 
+import dataaccess.DataAccessException;
 import service.ErrorException;
 
 import java.sql.*;
@@ -47,4 +48,5 @@ public abstract class MySQLDAO {
             }
         }
     }
+
 }

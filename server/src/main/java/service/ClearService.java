@@ -14,11 +14,18 @@ public class ClearService {
     GameDAO gameDAO = new MemoryGameDAO();
     AuthDAO authDAO = new MemoryAuthDAO();
 
-    public ClearResponse clear()
+    public ClearResponse clear() throws ErrorException
     {
-        userDAO.clear();
-        gameDAO.clear();
-        authDAO.clear();
-        return new ClearResponse();
+        try {
+            userDAO.clear();
+            gameDAO.clear();
+            authDAO.clear();
+            return new ClearResponse();
+        }
+        catch (Exception e) {
+            throw new ErrorException(500,e.getMessage());
+        }
+
+
     }
 }
