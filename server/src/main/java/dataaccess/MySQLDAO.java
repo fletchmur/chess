@@ -9,10 +9,10 @@ public abstract class MySQLDAO {
     protected final String[] createStatements;
 
     protected MySQLDAO()  {
-        this.createStatements = instantiateCreateStatements();
+        this.createStatements = getCreateStatements();
     }
 
-    protected abstract String[] instantiateCreateStatements();
+    protected abstract String[] getCreateStatements();
 
     protected void configureDatabase() throws ErrorException {
         try {

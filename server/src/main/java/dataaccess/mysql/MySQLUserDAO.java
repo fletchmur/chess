@@ -14,9 +14,17 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
     }
 
     @Override
-    protected String[] instantiateCreateStatements() {
-        //TODO write create statements to make the table
-        return new String[0];
+    protected String[] getCreateStatements() {
+        return new String[]{
+                """
+                CREATE TABLE IF NOT EXISTS user (
+                	username varchar(255) NOT NULL,
+                	password varchar(255) NOT NULL,
+                	email varchar(255) NOT NULL,
+                	PRIMARY KEY (username)
+                );
+                """
+        };
     }
 
     @Override
