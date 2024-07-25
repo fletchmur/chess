@@ -4,15 +4,15 @@ import service.ErrorException;
 
 import java.sql.*;
 
-public abstract class SqlDAO {
+public abstract class MySQLDAO {
 
     protected final String[] createStatements;
 
-    SqlDAO() {
+    protected MySQLDAO()  {
         this.createStatements = instantiateCreateStatements();
     }
 
-    abstract String[] instantiateCreateStatements();
+    protected abstract String[] instantiateCreateStatements();
 
     protected void configureDatabase() throws ErrorException {
         try {
