@@ -19,10 +19,11 @@ public class LoginServiceTests {
 
     @BeforeEach
     public void setup() {
-        userDAO.clear();
-        authDAO.clear();
+
 
         try {
+            userDAO.clear();
+            authDAO.clear();
             userDAO.createUser(new UserData("fletcher", "1234", "fletch@email.com"));
         }
         catch (Exception e) {

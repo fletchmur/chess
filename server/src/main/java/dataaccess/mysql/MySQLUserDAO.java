@@ -58,12 +58,14 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
                         String result_email = resultSet.getString("email");
                         return new UserData(result_username,result_password,result_email);
                     }
+                    else {
+                        throw new DataAccessException("user not found");
+                    }
                 }
             }
         } catch (SQLException e) {
             throw new DataAccessException(e.getMessage());
         }
-        return null;
     }
 
     @Override

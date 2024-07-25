@@ -14,9 +14,10 @@ public class RegisterServiceTests {
 
     @BeforeEach
     public void setUp() {
-        userDAO.clear();
+
 
         try {
+            userDAO.clear();
             userDAO.createUser(new UserData("fletcher","1234","fletch@email.com"));
         }
         catch (DataAccessException e) {
