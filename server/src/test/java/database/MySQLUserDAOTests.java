@@ -9,7 +9,7 @@ public class MySQLUserDAOTests {
 
     MySQLUserDAO userDAO = new MySQLUserDAO();
 
-    public MySQLUserDAOTests() throws ErrorException {
+    public MySQLUserDAOTests() throws DataAccessException {
     }
 
     @BeforeEach

@@ -18,8 +18,12 @@ public class MemoryAuthDAO implements AuthDAO {
        return authToken;
     }
     @Override
-    public AuthData getAuth(String authToken) {
-        return authData.get(authToken);
+    public AuthData getAuth(String authToken) throws DataAccessException {
+        AuthData auth = authData.get(authToken);
+        if (auth == null) {
+            throw new DataAccessException("trying to access nonexistent auth");
+        }
+        return auth;
     }
     @Override
     public void deleteAuth(String authToken) throws DataAccessException {

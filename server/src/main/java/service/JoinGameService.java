@@ -1,6 +1,7 @@
 package service;
 
 import chess.ChessGame;
+import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryAuthDAO;
@@ -26,23 +27,27 @@ public class JoinGameService {
     public JoinGameResponse joinGame(JoinGameRequest request,String authToken) throws ErrorException {
         ChessGame.TeamColor playerColor = request.playerColor();
         Integer gameID = request.gameID();
-        String username = authDAO.getAuth(authToken).username();
+        try {
+            String username = authDAO.getAuth(authToken).username();
+            if (playerColor == null || gameID == null) {
+                throw new ErrorException(400, "bad request");
+            }
 
-        if (playerColor == null || gameID == null) {
-            throw new ErrorException(400, "bad request");
+            GameData game = gameDAO.getGame(gameID);
+            if (!canJoin(playerColor, game)) {
+                throw new ErrorException(403, "already taken");
+            }
+
+            GameData newData = switch (playerColor) {
+                case WHITE -> new GameData(gameID,username,game.blackUsername(),game.gameName(),game.game());
+                case BLACK -> new GameData(gameID,game.whiteUsername(),username,game.gameName(),game.game());
+            };
+
+            gameDAO.updateGame(gameID,newData);
+            return new JoinGameResponse();
         }
-
-        GameData game = gameDAO.getGame(gameID);
-        if (!canJoin(playerColor, game)) {
-            throw new ErrorException(403, "already taken");
+        catch (DataAccessException e) {
+            throw new ErrorException(500, e.getMessage());
         }
-
-        GameData newData = switch (playerColor) {
-            case WHITE -> new GameData(gameID,username,game.blackUsername(),game.gameName(),game.game());
-            case BLACK -> new GameData(gameID,game.whiteUsername(),username,game.gameName(),game.game());
-        };
-
-        gameDAO.updateGame(gameID,newData);
-        return new JoinGameResponse();
     }
 }

@@ -11,8 +11,9 @@ public class LogoutTests {
 
     @BeforeEach
     void setUp() {
-        authDAO.clear();
+
         try {
+            authDAO.clear();
             authDAO.createAuth(new AuthData("1234","fletcher"));
         }
         catch (Exception e) {

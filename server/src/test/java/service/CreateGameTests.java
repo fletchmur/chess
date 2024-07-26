@@ -16,10 +16,11 @@ public class CreateGameTests {
 
     @BeforeEach
     void setUp() {
-        authDAO.clear();
-        gameDAO.clear();
+
 
         try {
+            authDAO.clear();
+            gameDAO.clear();
             authDAO.createAuth(new AuthData("1234","fletcher"));
         }
         catch (Exception e) {

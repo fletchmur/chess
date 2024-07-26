@@ -19,9 +19,10 @@ public class JoinGameTests {
 
 
     void setUp(GameData game) {
-        gameDAO.clear();
-        authDAO.clear();
+
         try {
+            gameDAO.clear();
+            authDAO.clear();
             authDAO.createAuth(new AuthData("123","fletcher"));
             gameDAO.createGame(game);
         }

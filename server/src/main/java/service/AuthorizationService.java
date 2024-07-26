@@ -1,5 +1,6 @@
 package service;
 
+import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import model.AuthData;
@@ -9,11 +10,12 @@ public class AuthorizationService {
 
     public void authorize(String authToken) throws ErrorException
     {
-        AuthData authorization = authDataAccess.getAuth(authToken);
-        if(authorization == null)
-        {
+        try {
+            authDataAccess.getAuth(authToken);
+        } catch (DataAccessException e) {
             throw new ErrorException(401,"unauthorized");
         }
+
     }
 
 }

@@ -1,5 +1,6 @@
 package service;
 import chess.ChessGame;
+import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
 import dataaccess.interfaces.UserDAO;
@@ -31,13 +32,13 @@ public class ClearTests {
             gameDAO.clear();
             userDAO.clear();
 
-            Assertions.assertNull(authDAO.getAuth("123"),"didn't clear authorization");
-            Assertions.assertNull(gameDAO.getGame(1),"didn't clear game");
-            Assertions.assertNull(userDAO.getUser("fletcher"),"didn't clear user");
+            authDAO.getAuth("123");
+            gameDAO.getGame(1);
+            userDAO.getUser("fletcher");
+            Assertions.fail("Did not clear database");
 
         }
-        catch (Exception e) {
-            Assertions.fail(e.getMessage());
+        catch (DataAccessException e) {
         }
     }
 

@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
-    public MySQLUserDAO() throws ErrorException {
+    public MySQLUserDAO() throws DataAccessException {
         //create the user table if it doesn't exist
         super.configureDatabase();
     }
@@ -39,7 +39,7 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
             executeUpdate(statement,user.username(),user.password(),user.email());
             return user.username();
         }
-        catch (SQLException e) {
+        catch (DataAccessException e) {
             throw new DataAccessException("username taken");
         }
     }
@@ -73,7 +73,7 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
         String statement = "TRUNCATE TABLE user";
         try {
             executeUpdate(statement);
-        } catch (DataAccessException | SQLException e) {
+        } catch (DataAccessException e) {
             throw new DataAccessException(e.getMessage());
         }
     }

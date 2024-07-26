@@ -9,7 +9,7 @@ public abstract class MySQLDAO {
 
     protected abstract String[] getCreateStatements();
 
-    protected void configureDatabase() throws ErrorException {
+    protected void configureDatabase() throws DataAccessException {
         try {
             DatabaseManager.createDatabase();
             try(Connection connection = DatabaseManager.getConnection()) {
@@ -20,15 +20,15 @@ public abstract class MySQLDAO {
                 }
             }
             catch (SQLException e) {
-                throw new ErrorException(500,String.format("Unable to configure database: %s",e.getMessage()));
+                throw new DataAccessException(String.format("Unable to configure database: %s",e.getMessage()));
             }
         }
-        catch(DataAccessException ex) {
-            throw new ErrorException(500,String.format("Unable to create database: %s",ex.getMessage()));
+        catch (Exception e) {
+            throw new DataAccessException(String.format("Unable to configure database: %s",e.getMessage()));
         }
     }
 
-    protected int executeUpdate(String statement, Object... params) throws SQLException, DataAccessException {
+    protected int executeUpdate(String statement, Object... params) throws DataAccessException {
         try(Connection connection = DatabaseManager.getConnection()) {
             try(PreparedStatement ps = connection.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS)) {
                 for(int i = 0; i < params.length; i++) {
@@ -46,6 +46,12 @@ public abstract class MySQLDAO {
 
                 return 0;
             }
+            catch (SQLException e) {
+                throw new DataAccessException(e.getMessage());
+            }
+        }
+        catch (SQLException e) {
+            throw new DataAccessException(e.getMessage());
         }
     }
 

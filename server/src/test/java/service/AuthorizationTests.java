@@ -11,7 +11,13 @@ public class AuthorizationTests {
 
     @BeforeEach
     void setUp() {
-        authDAO.clear();
+        try {
+            authDAO.clear();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Test
