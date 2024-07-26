@@ -27,6 +27,15 @@ public class MySQLAuthDAO extends MySQLDAO implements AuthDAO {
 
     @Override
     protected String[] getCreateStatements() {
-        return new String[0];
+        return new String[]{
+                """
+               CREATE TABLE IF NOT EXISTS auth (
+               	authToken VARCHAR(255) NOT NULL,
+               	username VARCHAR(255) NOT NULL,
+               	PRIMARY KEY(authToken),
+               	FOREIGN KEY(username) REFERENCES user(username)
+               );
+                """
+        };
     }
 }

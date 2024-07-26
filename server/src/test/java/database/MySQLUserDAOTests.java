@@ -64,11 +64,10 @@ public class MySQLUserDAOTests {
     @Test
     public void notRegisteredUser() {
         try {
-            userDAO.getUser("first");
-            Assertions.fail("accessing nonregistered user should fail");
+            Assertions.assertNull(userDAO.getUser("first"));
         }
         catch (DataAccessException e) {
-            Assertions.assertEquals(e.getMessage(), "user not found");
+            Assertions.fail(e.getMessage());
         }
     }
 
@@ -80,13 +79,7 @@ public class MySQLUserDAOTests {
             userDAO.createUser(user);
             userDAO.createUser(user2);
             userDAO.clear();
-            try {
-                userDAO.getUser("first");
-                Assertions.fail("database didn't clear");
-            }
-            catch (DataAccessException e) {
-                Assertions.assertEquals(e.getMessage(), "user not found");
-            }
+            Assertions.assertNull(userDAO.getUser("first"));
         }
         catch (DataAccessException e) {
             Assertions.fail(e.getMessage());

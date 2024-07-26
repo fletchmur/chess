@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
-    public MySQLUserDAO() throws DataAccessException {
+    public MySQLUserDAO() {
         //create the user table if it doesn't exist
         super.configureDatabase();
     }
@@ -46,7 +46,6 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
     @Override
     public UserData getUser(String username) throws DataAccessException {
-        //TODO write method to get a user from the database
         String statement = "SELECT * FROM user WHERE username = ?";
         try(Connection connection = DatabaseManager.getConnection()) {
             try(PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
@@ -59,7 +58,7 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
                         return new UserData(result_username,result_password,result_email);
                     }
                     else {
-                        throw new DataAccessException("user not found");
+                        return null;
                     }
                 }
             }
@@ -69,12 +68,8 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
     }
 
     @Override
-    public void clear() throws DataAccessException{
+    public void clear() throws DataAccessException {
         String statement = "TRUNCATE TABLE user";
-        try {
-            executeUpdate(statement);
-        } catch (DataAccessException e) {
-            throw new DataAccessException(e.getMessage());
-        }
+        executeUpdate(statement);
     }
 }
