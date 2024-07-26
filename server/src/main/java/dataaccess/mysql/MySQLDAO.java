@@ -9,6 +9,10 @@ public abstract class MySQLDAO {
 
     protected abstract String[] getCreateStatements();
 
+    protected MySQLDAO() {
+        configureDatabase();
+    }
+
     protected void configureDatabase() {
         try {
             DatabaseManager.createDatabase();

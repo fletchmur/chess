@@ -13,11 +13,6 @@ import java.sql.SQLException;
 
 public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
-    public MySQLUserDAO() {
-        //create the user table if it doesn't exist
-        super.configureDatabase();
-    }
-
     @Override
     protected String[] getCreateStatements() {
         return new String[]{
