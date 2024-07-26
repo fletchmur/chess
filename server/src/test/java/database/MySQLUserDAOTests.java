@@ -3,7 +3,6 @@ import dataaccess.DataAccessException;
 import dataaccess.mysql.MySQLUserDAO;
 import model.UserData;
 import org.junit.jupiter.api.*;
-import service.ErrorException;
 
 public class MySQLUserDAOTests {
 
