@@ -5,6 +5,8 @@ import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.UserDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryUserDAO;
+import dataaccess.mysql.MySQLAuthDAO;
+import dataaccess.mysql.MySQLUserDAO;
 import model.AuthData;
 import model.UserData;
 import request.LoginRequest;
@@ -14,8 +16,8 @@ import java.util.UUID;
 
 public class LoginService {
 
-    AuthDAO authDAO = new MemoryAuthDAO();
-    UserDAO userDAO = new MemoryUserDAO();
+    AuthDAO authDAO = new MySQLAuthDAO();
+    UserDAO userDAO = new MySQLUserDAO();
 
     public LoginResponse login(LoginRequest loginRequest) throws ErrorException
     {

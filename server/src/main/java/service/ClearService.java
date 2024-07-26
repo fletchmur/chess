@@ -6,13 +6,15 @@ import dataaccess.interfaces.UserDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryGameDAO;
 import dataaccess.memory.MemoryUserDAO;
+import dataaccess.mysql.MySQLAuthDAO;
+import dataaccess.mysql.MySQLUserDAO;
 import response.ClearResponse;
 
 public class ClearService {
 
-    UserDAO userDAO = new MemoryUserDAO();
+    UserDAO userDAO = new MySQLUserDAO();
     GameDAO gameDAO = new MemoryGameDAO();
-    AuthDAO authDAO = new MemoryAuthDAO();
+    AuthDAO authDAO = new MySQLAuthDAO();
 
     public ClearResponse clear() throws ErrorException
     {

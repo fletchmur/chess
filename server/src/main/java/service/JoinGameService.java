@@ -6,13 +6,14 @@ import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryGameDAO;
+import dataaccess.mysql.MySQLAuthDAO;
 import request.JoinGameRequest;
 import response.JoinGameResponse;
 import model.GameData;
 
 public class JoinGameService {
     GameDAO gameDAO = new MemoryGameDAO();
-    AuthDAO authDAO = new MemoryAuthDAO();
+    AuthDAO authDAO = new MySQLAuthDAO();
 
     private boolean canJoin(ChessGame.TeamColor playerColor,GameData game) throws ErrorException {
         boolean hasWhitePlayer = game.whiteUsername() != null;

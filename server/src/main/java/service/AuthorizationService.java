@@ -3,10 +3,11 @@ package service;
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
+import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 
 public class AuthorizationService {
-    private final AuthDAO authDataAccess = new MemoryAuthDAO();
+    private final AuthDAO authDataAccess = new MySQLAuthDAO();
 
     public void authorize(String authToken) throws ErrorException {
         try {

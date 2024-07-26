@@ -67,6 +67,13 @@ public class MySQLAuthDAO extends MySQLDAO implements AuthDAO {
     @Override
     public void clear() throws DataAccessException {
         String statement = "TRUNCATE TABLE auth";
-        executeUpdate(statement);
+        try(Connection conn = DatabaseManager.getConnection()) {
+            try(PreparedStatement stmt = conn.prepareStatement(statement)) {
+                stmt.executeUpdate();
+            }
+        }
+        catch (SQLException e) {
+            throw new DataAccessException(e.getMessage());
+        }
     }
 }

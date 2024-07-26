@@ -3,10 +3,11 @@ package service;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.DataAccessException;
 import dataaccess.memory.MemoryAuthDAO;
+import dataaccess.mysql.MySQLAuthDAO;
 import response.LogoutResponse;
 
 public class LogoutService {
-    AuthDAO authDAO = new MemoryAuthDAO();
+    AuthDAO authDAO = new MySQLAuthDAO();
 
     public LogoutResponse logout(String authToken) throws ErrorException {
         try {

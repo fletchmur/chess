@@ -2,12 +2,24 @@ package service;
 
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
+import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
 
 public class AuthorizationTests {
     private AuthorizationService authService = new AuthorizationService();
-    private AuthDAO authDAO = new MemoryAuthDAO();
+    private AuthDAO authDAO = new MySQLAuthDAO();
+
+    @AfterEach
+    public void tearDown() {
+        try {
+            authDAO.clear();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @BeforeEach
     void setUp() {
@@ -30,7 +42,7 @@ public class AuthorizationTests {
         }
         catch (Exception e)
         {
-            Assertions.fail("didn't authorize an authorized user");
+            Assertions.fail(e.getMessage());
         }
     }
 
@@ -46,4 +58,5 @@ public class AuthorizationTests {
             Assertions.assertEquals(401,e.getErrorCode());
         }
     }
+
 }

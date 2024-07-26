@@ -3,6 +3,7 @@ package service;
 import dataaccess.DataAccessException;
 import dataaccess.memory.MemoryUserDAO;
 import dataaccess.interfaces.UserDAO;
+import dataaccess.mysql.MySQLUserDAO;
 import model.UserData;
 import request.LoginRequest;
 import request.RegisterRequest;
@@ -10,7 +11,7 @@ import response.RegisterResponse;
 
 public class RegisterService {
 
-    private final UserDAO userDAO = new MemoryUserDAO();
+    private final UserDAO userDAO = new MySQLUserDAO();
     private final LoginService loginService = new LoginService();
 
     public RegisterResponse register(RegisterRequest registerRequest) throws ErrorException {
