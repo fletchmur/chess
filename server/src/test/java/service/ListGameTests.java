@@ -13,13 +13,23 @@ public class ListGameTests {
 
     @BeforeEach
     void setUp() {
-        gameDAO.clear();
+        try {
+            gameDAO.clear();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void listNoGames() {
-        ListGamesResponse response = listGameService.listGames();
-        Assertions.assertEquals(0,response.games().length);
+        try {
+            ListGamesResponse response = listGameService.listGames();
+            Assertions.assertEquals(0,response.games().length);
+        }
+        catch (Exception e) {
+            Assertions.fail("couldn't list no games");
+        }
     }
 
     @Test
@@ -27,13 +37,13 @@ public class ListGameTests {
         try {
             gameDAO.createGame(new GameData(1,"bob","fred","test1",new ChessGame()));
             gameDAO.createGame(new GameData(2,"bob","fred","test1",new ChessGame()));
+            ListGamesResponse response = listGameService.listGames();
+            Assertions.assertEquals(2,response.games().length);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        ListGamesResponse response = listGameService.listGames();
-        Assertions.assertEquals(2,response.games().length);
     }
 
 }

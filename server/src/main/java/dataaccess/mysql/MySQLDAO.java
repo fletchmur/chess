@@ -1,6 +1,8 @@
 package dataaccess.mysql;
 
+import chess.ChessGame;
 import dataaccess.DataAccessException;
+import handler.Serializer;
 import service.ErrorException;
 
 import java.sql.*;
