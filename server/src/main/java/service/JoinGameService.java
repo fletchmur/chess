@@ -30,6 +30,8 @@ public class JoinGameService {
         Integer gameID = request.gameID();
         try {
             String username = authDAO.getAuth(authToken).username();
+            assert username != null;
+
             if (playerColor == null || gameID == null) {
                 throw new ErrorException(400, "bad request");
             }

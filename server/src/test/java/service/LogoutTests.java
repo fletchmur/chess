@@ -1,13 +1,14 @@
 package service;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.memory.MemoryAuthDAO;
+import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
 import response.LogoutResponse;
 
 public class LogoutTests {
     private final LogoutService logoutService = new LogoutService();
-    private final AuthDAO authDAO = new MemoryAuthDAO();
+    private final AuthDAO authDAO = new MySQLAuthDAO();
 
     @BeforeEach
     void setUp() {

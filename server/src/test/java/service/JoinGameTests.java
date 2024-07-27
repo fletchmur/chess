@@ -6,6 +6,7 @@ import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.memory.MemoryGameDAO;
+import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 import model.GameData;
 import org.junit.jupiter.api.*;
@@ -14,7 +15,7 @@ import response.JoinGameResponse;
 
 public class JoinGameTests {
     GameDAO gameDAO = new MemoryGameDAO();
-    AuthDAO authDAO = new MemoryAuthDAO();
+    AuthDAO authDAO = new MySQLAuthDAO();
     JoinGameService joinGameService = new JoinGameService();
 
 

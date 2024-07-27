@@ -3,6 +3,7 @@ package service;
 import dataaccess.DataAccessException;
 import dataaccess.memory.MemoryUserDAO;
 import dataaccess.interfaces.UserDAO;
+import dataaccess.mysql.MySQLUserDAO;
 import model.UserData;
 import org.junit.jupiter.api.*;
 import request.RegisterRequest;
@@ -10,11 +11,10 @@ import response.RegisterResponse;
 
 public class RegisterServiceTests {
     private final RegisterService registerService = new RegisterService();
-    private final UserDAO userDAO = new MemoryUserDAO();
+    private final UserDAO userDAO = new MySQLUserDAO();
 
     @BeforeEach
     public void setUp() {
-
 
         try {
             userDAO.clear();

@@ -10,14 +10,17 @@ import java.sql.*;
 public abstract class MySQLDAO {
 
     protected abstract String[] getCreateStatements();
-    private boolean dataBaseExists;
+    protected static boolean dataBaseExists = false;
 
     protected MySQLDAO() {
-        configureDatabase();
+        if (!dataBaseExists) {
+            configureDatabase();
+            dataBaseExists = true;
+        }
+
     }
 
     protected void configureDatabase() {
-        if (dataBaseExists) {return;}
         try {
             DatabaseManager.createDatabase();
             try(Connection connection = DatabaseManager.getConnection()) {
@@ -26,7 +29,6 @@ public abstract class MySQLDAO {
                         preparedStatement.executeUpdate();
                     }
                 }
-                dataBaseExists = true;
             }
             catch (SQLException e) {
                 throw new RuntimeException(String.format("CRITICAL FAILURE CREATING TABLE: %s",e.getMessage()));
