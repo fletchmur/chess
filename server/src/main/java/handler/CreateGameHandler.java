@@ -3,7 +3,7 @@ package handler;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
 import service.CreateGameService;
-import service.ErrorException;
+import exception.ErrorException;
 import spark.Route;
 
 public class CreateGameHandler extends Handler<CreateGameRequest, CreateGameResponse> implements Route {

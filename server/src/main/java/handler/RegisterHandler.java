@@ -2,7 +2,7 @@ package handler;
 
 import request.RegisterRequest;
 import response.RegisterResponse;
-import service.ErrorException;
+import exception.ErrorException;
 import service.RegisterService;
 import spark.Route;
 

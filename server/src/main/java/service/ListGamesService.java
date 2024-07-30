@@ -2,10 +2,10 @@ package service;
 
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.GameDAO;
-import dataaccess.memory.MemoryGameDAO;
 import dataaccess.mysql.MySQLGameDAO;
 import model.GameData;
 import response.ListGamesResponse;
+import exception.ErrorException;
 
 import java.util.ArrayList;
 import java.util.Collection;

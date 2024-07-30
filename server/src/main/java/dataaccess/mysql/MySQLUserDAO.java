@@ -3,9 +3,7 @@ package dataaccess.mysql;
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.UserDAO;
 import model.UserData;
-import service.ErrorException;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

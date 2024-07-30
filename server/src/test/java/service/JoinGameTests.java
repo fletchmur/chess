@@ -4,8 +4,6 @@ import chess.ChessGame;
 import dataaccess.*;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
-import dataaccess.memory.MemoryAuthDAO;
-import dataaccess.memory.MemoryGameDAO;
 import dataaccess.mysql.MySQLAuthDAO;
 import dataaccess.mysql.MySQLGameDAO;
 import model.AuthData;
@@ -13,6 +11,7 @@ import model.GameData;
 import org.junit.jupiter.api.*;
 import request.JoinGameRequest;
 import response.JoinGameResponse;
+import exception.ErrorException;
 
 public class JoinGameTests {
     GameDAO gameDAO = new MySQLGameDAO();

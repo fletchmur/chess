@@ -7,6 +7,7 @@ import dataaccess.mysql.MySQLGameDAO;
 import model.GameData;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
+import exception.ErrorException;
 
 public class CreateGameService {
 

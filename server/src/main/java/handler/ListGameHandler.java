@@ -2,7 +2,7 @@ package handler;
 
 import request.ListGamesRequest;
 import response.ListGamesResponse;
-import service.ErrorException;
+import exception.ErrorException;
 import service.ListGamesService;
 import spark.Route;
 

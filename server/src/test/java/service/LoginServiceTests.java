@@ -8,6 +8,7 @@ import model.UserData;
 import org.junit.jupiter.api.*;
 import request.LoginRequest;
 import response.LoginResponse;
+import exception.ErrorException;
 
 public class LoginServiceTests {
 

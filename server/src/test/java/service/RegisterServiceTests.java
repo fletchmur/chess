@@ -1,13 +1,13 @@
 package service;
 
 import dataaccess.DataAccessException;
-import dataaccess.memory.MemoryUserDAO;
 import dataaccess.interfaces.UserDAO;
 import dataaccess.mysql.MySQLUserDAO;
 import model.UserData;
 import org.junit.jupiter.api.*;
 import request.RegisterRequest;
 import response.RegisterResponse;
+import exception.ErrorException;
 
 public class RegisterServiceTests {
     private final RegisterService registerService = new RegisterService();

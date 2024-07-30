@@ -1,11 +1,8 @@
 package handler;
 
-import com.google.gson.reflect.TypeToken;
 import request.LoginRequest;
 import response.LoginResponse;
-import response.RegisterResponse;
-import service.ErrorException;
-import spark.Request;
+import exception.ErrorException;
 import spark.Route;
 import service.LoginService;
 

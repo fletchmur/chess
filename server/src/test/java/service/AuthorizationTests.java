@@ -1,10 +1,10 @@
 package service;
 
 import dataaccess.interfaces.AuthDAO;
-import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
+import exception.ErrorException;
 
 public class AuthorizationTests {
     private AuthorizationService authService = new AuthorizationService();

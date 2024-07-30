@@ -4,6 +4,7 @@ import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
+import exception.ErrorException;
 
 public class AuthorizationService {
     private final AuthDAO authDataAccess = new MySQLAuthDAO();

@@ -3,8 +3,6 @@ package service;
 import dataaccess.*;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.UserDAO;
-import dataaccess.memory.MemoryAuthDAO;
-import dataaccess.memory.MemoryUserDAO;
 import dataaccess.mysql.MySQLAuthDAO;
 import dataaccess.mysql.MySQLUserDAO;
 import model.AuthData;
@@ -12,6 +10,7 @@ import model.UserData;
 import org.mindrot.jbcrypt.BCrypt;
 import request.LoginRequest;
 import response.LoginResponse;
+import exception.ErrorException;
 
 import java.util.UUID;
 

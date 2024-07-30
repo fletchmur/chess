@@ -9,6 +9,7 @@ import dataaccess.mysql.MySQLGameDAO;
 import request.JoinGameRequest;
 import response.JoinGameResponse;
 import model.GameData;
+import exception.ErrorException;
 
 public class JoinGameService {
     GameDAO gameDAO = new MySQLGameDAO();

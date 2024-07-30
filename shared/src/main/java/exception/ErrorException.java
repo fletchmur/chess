@@ -1,4 +1,4 @@
-package service;
+package exception;
 
 public class ErrorException extends Exception {
     private final int errorCode;

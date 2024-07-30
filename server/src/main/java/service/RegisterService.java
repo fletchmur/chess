@@ -8,6 +8,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import request.LoginRequest;
 import request.RegisterRequest;
 import response.RegisterResponse;
+import exception.ErrorException;
 
 public class RegisterService {
 

@@ -3,7 +3,7 @@ package handler;
 import request.ClearRequest;
 import response.ClearResponse;
 import service.ClearService;
-import service.ErrorException;
+import exception.ErrorException;
 import spark.Route;
 
 public class ClearHandler extends Handler<ClearRequest, ClearResponse> implements Route {

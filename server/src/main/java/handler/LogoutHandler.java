@@ -2,7 +2,7 @@ package handler;
 
 import request.LogoutRequest;
 import response.LogoutResponse;
-import service.ErrorException;
+import exception.ErrorException;
 import service.LogoutService;
 import spark.Route;
 

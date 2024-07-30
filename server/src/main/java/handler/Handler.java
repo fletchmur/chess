@@ -1,7 +1,7 @@
 package handler;
 
 import service.AuthorizationService;
-import service.ErrorException;
+import exception.ErrorException;
 
 import spark.Request;
 import spark.Response;

@@ -2,7 +2,7 @@ package handler;
 
 import request.JoinGameRequest;
 import response.JoinGameResponse;
-import service.ErrorException;
+import exception.ErrorException;
 import service.JoinGameService;
 import spark.Route;
 

@@ -8,6 +8,7 @@ import model.AuthData;
 import org.junit.jupiter.api.*;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
+import exception.ErrorException;
 
 public class CreateGameTests {
     private final CreateGameService createGameService = new CreateGameService();

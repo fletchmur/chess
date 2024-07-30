@@ -3,7 +3,6 @@ package handler;
 import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
-import service.ErrorException;
 
 public class Serializer {
 
