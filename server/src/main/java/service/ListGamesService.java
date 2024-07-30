@@ -3,6 +3,7 @@ package service;
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.GameDAO;
 import dataaccess.memory.MemoryGameDAO;
+import dataaccess.mysql.MySQLGameDAO;
 import model.GameData;
 import response.ListGamesResponse;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class ListGamesService {
 
-    GameDAO gameDAO = new MemoryGameDAO();
+    GameDAO gameDAO = new MySQLGameDAO();
 
     public ListGamesResponse listGames() throws ErrorException {
         try {

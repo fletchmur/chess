@@ -10,19 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MySQLAuthDAO extends MySQLDAO implements AuthDAO {
-    @Override
-    protected String[] getCreateStatements() {
-        return new String[]{
-                """
-               CREATE TABLE IF NOT EXISTS auth (
-               	authToken VARCHAR(255) NOT NULL,
-               	username VARCHAR(255) NOT NULL,
-               	PRIMARY KEY(authToken),
-               	FOREIGN KEY(username) REFERENCES user(username)
-               );
-                """
-        };
-    }
 
     @Override
     public String createAuth(AuthData data) throws DataAccessException {
@@ -67,13 +54,7 @@ public class MySQLAuthDAO extends MySQLDAO implements AuthDAO {
     @Override
     public void clear() throws DataAccessException {
         String statement = "TRUNCATE TABLE auth";
-        try(Connection conn = DatabaseManager.getConnection()) {
-            try(PreparedStatement stmt = conn.prepareStatement(statement)) {
-                stmt.executeUpdate();
-            }
-        }
-        catch (SQLException e) {
-            throw new DataAccessException(e.getMessage());
-        }
+        executeUpdate(statement);
+
     }
 }

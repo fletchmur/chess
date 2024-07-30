@@ -2,7 +2,6 @@ package service;
 
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
-import dataaccess.memory.MemoryAuthDAO;
 import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 

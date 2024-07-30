@@ -9,8 +9,8 @@ public class Serializer {
 
     private Gson gson = new Gson();
 
-    public Object deserialize(String httpRequest, Type type)  {
-        return gson.fromJson(httpRequest,type);
+    public Object deserialize(String json, Type type)  {
+        return gson.fromJson(json,type);
     }
 
     public String serialize(Object response)

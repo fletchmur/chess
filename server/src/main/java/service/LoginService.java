@@ -9,6 +9,7 @@ import dataaccess.mysql.MySQLAuthDAO;
 import dataaccess.mysql.MySQLUserDAO;
 import model.AuthData;
 import model.UserData;
+import org.mindrot.jbcrypt.BCrypt;
 import request.LoginRequest;
 import response.LoginResponse;
 
@@ -28,9 +29,15 @@ public class LoginService {
         try {
             registeredUser = userDAO.getUser(requestUsername);
 
-            if(registeredUser == null || !requestUsername.equals(registeredUser.username()) || !requestPassword.equals(registeredUser.password()))
+            if (registeredUser == null) {
+                throw new ErrorException(401,"unauthorized");
+            }
+
+            boolean userNameMatches = requestUsername.equals(registeredUser.username());
+            boolean passwordMatches = BCrypt.checkpw(requestPassword, registeredUser.password());
+            if(!userNameMatches|| !passwordMatches)
             {
-                throw new ErrorException(401,"Unauthorized");
+                throw new ErrorException(401,"unauthorized");
             }
 
             //found the username and password, now we can create an auth token and return it
@@ -41,6 +48,5 @@ public class LoginService {
             //tried to get the info of a user that doesn't exist
             throw new ErrorException(500,e.getMessage());
         }
-
     }
 }

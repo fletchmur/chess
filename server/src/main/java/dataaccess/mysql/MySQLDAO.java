@@ -1,30 +1,61 @@
 package dataaccess.mysql;
 
-import chess.ChessGame;
 import dataaccess.DataAccessException;
-import handler.Serializer;
-import service.ErrorException;
 
 import java.sql.*;
 
 public abstract class MySQLDAO {
 
-    protected abstract String[] getCreateStatements();
-    protected static boolean dataBaseExists = false;
+    private static boolean databaseExists = false;
+    private final String[][] createStatements = {
+            {
+                    """
+                CREATE TABLE IF NOT EXISTS user (
+                	username varchar(255) NOT NULL,
+                	password varchar(255) NOT NULL,
+                	email varchar(255) NOT NULL,
+                	PRIMARY KEY (username)
+                );
+                """
+            },
+            {
+                    """
+               CREATE TABLE IF NOT EXISTS auth (
+               	authToken VARCHAR(255) NOT NULL,
+               	username VARCHAR(255) NOT NULL,
+               	PRIMARY KEY(authToken)
+               );
+                """
+            },
+            {
+                    """
+                CREATE TABLE IF NOT EXISTS game (
+                	gameID int NOT NULL AUTO_INCREMENT,
+                	whiteUsername VARCHAR(255),
+                	blackUsername VARCHAR(255),
+                	gameName VARCHAR(255) NOT NULL,
+                	game TEXT NOT NULL,
+                	CONSTRAINT PK_gameID PRIMARY KEY(gameID)
+                );
+                """
+            }
+
+    };
 
     protected MySQLDAO() {
-        if (!dataBaseExists) {
-            configureDatabase();
-            dataBaseExists = true;
+        if(!databaseExists) {
+            for (String[] createStatement : createStatements) {
+                configureDatabase(createStatement);
+            }
+            databaseExists = true;
         }
-
     }
 
-    protected void configureDatabase() {
+    protected void configureDatabase(String[] createStatement) {
         try {
             DatabaseManager.createDatabase();
             try(Connection connection = DatabaseManager.getConnection()) {
-                for(String statement : getCreateStatements()) {
+                for(String statement : createStatement) {
                     try(PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
                         preparedStatement.executeUpdate();
                     }

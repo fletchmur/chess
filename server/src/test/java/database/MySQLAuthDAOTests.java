@@ -8,8 +8,8 @@ import org.junit.jupiter.api.*;
 
 public class MySQLAuthDAOTests {
 
-    MySQLAuthDAO authDAO = new MySQLAuthDAO();
     MySQLUserDAO userDAO = new MySQLUserDAO();
+    MySQLAuthDAO authDAO = new MySQLAuthDAO();
 
     @BeforeEach
     public void setUp() {

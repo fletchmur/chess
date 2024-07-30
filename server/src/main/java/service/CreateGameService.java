@@ -3,14 +3,14 @@ package service;
 import chess.ChessGame;
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.GameDAO;
-import dataaccess.memory.MemoryGameDAO;
+import dataaccess.mysql.MySQLGameDAO;
 import model.GameData;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
 
 public class CreateGameService {
 
-    private GameDAO gameDAO = new MemoryGameDAO();
+    private GameDAO gameDAO = new MySQLGameDAO();
 
     public CreateGameResponse createGame(CreateGameRequest creationRequest) throws ErrorException {
         String gameName = creationRequest.gameName();

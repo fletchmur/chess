@@ -14,20 +14,6 @@ import java.sql.SQLException;
 public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
 
     @Override
-    protected String[] getCreateStatements() {
-        return new String[]{
-                """
-                CREATE TABLE IF NOT EXISTS user (
-                	username varchar(255) NOT NULL,
-                	password varchar(255) NOT NULL,
-                	email varchar(255) NOT NULL,
-                	PRIMARY KEY (username)
-                );
-                """
-        };
-    }
-
-    @Override
     public String createUser(UserData user) throws DataAccessException {
         String statement = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
         try {

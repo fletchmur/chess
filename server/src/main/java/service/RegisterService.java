@@ -1,10 +1,10 @@
 package service;
 
 import dataaccess.DataAccessException;
-import dataaccess.memory.MemoryUserDAO;
 import dataaccess.interfaces.UserDAO;
 import dataaccess.mysql.MySQLUserDAO;
 import model.UserData;
+import org.mindrot.jbcrypt.BCrypt;
 import request.LoginRequest;
 import request.RegisterRequest;
 import response.RegisterResponse;
@@ -28,7 +28,8 @@ public class RegisterService {
             if(user != null) {
                 throw new ErrorException(403,"already taken");
             }
-            userDAO.createUser(new UserData(username,password,email));
+            String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+            userDAO.createUser(new UserData(username,hashedPassword,email));
         }
         catch(DataAccessException e)
         {
