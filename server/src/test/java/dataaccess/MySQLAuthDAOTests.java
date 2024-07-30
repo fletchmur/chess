@@ -1,5 +1,4 @@
-package database;
-import dataaccess.DataAccessException;
+package dataaccess;
 import dataaccess.mysql.MySQLAuthDAO;
 import dataaccess.mysql.MySQLUserDAO;
 import model.AuthData;

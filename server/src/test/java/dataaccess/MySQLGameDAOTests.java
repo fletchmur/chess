@@ -1,6 +1,5 @@
-package database;
+package dataaccess;
 import chess.ChessGame;
-import dataaccess.DataAccessException;
 import dataaccess.mysql.MySQLGameDAO;
 import dataaccess.mysql.MySQLUserDAO;
 import model.GameData;
@@ -8,7 +7,6 @@ import model.UserData;
 import org.junit.jupiter.api.*;
 
 import java.util.Collection;
-import java.util.HashSet;
 
 public class MySQLGameDAOTests {
 
