@@ -75,9 +75,9 @@ public abstract class MySQLDAO {
             try(PreparedStatement ps = connection.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS)) {
                 for(int i = 0; i < params.length; i++) {
                     var param = params[i];
-                    if (param instanceof String p) ps.setString(i + 1, p);
-                    else if (param instanceof Integer p) ps.setInt(i + 1, p);
-                    else if (param == null) ps.setNull(i + 1, Types.NULL);
+                    if (param instanceof String p) { ps.setString(i + 1, p);}
+                    else if (param instanceof Integer p) {ps.setInt(i + 1, p);}
+                    else if (param == null) {ps.setNull(i + 1, Types.NULL);}
                 }
                 ps.executeUpdate();
 

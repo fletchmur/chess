@@ -33,10 +33,10 @@ public class MySQLUserDAO extends MySQLDAO implements UserDAO  {
                 preparedStatement.setString(1,username);
                 try(ResultSet resultSet = preparedStatement.executeQuery()) {
                     if(resultSet.next()) {
-                        String result_username = resultSet.getString("username");
-                        String result_password = resultSet.getString("password");
-                        String result_email = resultSet.getString("email");
-                        return new UserData(result_username,result_password,result_email);
+                        String resultUsername = resultSet.getString("username");
+                        String resultPassword = resultSet.getString("password");
+                        String resultEmail = resultSet.getString("email");
+                        return new UserData(resultUsername,resultPassword,resultEmail);
                     }
                     else {
                         return null;
