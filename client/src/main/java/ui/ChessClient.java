@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import exception.ErrorException;
 import request.*;
+import model.GameData;
+import response.ListGamesResponse;
 import serverfacade.ServerFacade;
 
 
@@ -47,6 +49,7 @@ public class ChessClient {
 
         try {
             return switch(cmd) {
+                case "list" -> list(params);
                 case "create" -> create(params);
                 case "register" -> register(params);
                 case "login" -> login(params);
@@ -60,6 +63,25 @@ public class ChessClient {
             return setBoldRed + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
         }
 
+    }
+
+    private String list(String... params) throws ErrorException {
+        if (params.length > 0) {
+            return successFormat + "Expected Usage:" + setBoldBlue + " logout";
+        }
+        ListGamesRequest request = new ListGamesRequest();
+        ListGamesResponse response = facade.listGames(request);
+        GameData[] games = response.games();
+        if (games.length == 0) {
+            return successFormat + "No games found";
+        }
+
+        StringBuilder result = new StringBuilder();
+        for(int i = 0; i < games.length-1; i++) {
+            result.append(setBoldBlue).append(i+1).append(". ").append(successFormat).append(games[i].gameName()).append("\n");
+        }
+        result.append(setBoldBlue).append(games.length).append(". ").append(successFormat).append(games[games.length-1].gameName());
+        return result.toString();
     }
 
     private String create(String... params) throws ErrorException {
