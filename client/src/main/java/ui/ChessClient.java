@@ -3,11 +3,7 @@ package ui;
 import java.util.Arrays;
 
 import exception.ErrorException;
-import request.ClearRequest;
-import request.LoginRequest;
-import request.LogoutRequest;
-import request.RegisterRequest;
-import response.RegisterResponse;
+import request.*;
 import serverfacade.ServerFacade;
 
 
@@ -34,7 +30,7 @@ public class ChessClient {
     public String getStateString() {
         String color = EscapeSequences.SET_TEXT_COLOR_LIGHT_GREY;
         return switch(state) {
-            case SIGNED_IN -> color + "[LOGGED_IN]";
+            case SIGNED_IN -> EscapeSequences.SET_TEXT_COLOR_WHITE + "[LOGGED_IN]";
             case SIGNED_OUT -> color + "[LOGGED_OUT]";
         };
     }
@@ -51,6 +47,7 @@ public class ChessClient {
 
         try {
             return switch(cmd) {
+                case "create" -> create(params);
                 case "register" -> register(params);
                 case "login" -> login(params);
                 case "quit" -> quit();
@@ -63,6 +60,17 @@ public class ChessClient {
             return setBoldRed + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
         }
 
+    }
+
+    private String create(String... params) throws ErrorException {
+        if (params.length != 1) {
+            return successFormat + "Expected Usage:" + setBoldBlue + " create <NAME>";
+        }
+
+        String gameName = params[0];
+        CreateGameRequest request = new CreateGameRequest(gameName);
+        facade.createGame(request);
+        return successFormat + "Created game " + gameName;
     }
 
     private String logout(String... params) throws ErrorException {

@@ -18,8 +18,6 @@ public class ServerFacade {
 
     private String authToken;
 
-    private record ErrorMessage(String message){};
-
     public ServerFacade(String serverURL) {
         this.serverURL = serverURL;
         this.authToken = "";

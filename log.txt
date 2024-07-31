@@ -1,4 +1,20 @@
-Jul 31, 2024 2:40:49 PM server.Server log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"494223cb-8b43-402b-807a-1d5f6cdc1c17"}
-Jul 31, 2024 2:40:54 PM server.Server log
+Jul 31, 2024 4:36:58 PM server.Server log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Jul 31, 2024 4:37:04 PM server.Server log
+INFO: [POST]/session - 200: {"username":"fletcher","authToken":"f3a63a06-939f-4036-8238-b17c1652cda8"}
+Jul 31, 2024 4:37:43 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Jul 31, 2024 4:37:55 PM server.Server log
+INFO: [POST]/user - 200: {"username":"fletcher","authToken":"d63f743f-c53a-4cff-9720-62eff417d295"}
+Jul 31, 2024 4:38:12 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Jul 31, 2024 4:39:16 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":2}
+Jul 31, 2024 4:40:50 PM server.Server log
 INFO: [DELETE]/session - 200: {}
+Jul 31, 2024 4:40:52 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Jul 31, 2024 4:41:53 PM server.Server log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Jul 31, 2024 4:42:05 PM server.Server log
+INFO: [POST]/user - 200: {"username":"fletcher","authToken":"65e47908-9a26-4ec0-8ce0-f6d9deac3296"}
