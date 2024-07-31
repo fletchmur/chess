@@ -16,8 +16,13 @@ import response.*;
 public class ServerFacade {
     private final String serverURL;
 
+    private String authToken;
+
+    private record ErrorMessage(String message){};
+
     public ServerFacade(String serverURL) {
         this.serverURL = serverURL;
+        this.authToken = "";
     }
 
     public ClearResponse clear(ClearRequest request) throws ErrorException {
@@ -29,39 +34,45 @@ public class ServerFacade {
     public RegisterResponse register(RegisterRequest request) throws ErrorException {
         String path = "/user";
         String method = "POST";
-        return makeRequest(method,path,request,null,RegisterResponse.class);
+        RegisterResponse response = makeRequest(method,path,request,null,RegisterResponse.class);
+        this.authToken = response.authToken();
+        return response;
     }
 
     public LoginResponse login(LoginRequest request) throws ErrorException {
         String path = "/session";
         String method = "POST";
-        return makeRequest(method,path,request,null,LoginResponse.class);
+        LoginResponse response = makeRequest(method,path,request,null,LoginResponse.class);
+        this.authToken = response.authToken();
+        return response;
     }
 
-    public CreateGameResponse createGame(CreateGameRequest request,String authToken) throws ErrorException {
+    public CreateGameResponse createGame(CreateGameRequest request) throws ErrorException {
         String path = "/game";
         String method = "POST";
-        return makeRequest(method,path,request,authToken,CreateGameResponse.class);
+        return makeRequest(method,path,request, this.authToken,CreateGameResponse.class);
     }
 
-    public LogoutResponse logout(LogoutRequest request,String authToken) throws ErrorException {
+    public LogoutResponse logout(LogoutRequest request) throws ErrorException {
         String path = "/session";
         String method = "DELETE";
-        return makeRequest(method,path,request,authToken,LogoutResponse.class);
+
+        LogoutResponse response = makeRequest(method,path,request,this.authToken,LogoutResponse.class);
+        this.authToken = "";
+        return response;
     }
 
-    public ListGamesResponse listGames(ListGamesRequest request, String authToken) throws ErrorException {
+    public ListGamesResponse listGames(ListGamesRequest request) throws ErrorException {
         String path = "/game";
         String method = "GET";
-        return makeRequest(method,path,null,authToken,ListGamesResponse.class);
+        return makeRequest(method,path,null,this.authToken,ListGamesResponse.class);
     }
 
-    public JoinGameResponse joinGame(JoinGameRequest request, String authToken) throws ErrorException {
+    public JoinGameResponse joinGame(JoinGameRequest request) throws ErrorException {
         String path = "/game";
         String method = "PUT";
-        return makeRequest(method,path,request,authToken,JoinGameResponse.class);
+        return makeRequest(method,path,request,this.authToken,JoinGameResponse.class);
     }
-
 
      private <T> T makeRequest(String method, String path, Object request, String authToken, Class<T> responseType) throws ErrorException {
         try {
@@ -90,7 +101,6 @@ public class ServerFacade {
 
     }
 
-
     private void writeBody(Object request, HttpURLConnection http) throws IOException {
         if(request != null) {
             http.addRequestProperty("Content-Type", "application/json");
@@ -118,7 +128,18 @@ public class ServerFacade {
         int status = http.getResponseCode();
         boolean successful = status / 100 == 2;
         if(!successful) {
-            throw new ErrorException(status,"failure " + status);
+            throw new ErrorException(status,errorHandler(status));
         }
+    }
+
+    private String errorHandler(int status) {
+        return switch(status) {
+            case 400 -> "Bad Request";
+            case 401 -> "Unauthorized";
+            case 403 -> "Username already taken";
+            case 404 -> "Not Found";
+            case 500 -> "Internal Server Error";
+            default -> "Unknown Error";
+        };
     }
 }

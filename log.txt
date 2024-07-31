@@ -1,0 +1,4 @@
+Jul 31, 2024 2:40:49 PM server.Server log
+INFO: [POST]/session - 200: {"username":"fletcher","authToken":"494223cb-8b43-402b-807a-1d5f6cdc1c17"}
+Jul 31, 2024 2:40:54 PM server.Server log
+INFO: [DELETE]/session - 200: {}

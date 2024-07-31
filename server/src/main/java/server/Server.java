@@ -47,7 +47,7 @@ public class Server {
     }
 
     private void log(Request req, Response res) {
-        logger.log(Level.INFO, String.format("[%s]%s - %d", req.requestMethod(), req.pathInfo(), res.status()));
+        logger.log(Level.INFO, String.format("[%s]%s - %d: %s", req.requestMethod(), req.pathInfo(), res.status(),res.body()));
     }
 
     private static void initLog() throws IOException {
