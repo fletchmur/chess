@@ -1,10 +1,13 @@
 package ui;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
+import chess.ChessGame;
 import exception.ErrorException;
 import request.*;
 import model.GameData;
+import response.JoinGameResponse;
 import response.ListGamesResponse;
 import serverfacade.ServerFacade;
 
@@ -17,16 +20,18 @@ public class ChessClient {
     };
 
     private final ServerFacade facade;
+    private HashMap<Integer,Integer> listToGameID;
     private State state = State.SIGNED_OUT;
 
-    private String setBoldBlue = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;
-    private String setFaintMagenta = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;
-    private String setBoldRed = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
-    private String successFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_WHITE;
+    //FORMATING
+    private String boldServerFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;
+    private String errorFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
+    private String serverFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;
 
 
     public ChessClient(String serverURL) {
         facade = new ServerFacade(serverURL);
+        listToGameID = new HashMap<>();
     }
 
     public String getStateString() {
@@ -42,6 +47,7 @@ public class ChessClient {
         //This method should take in a line from the repl class, break it down into the command and parameters
         // It should then call the appropriate evaluation command and return a string that is the result of the command
         // being executed
+        //TODO implement join game and observe game (add the results of list game to a hashmap to keep track)
 
         String[] tokens = line.split(" ");
         String cmd = tokens[0];
@@ -49,6 +55,7 @@ public class ChessClient {
 
         try {
             return switch(cmd) {
+                case "join" -> join(params);
                 case "list" -> list(params);
                 case "create" -> create(params);
                 case "register" -> register(params);
@@ -60,55 +67,83 @@ public class ChessClient {
             };
         }
         catch (ErrorException e) {
-            return setBoldRed + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
+            return errorFormat + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
         }
 
     }
 
+    private String join(String... params) throws ErrorException {
+        if(params.length != 2) {
+            return serverFormat + "Expected Usage:" + boldServerFormat + " join <ID> <WHITE|BLACK>";
+        }
+
+        ChessGame.TeamColor teamColor = switch(params[1]) {
+            case "WHITE" -> ChessGame.TeamColor.WHITE;
+            case "BLACK" -> ChessGame.TeamColor.BLACK;
+            default -> throw new ErrorException(400, "Invalid team color");
+        };
+        int joinID = Integer.parseInt(params[0]);
+        boolean joinIDInRange = (joinID >= 1 && joinID <= listToGameID.keySet().size());
+        Integer gameID = listToGameID.get(joinID);
+        if (!joinIDInRange || gameID == null) {
+            throw new ErrorException(400, "Invalid join ID");
+        }
+
+        JoinGameRequest request = new JoinGameRequest(teamColor,gameID);
+        facade.joinGame(request);
+        return serverFormat + "joining game...";
+    }
+
     private String list(String... params) throws ErrorException {
+        assertSignedIn();
         if (params.length > 0) {
-            return successFormat + "Expected Usage:" + setBoldBlue + " logout";
+            return serverFormat + "Expected Usage:" + boldServerFormat + " logout";
         }
         ListGamesRequest request = new ListGamesRequest();
         ListGamesResponse response = facade.listGames(request);
         GameData[] games = response.games();
+
         if (games.length == 0) {
-            return successFormat + "No games found";
+            return serverFormat + "No games found";
         }
 
         StringBuilder result = new StringBuilder();
         for(int i = 0; i < games.length-1; i++) {
-            result.append(setBoldBlue).append(i+1).append(". ").append(successFormat).append(games[i].gameName()).append("\n");
+            listToGameID.put(i + 1, games[i].gameID());
+            result.append(boldServerFormat).append(i+1).append(". ").append(serverFormat).append(games[i].gameName()).append("\n");
         }
-        result.append(setBoldBlue).append(games.length).append(". ").append(successFormat).append(games[games.length-1].gameName());
+        listToGameID.put(games.length, games[games.length-1].gameID());
+        result.append(boldServerFormat).append(games.length).append(". ").append(serverFormat).append(games[games.length-1].gameName());
         return result.toString();
     }
 
     private String create(String... params) throws ErrorException {
+        assertSignedIn();
         if (params.length != 1) {
-            return successFormat + "Expected Usage:" + setBoldBlue + " create <NAME>";
+            return serverFormat + "Expected Usage:" + boldServerFormat + " create <NAME>";
         }
 
         String gameName = params[0];
         CreateGameRequest request = new CreateGameRequest(gameName);
         facade.createGame(request);
-        return successFormat + "Created game " + gameName;
+        return serverFormat + "Created game " + gameName;
     }
 
     private String logout(String... params) throws ErrorException {
+        assertSignedIn();
         if (params.length > 0) {
-            return successFormat + "Expected Usage:" + setBoldBlue + " logout";
+            return serverFormat + "Expected Usage:" + boldServerFormat + " logout";
         }
 
         LogoutRequest request = new LogoutRequest();
         facade.logout(request);
         state = State.SIGNED_OUT;
-        return successFormat + "Logout successful";
+        return serverFormat + "Logout successful";
     }
 
     private String login(String... params) throws ErrorException {
         if(params.length != 2) {
-            return successFormat + "Expected Usage:" + setBoldBlue + " login <USERNAME> <PASSWORD>";
+            return serverFormat + "Expected Usage:" + boldServerFormat + " login <USERNAME> <PASSWORD>";
         }
 
         String username = params[0];
@@ -117,13 +152,13 @@ public class ChessClient {
         LoginRequest loginRequest = new LoginRequest(username, password);
         facade.login(loginRequest);
         state = State.SIGNED_IN;
-        return successFormat + "Successfully Logged In";
+        return serverFormat + "Successfully Logged In";
     }
 
     private String register(String... params) throws ErrorException {
 
         if(params.length != 3) {
-            return  successFormat + "Expected Usage:" + setBoldBlue + " register <USERNAME> <PASSWORD> <EMAIL>";
+            return  serverFormat + "Expected Usage:" + boldServerFormat + " register <USERNAME> <PASSWORD> <EMAIL>";
         }
 
         String username = params[0];
@@ -132,7 +167,7 @@ public class ChessClient {
 
         facade.register(new RegisterRequest(username, password, email));
         state = State.SIGNED_IN;
-        return successFormat + "Registered user: " + username;
+        return serverFormat + "Registered user: " + username;
     }
 
     private String quit() throws ErrorException {
@@ -143,28 +178,34 @@ public class ChessClient {
     }
 
     private String help() {
-        String prelude = setBoldBlue + "--POSSIBLE COMMANDS--\n";
+        String prelude = boldServerFormat + "[HELP]\n";
 
         String helpString = switch (state) {
             case SIGNED_OUT ->
-                    setBoldBlue + "register <USERNAME> <PASSWORD> <EMAIL>" + setFaintMagenta + " - to create an account\n" +
-                    setBoldBlue + "login <USERNAME <PASSWORD>" + setFaintMagenta + " - login to an existing account\n" +
-                    setBoldBlue + "quit" + setFaintMagenta + " - exit program\n" +
-                    setBoldBlue + "help" + setFaintMagenta + " - show possible commands";
+                    boldServerFormat + "register <USERNAME> <PASSWORD> <EMAIL>" + serverFormat + " - to create an account\n" +
+                            boldServerFormat + "login <USERNAME <PASSWORD>" + serverFormat + " - login to an existing account\n" +
+                            boldServerFormat + "quit" + serverFormat + " - exit program\n" +
+                            boldServerFormat + "help" + serverFormat + " - show possible commands";
             case SIGNED_IN ->
-                    setBoldBlue + "create <NAME>" + setFaintMagenta + " - create a new game\n" +
-                    setBoldBlue + "list" + setFaintMagenta + " - list all games\n" +
-                    setBoldBlue + "join <ID> <WHITE|BLACK>" + setFaintMagenta + " - join a game\n" +
-                    setBoldBlue + "observe <ID>" + setFaintMagenta + " - spectate a game\n" +
-                    setBoldBlue + "logout" + setFaintMagenta + " - when you are done\n" +
-                    setBoldBlue + "help" + setFaintMagenta + " - show possible commands";
+                    boldServerFormat + "create <NAME>" + serverFormat + " - create a new game\n" +
+                            boldServerFormat + "list" + serverFormat + " - list all games\n" +
+                            boldServerFormat + "join <ID> <WHITE|BLACK>" + serverFormat + " - join a game\n" +
+                            boldServerFormat + "observe <ID>" + serverFormat + " - spectate a game\n" +
+                            boldServerFormat + "logout" + serverFormat + " - when you are done\n" +
+                            boldServerFormat + "help" + serverFormat + " - show possible commands";
         };
         return prelude + helpString;
+    }
+
+    private void assertSignedIn() throws ErrorException {
+        if(state == State.SIGNED_OUT) {
+            throw new ErrorException(400, "Must sign in");
+        }
     }
 
     //TODO remove clear method and clear case in eval switch statement
     private String clear() throws ErrorException {
         facade.clear(new ClearRequest());
-        return successFormat + "cleared databases";
+        return serverFormat + "cleared databases";
     }
 }

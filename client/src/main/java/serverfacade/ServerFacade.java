@@ -134,7 +134,7 @@ public class ServerFacade {
         return switch(status) {
             case 400 -> "Bad Request";
             case 401 -> "Unauthorized";
-            case 403 -> "Username already taken";
+            case 403 -> "already taken";
             case 404 -> "Not Found";
             case 500 -> "Internal Server Error";
             default -> "Unknown Error";
