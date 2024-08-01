@@ -3,11 +3,11 @@ package ui;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import chess.ChessBoard;
 import chess.ChessGame;
 import exception.ErrorException;
 import request.*;
 import model.GameData;
-import response.JoinGameResponse;
 import response.ListGamesResponse;
 import serverfacade.ServerFacade;
 
@@ -24,9 +24,9 @@ public class ChessClient {
     private State state = State.SIGNED_OUT;
 
     //FORMATING
-    private String boldServerFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;
-    private String errorFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
-    private String serverFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;
+    private final String boldServerFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;
+    private final String errorFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
+    private final  String serverFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;
 
 
     public ChessClient(String serverURL) {
@@ -47,7 +47,8 @@ public class ChessClient {
         //This method should take in a line from the repl class, break it down into the command and parameters
         // It should then call the appropriate evaluation command and return a string that is the result of the command
         // being executed
-        //TODO implement join game and observe game (add the results of list game to a hashmap to keep track)
+        //TODO implement observe game
+        //TODO implement board rendering
 
         String[] tokens = line.split(" ");
         String cmd = tokens[0];
@@ -55,6 +56,7 @@ public class ChessClient {
 
         try {
             return switch(cmd) {
+                case "render" -> renderBoard(params);
                 case "join" -> join(params);
                 case "list" -> list(params);
                 case "create" -> create(params);
@@ -70,6 +72,18 @@ public class ChessClient {
             return errorFormat + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
         }
 
+    }
+
+    private String renderBoard(String... params) {
+        ChessGame.TeamColor color = switch(params[0]) {
+            case "WHITE","w","white" -> ChessGame.TeamColor.WHITE;
+            case "BLACK","b","black" -> ChessGame.TeamColor.BLACK;
+            default -> ChessGame.TeamColor.WHITE;
+        };
+        ChessBoard board = new ChessBoard();
+        board.resetBoard();
+        ChessBoardRenderer renderer = new ChessBoardRenderer(board, color);
+        return renderer.render();
     }
 
     private String join(String... params) throws ErrorException {
