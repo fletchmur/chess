@@ -1,18 +1,22 @@
-Aug 02, 2024 2:37:44 PM server.Server log
-INFO: [DELETE]/db - 200: {}
-Aug 02, 2024 2:37:52 PM server.Server log
-INFO: [POST]/user - 200: {"username":"fletcher","authToken":"9b22a5e5-b0cb-4606-a0e0-f5d557387e28"}
-Aug 02, 2024 2:37:54 PM server.Server log
-INFO: [DELETE]/session - 200: {}
-Aug 02, 2024 2:37:58 PM server.Server log
+Aug 02, 2024 2:44:48 PM server.Server log
 INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
-Aug 02, 2024 2:38:02 PM server.Server log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"a0310575-892f-4f3a-8ed2-7a67439c59af"}
-Aug 02, 2024 2:38:05 PM server.Server log
+Aug 02, 2024 2:44:54 PM server.Server log
+INFO: [POST]/user - 200: {"username":"fletcher","authToken":"ac8c3517-5a7e-4b0d-a472-97109097254d"}
+Aug 02, 2024 2:44:58 PM server.Server log
+INFO: [DELETE]/session - 200: {}
+Aug 02, 2024 2:45:01 PM server.Server log
+INFO: [POST]/session - 200: {"username":"fletcher","authToken":"8693aa2e-e7b9-4591-a1be-474f55b19e8a"}
+Aug 02, 2024 2:45:24 PM server.Server log
 INFO: [GET]/game - 200: {"games":[]}
-Aug 02, 2024 2:38:07 PM server.Server log
+Aug 02, 2024 2:45:26 PM server.Server log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 02, 2024 2:38:09 PM server.Server log
+Aug 02, 2024 2:45:26 PM server.Server log
 INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"test","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}}]}
-Aug 02, 2024 2:38:26 PM server.Server log
+Aug 02, 2024 2:45:34 PM server.Server log
 INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:45:46 PM server.Server log
+INFO: [DELETE]/session - 200: {}
+Aug 02, 2024 2:45:46 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:45:53 PM server.Server log
+INFO: [DELETE]/db - 200: {}

@@ -147,7 +147,8 @@ public class ChessClient {
         String gameName = params[0];
         CreateGameRequest request = new CreateGameRequest(gameName);
         facade.createGame(request);
-        return serverFormat + "Created game " + gameName;
+        String gamesList = list();
+        return serverFormat + "Created game " + gameName + "\n\n" + gamesList;
     }
 
     private String logout(String... params) throws ErrorException {
@@ -235,6 +236,11 @@ public class ChessClient {
 
     //TODO remove clear method and clear case in eval switch statement
     private String clear() throws ErrorException {
+        if(state == State.SIGNED_IN) {
+            logout();
+            state = State.SIGNED_OUT;
+        }
+
         facade.clear(new ClearRequest());
         return serverFormat + "cleared databases";
     }
