@@ -1,14 +1,10 @@
-Aug 02, 2024 2:17:54 PM server.Server log
-INFO: [POST]/user - 200: {"username":"fletcher1","authToken":"582b1b65-1be5-4a04-aafc-e54ecb7e5151"}
-Aug 02, 2024 2:17:59 PM server.Server log
+Aug 02, 2024 2:34:05 PM server.Server log
+INFO: [POST]/user - 200: {"username":"fletcher","authToken":"f4441688-3f50-428e-8759-6de6cfb840b9"}
+Aug 02, 2024 2:34:09 PM server.Server log
 INFO: [GET]/game - 200: {"games":[]}
-Aug 02, 2024 2:18:48 PM server.Server log
+Aug 02, 2024 2:34:13 PM server.Server log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 02, 2024 2:19:00 PM server.Server log
+Aug 02, 2024 2:34:15 PM server.Server log
 INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"test","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}}]}
-Aug 02, 2024 2:19:08 PM server.Server log
+Aug 02, 2024 2:34:20 PM server.Server log
 INFO: [PUT]/game - 200: {}
-Aug 02, 2024 2:19:55 PM server.Server log
-INFO: [DELETE]/session - 200: {}
-Aug 02, 2024 2:19:56 PM server.Server log
-INFO: [DELETE]/db - 200: {}

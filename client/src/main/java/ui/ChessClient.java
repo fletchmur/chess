@@ -96,8 +96,8 @@ public class ChessClient {
         }
 
         ChessGame.TeamColor teamColor = switch(params[1]) {
-            case "WHITE" -> ChessGame.TeamColor.WHITE;
-            case "BLACK" -> ChessGame.TeamColor.BLACK;
+            case "WHITE", "white", "w", "W" -> ChessGame.TeamColor.WHITE;
+            case "BLACK", "black", "b", "B" -> ChessGame.TeamColor.BLACK;
             default -> throw new ErrorException(400, "Invalid team color");
         };
         int joinID = Integer.parseInt(params[0]);
