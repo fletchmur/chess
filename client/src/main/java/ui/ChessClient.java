@@ -73,8 +73,8 @@ public class ChessClient {
     }
 
     private String observe(String... params) throws ErrorException {
-        if(params.length != 2 || params[0].length() > 3) {
-            return serverFormat + "Expected Usage:" + boldServerFormat + "Observe <ID> <WHITE>";
+        if(params.length != 1 || params[0].length() > 3) {
+            return serverFormat + "Expected Usage:" + boldServerFormat + " observe <ID>";
         }
 
         int joinID = Integer.parseInt(params[0]);
