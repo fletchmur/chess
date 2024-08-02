@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class ChessBoardRenderer {
     private record Pair(ChessGame.TeamColor color, ChessPiece.PieceType type) {};
-    private static final HashMap<Pair,String> pieceTypeStringMap = new HashMap<Pair,String>();
+    private static final HashMap<Pair,String> PIECE_STRING_MAP = new HashMap<Pair,String>();
 
     private static final String EMPTY = EscapeSequences.EMPTY;
     private static final String LIGHT_SQUARE_COLOR = EscapeSequences.SET_BG_COLOR_LIGHT_BROWN;
@@ -17,23 +17,23 @@ public class ChessBoardRenderer {
     private static final String WHITE = EscapeSequences.SET_TEXT_COLOR_WHITE;
     private static final String BLACK = EscapeSequences.SET_TEXT_COLOR_BLACK;
 
-    private static final String[] header = {" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "};
-    private static final String[] side = {" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 "};
+    private static final String[] HEADER = {" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "};
+    private static final String[] SIDE = {" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 "};
 
     static {
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KING), WHITE + EscapeSequences.WHITE_KING);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN), WHITE + EscapeSequences.WHITE_QUEEN);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.BISHOP), WHITE + EscapeSequences.WHITE_BISHOP);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.ROOK), WHITE + EscapeSequences.WHITE_ROOK);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KNIGHT), WHITE + EscapeSequences.WHITE_KNIGHT);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN), WHITE + EscapeSequences.WHITE_PAWN);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KING), WHITE + EscapeSequences.WHITE_KING);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN), WHITE + EscapeSequences.WHITE_QUEEN);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.BISHOP), WHITE + EscapeSequences.WHITE_BISHOP);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.ROOK), WHITE + EscapeSequences.WHITE_ROOK);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KNIGHT), WHITE + EscapeSequences.WHITE_KNIGHT);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN), WHITE + EscapeSequences.WHITE_PAWN);
 
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KING), BLACK + EscapeSequences.BLACK_KING);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.QUEEN), BLACK + EscapeSequences.BLACK_QUEEN);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.BISHOP), BLACK + EscapeSequences.BLACK_BISHOP);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.ROOK), BLACK + EscapeSequences.BLACK_ROOK);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KNIGHT), BLACK + EscapeSequences.BLACK_KNIGHT);
-        pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN), BLACK + EscapeSequences.BLACK_PAWN);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KING), BLACK + EscapeSequences.BLACK_KING);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.QUEEN), BLACK + EscapeSequences.BLACK_QUEEN);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.BISHOP), BLACK + EscapeSequences.BLACK_BISHOP);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.ROOK), BLACK + EscapeSequences.BLACK_ROOK);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KNIGHT), BLACK + EscapeSequences.BLACK_KNIGHT);
+        PIECE_STRING_MAP.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN), BLACK + EscapeSequences.BLACK_PAWN);
     }
 
     private final ChessGame.TeamColor perspective;
@@ -62,9 +62,9 @@ public class ChessBoardRenderer {
         StringBuilder builder = new StringBuilder();
         builder.append(EscapeSequences.SET_BG_COLOR_DULL_BLUE).append(EMPTY).append(EscapeSequences.SET_TEXT_COLOR_WHITE);
         builder.append(EscapeSequences.SET_TEXT_FAINT);
-        for(int i = 0; i < header.length; i++){
+        for(int i = 0; i < HEADER.length; i++){
             int index = perspective == ChessGame.TeamColor.BLACK ? 7-i : i;
-            builder.append(header[index]);
+            builder.append(HEADER[index]);
         }
         builder.append(EMPTY).append(EscapeSequences.RESET_BG_COLOR).append("\n");
         return builder.toString();
@@ -73,7 +73,7 @@ public class ChessBoardRenderer {
     private String drawSide(int row) {
         String builder = EscapeSequences.SET_BG_COLOR_DULL_BLUE + EscapeSequences.SET_TEXT_COLOR_WHITE +
                 EscapeSequences.SET_TEXT_FAINT +
-                side[row - 1];
+                SIDE[row - 1];
         return builder;
 
     }
@@ -108,7 +108,7 @@ public class ChessBoardRenderer {
 
         ChessGame.TeamColor pieceColor = piece.getTeamColor();
         ChessPiece.PieceType type = piece.getPieceType();
-        return pieceTypeStringMap.get(new Pair(pieceColor, type)) + EscapeSequences.RESET_TEXT_COLOR;
+        return PIECE_STRING_MAP.get(new Pair(pieceColor, type)) + EscapeSequences.RESET_TEXT_COLOR;
     }
 
     private String getNextSquareColor() {

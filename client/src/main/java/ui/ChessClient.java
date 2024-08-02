@@ -48,7 +48,6 @@ public class ChessClient {
         // It should then call the appropriate evaluation command and return a string that is the result of the command
         // being executed
 
-
         String[] tokens = line.split(" ");
         String cmd = tokens[0];
         String[] params = Arrays.copyOfRange(tokens,1,tokens.length);
