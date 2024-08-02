@@ -47,7 +47,7 @@ public class ChessClient {
         //This method should take in a line from the repl class, break it down into the command and parameters
         // It should then call the appropriate evaluation command and return a string that is the result of the command
         // being executed
-        //TODO implement join game and have it render the game you join
+
 
         String[] tokens = line.split(" ");
         String cmd = tokens[0];
