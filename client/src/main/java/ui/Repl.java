@@ -11,7 +11,7 @@ public class Repl {
     }
 
     public void run() {
-        System.out.print(EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_GREEN + "♕ Welcome to Chess. Enter help to get started. ♕");
+        System.out.print(EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE + "♕ Welcome to Chess. Enter help to get started. ♕");
 
         Scanner scanner = new Scanner(System.in);
         var result = "";

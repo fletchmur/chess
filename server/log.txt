@@ -1,1 +1,220 @@
-
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e05999f7-d0ce-4bad-a741-f49fdd241d9f"}
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"Test Game","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}}]}
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"e54bfc18-e371-47b5-a516-e684b6e39891"}
+Aug 02, 2024 2:24:47 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"0398ea19-c80e-4e8f-915a-10e7b7fb3541"}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"4069c1e4-2bc8-44d5-9a34-27138ea81944"}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"9a1fb286-d208-402c-aac0-6c9baa9a3ab4"}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"4ad33e9e-78e9-4173-b47d-01de32a1fcf3"}
+Aug 02, 2024 2:24:48 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"20306f20-596e-461b-aed6-a38a3ce08a11"}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"4c324dc5-4f04-4e2f-9791-b1026e99d765"}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"700edcfb-0f0b-4955-a171-98907b944c91"}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [POST]/user - 200: {"username":"NewUser","authToken":"a722082e-5e51-4a9b-9f89-bcdc54f05e14"}
+Aug 02, 2024 2:24:49 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e0edbfa3-b09b-4812-a3c7-02f1879d9ddf"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [POST]/user - 403: {"message":"Error: already taken"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"854e4066-598e-4fe5-b154-199a74280063"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [POST]/user - 400: {"message":"Error: bad request"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"3d43ddca-f824-4437-9fed-95f03e3e944e"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/session - 200: {}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"8b4aca27-ff88-471a-b765-251dc1cefb8f"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/session - 200: {}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/session - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:50 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"13d2db02-6e44-4c2d-9677-823ee3e7d493"}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"8ec193ef-4b64-421f-b208-b2d5737ad051"}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [DELETE]/session - 200: {}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/game - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"148d1e41-007b-4f3c-aa47-ee711ae98338"}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"testGame","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}}]}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"5a48a82a-4be9-413f-936c-2b7ec1b45bd4"}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [PUT]/game - 400: {"message":"Error: bad request"}
+Aug 02, 2024 2:24:51 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"4cadd2c5-94d5-4bc8-85cb-5745a641a568"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [PUT]/game - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"bf6ad649-35d3-409e-9b55-b4efbb4b1685"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [PUT]/game - 400: {"message":"Error: bad request"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"19b4d528-a567-4a82-9b6f-0eedf12ff584"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [POST]/user - 200: {"username":"NewUser","authToken":"419718c8-6c46-42e3-9b69-0caac0430182"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [PUT]/game - 403: {"message":"Error: already taken"}
+Aug 02, 2024 2:24:52 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"a572eda2-9ab0-4295-928c-969caee670b9"}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [GET]/game - 200: {"games":[]}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"62449fe1-dfb9-441b-9b9e-3464dfe495fa"}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [POST]/user - 200: {"username":"a","authToken":"a92ac981-a86b-4c80-8d56-df5107e12709"}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [POST]/user - 200: {"username":"b","authToken":"fe0f63b8-a24d-4641-a930-fe227c124402"}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [POST]/user - 200: {"username":"c","authToken":"3f94a2f9-03ad-4a83-bfd0-b5b131952cf7"}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:53 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":2}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":3}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":4}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"blackUsername":"a","gameName":"I\u0027m numbah one!","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}},{"gameID":2,"whiteUsername":"b","gameName":"Lonely","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}},{"gameID":3,"whiteUsername":"c","blackUsername":"a","gameName":"GG","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}},{"gameID":4,"whiteUsername":"c","blackUsername":"c","gameName":"All by myself","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}}]}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"fafbab6c-bca0-466d-94d6-4b32380a360d"}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"e8a4edea-8b94-4b11-8ac6-445421c736d1"}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"f8d13782-246d-4ae6-9d12-fad1bcd9970a"}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [DELETE]/session - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"Bad Join","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]}}}]}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"4f6e8bf3-8f2a-4284-abb4-d5c7596969b4"}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 02, 2024 2:24:54 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":2}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"fea56ebd-3359-420c-a761-839a167d10df"}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [POST]/game - 200: {"gameID":3}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [PUT]/game - 200: {}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [GET]/game - 401: {"message":"Error: unauthorized"}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"4fa60201-91c4-4c98-be45-9f211fbfa008"}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [GET]/game - 200: {"games":[]}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"b72ad932-b3dc-494e-ab06-7adbc0ff2085"}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [DELETE]/db - 200: {}
+Aug 02, 2024 2:24:55 PM server.Server log
+INFO: [DELETE]/db - 200: {}

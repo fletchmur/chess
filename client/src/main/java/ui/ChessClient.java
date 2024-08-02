@@ -47,8 +47,8 @@ public class ChessClient {
         //This method should take in a line from the repl class, break it down into the command and parameters
         // It should then call the appropriate evaluation command and return a string that is the result of the command
         // being executed
-        //TODO implement observe game
-        //TODO implement board rendering
+        //TODO implement observe game and have it render the game you join
+        //TODO implement join game and have it render the game you join
 
         String[] tokens = line.split(" ");
         String cmd = tokens[0];
@@ -56,8 +56,8 @@ public class ChessClient {
 
         try {
             return switch(cmd) {
-                case "render" -> renderBoard(params);
                 case "join" -> join(params);
+                case "observe" -> observe(params);
                 case "list" -> list(params);
                 case "create" -> create(params);
                 case "register" -> register(params);
@@ -74,20 +74,26 @@ public class ChessClient {
 
     }
 
-    private String renderBoard(String... params) {
-        ChessGame.TeamColor color = switch(params[0]) {
-            case "WHITE","w","white" -> ChessGame.TeamColor.WHITE;
-            case "BLACK","b","black" -> ChessGame.TeamColor.BLACK;
-            default -> ChessGame.TeamColor.WHITE;
-        };
+    private String observe(String... params) throws ErrorException {
+        if(params.length != 2 || params[0].length() > 3) {
+            return serverFormat + "Expected Usage:" + boldServerFormat + "Observe <ID> <WHITE>";
+        }
+
+        int joinID = Integer.parseInt(params[0]);
+        boolean joinIDInRange = (joinID >= 1 && joinID <= listToGameID.keySet().size());
+        Integer gameID = listToGameID.get(joinID);
+        if (!joinIDInRange || gameID == null) {
+            throw new ErrorException(400, "Invalid join ID");
+        }
+
         ChessBoard board = new ChessBoard();
         board.resetBoard();
-        ChessBoardRenderer renderer = new ChessBoardRenderer(board, color);
+        ChessBoardRenderer renderer = new ChessBoardRenderer(board, ChessGame.TeamColor.BLACK);
         return renderer.render();
     }
 
     private String join(String... params) throws ErrorException {
-        if(params.length != 2) {
+        if(params.length != 2 || params[0].length() > 3) {
             return serverFormat + "Expected Usage:" + boldServerFormat + " join <ID> <WHITE|BLACK>";
         }
 
@@ -105,7 +111,10 @@ public class ChessClient {
 
         JoinGameRequest request = new JoinGameRequest(teamColor,gameID);
         facade.joinGame(request);
-        return serverFormat + "joining game...";
+        ChessBoard board = new ChessBoard();
+        board.resetBoard();
+        ChessBoardRenderer renderer = new ChessBoardRenderer(board, teamColor);
+        return renderer.render();
     }
 
     private String list(String... params) throws ErrorException {
@@ -156,6 +165,8 @@ public class ChessClient {
     }
 
     private String login(String... params) throws ErrorException {
+        assertSignedOut();
+
         if(params.length != 2) {
             return serverFormat + "Expected Usage:" + boldServerFormat + " login <USERNAME> <PASSWORD>";
         }
@@ -171,6 +182,7 @@ public class ChessClient {
 
     private String register(String... params) throws ErrorException {
 
+        assertSignedOut();
         if(params.length != 3) {
             return  serverFormat + "Expected Usage:" + boldServerFormat + " register <USERNAME> <PASSWORD> <EMAIL>";
         }
@@ -214,6 +226,12 @@ public class ChessClient {
     private void assertSignedIn() throws ErrorException {
         if(state == State.SIGNED_OUT) {
             throw new ErrorException(400, "Must sign in");
+        }
+    }
+
+    private void assertSignedOut() throws ErrorException {
+        if(state == State.SIGNED_IN) {
+            throw new ErrorException(400, "Must sign out");
         }
     }
 

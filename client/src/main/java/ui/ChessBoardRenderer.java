@@ -17,8 +17,8 @@ public class ChessBoardRenderer {
     private static final String WHITE = EscapeSequences.SET_TEXT_COLOR_WHITE;
     private static final String BLACK = EscapeSequences.SET_TEXT_COLOR_BLACK;
 
-    private static String[] header = {" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "};
-    private static String[] side = {" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 "};
+    private static final String[] header = {" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "};
+    private static final String[] side = {" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 "};
 
     static {
         pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KING), WHITE + EscapeSequences.WHITE_KING);
@@ -36,7 +36,7 @@ public class ChessBoardRenderer {
         pieceTypeStringMap.put(new Pair(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN), BLACK + EscapeSequences.BLACK_PAWN);
     }
 
-    private ChessGame.TeamColor perspective;
+    private final ChessGame.TeamColor perspective;
     private ChessBoard board;
     private String nextSquareColor = DARK_SQUARE_COLOR;
 
@@ -45,12 +45,10 @@ public class ChessBoardRenderer {
         this.board = board;
     }
 
-
     public String render() {
         StringBuilder builder = new StringBuilder();
         builder.append(EscapeSequences.ERASE_SCREEN);
 
-        //TODO draw borders around board
         builder.append(drawHeader());
         for(int i = 0; i < 8; i++) {
             int rowIndex = perspective == ChessGame.TeamColor.BLACK ? i+1 : 8-i;
@@ -73,14 +71,12 @@ public class ChessBoardRenderer {
     }
 
     private String drawSide(int row) {
-        StringBuilder builder = new StringBuilder();
-        builder.append(EscapeSequences.SET_BG_COLOR_DULL_BLUE).append(EscapeSequences.SET_TEXT_COLOR_WHITE);
-        builder.append(EscapeSequences.SET_TEXT_FAINT);
-        builder.append(side[row-1]);
-        return builder.toString();
+        String builder = EscapeSequences.SET_BG_COLOR_DULL_BLUE + EscapeSequences.SET_TEXT_COLOR_WHITE +
+                EscapeSequences.SET_TEXT_FAINT +
+                side[row - 1];
+        return builder;
 
     }
-
 
     private String drawRow(int row) {
         StringBuilder builder = new StringBuilder();
@@ -101,9 +97,7 @@ public class ChessBoardRenderer {
 
     private String drawSquare(ChessPiece piece,String bgColor) {
         String pieceString = pieceTypeToString(piece);
-        StringBuilder builder = new StringBuilder();
-        builder.append(bgColor).append(pieceString).append(EscapeSequences.RESET_BG_COLOR);
-        return builder.toString();
+        return bgColor + pieceString + EscapeSequences.RESET_BG_COLOR;
     }
 
     private String pieceTypeToString(ChessPiece piece) {
