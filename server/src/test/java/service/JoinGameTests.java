@@ -12,6 +12,7 @@ import org.junit.jupiter.api.*;
 import request.JoinGameRequest;
 import response.JoinGameResponse;
 import exception.ErrorException;
+import server.service.JoinGameService;
 
 public class JoinGameTests {
     GameDAO gameDAO = new MySQLGameDAO();

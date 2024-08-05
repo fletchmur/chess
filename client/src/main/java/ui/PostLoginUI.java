@@ -96,7 +96,6 @@ public class PostLoginUI extends UI {
     }
 
     private String list(String... params) throws ErrorException {
-        client.assertSignedIn();
         if (params.length > 0) {
             return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " logout";
         }
@@ -125,7 +124,6 @@ public class PostLoginUI extends UI {
     }
 
     private String create(String... params) throws ErrorException {
-        client.assertSignedIn();
         if (params.length != 1) {
             return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " create <NAME>";
         }
@@ -138,7 +136,6 @@ public class PostLoginUI extends UI {
     }
 
     private String logout(String... params) throws ErrorException {
-        client.assertSignedIn();
         if (params.length > 0) {
             return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " logout";
         }

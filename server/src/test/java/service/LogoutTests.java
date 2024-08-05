@@ -5,6 +5,7 @@ import model.AuthData;
 import org.junit.jupiter.api.*;
 import response.LogoutResponse;
 import exception.ErrorException;
+import server.service.LogoutService;
 
 public class LogoutTests {
     private final LogoutService logoutService = new LogoutService();

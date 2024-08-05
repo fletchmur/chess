@@ -1,10 +1,10 @@
-package handler;
+package server.handler;
 
 import request.LoginRequest;
 import response.LoginResponse;
 import exception.ErrorException;
 import spark.Route;
-import service.LoginService;
+import server.service.LoginService;
 
 
 public class LoginHandler extends Handler<LoginRequest, LoginResponse> implements Route {

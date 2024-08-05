@@ -1,7 +1,7 @@
 package service;
 
 import com.google.gson.reflect.TypeToken;
-import handler.Serializer;
+import server.handler.Serializer;
 import org.junit.jupiter.api.*;
 import request.LoginRequest;
 import request.RegisterRequest;

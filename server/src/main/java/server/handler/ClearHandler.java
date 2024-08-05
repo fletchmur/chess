@@ -1,8 +1,8 @@
-package handler;
+package server.handler;
 
 import request.ClearRequest;
 import response.ClearResponse;
-import service.ClearService;
+import server.service.ClearService;
 import exception.ErrorException;
 import spark.Route;
 

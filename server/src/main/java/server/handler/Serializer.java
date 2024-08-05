@@ -1,4 +1,4 @@
-package handler;
+package server.handler;
 
 import java.lang.reflect.Type;
 

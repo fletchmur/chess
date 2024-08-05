@@ -1,6 +1,6 @@
-package handler;
+package server.handler;
 
-import service.AuthorizationService;
+import server.service.AuthorizationService;
 import exception.ErrorException;
 
 import spark.Request;

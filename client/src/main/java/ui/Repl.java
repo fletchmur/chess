@@ -17,7 +17,6 @@ public class Repl {
         var result = "";
         while(result != "quit") {
             printPropmt();
-            //TODO implement Chess Client
             String line = scanner.nextLine();
             result = client.eval(line);
             System.out.print(result);

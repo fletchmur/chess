@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 import request.RegisterRequest;
 import response.RegisterResponse;
 import exception.ErrorException;
+import server.service.RegisterService;
 
 public class RegisterServiceTests {
     private final RegisterService registerService = new RegisterService();

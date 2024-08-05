@@ -5,6 +5,7 @@ import dataaccess.mysql.MySQLAuthDAO;
 import model.AuthData;
 import org.junit.jupiter.api.*;
 import exception.ErrorException;
+import server.service.AuthorizationService;
 
 public class AuthorizationTests {
     private AuthorizationService authService = new AuthorizationService();

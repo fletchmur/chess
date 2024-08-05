@@ -5,6 +5,7 @@ import dataaccess.mysql.MySQLGameDAO;
 import model.GameData;
 import org.junit.jupiter.api.*;
 import response.ListGamesResponse;
+import server.service.ListGamesService;
 
 public class ListGameTests {
 

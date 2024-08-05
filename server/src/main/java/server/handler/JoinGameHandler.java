@@ -1,9 +1,9 @@
-package handler;
+package server.handler;
 
 import request.JoinGameRequest;
 import response.JoinGameResponse;
 import exception.ErrorException;
-import service.JoinGameService;
+import server.service.JoinGameService;
 import spark.Route;
 
 public class JoinGameHandler extends Handler<JoinGameRequest, JoinGameResponse> implements Route {

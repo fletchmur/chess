@@ -9,6 +9,7 @@ import org.junit.jupiter.api.*;
 import request.CreateGameRequest;
 import response.CreateGameResponse;
 import exception.ErrorException;
+import server.service.CreateGameService;
 
 public class CreateGameTests {
     private final CreateGameService createGameService = new CreateGameService();

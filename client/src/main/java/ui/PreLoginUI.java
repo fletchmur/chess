@@ -38,7 +38,6 @@ public class PreLoginUI extends UI {
     }
 
     private String login(String... params) throws ErrorException {
-        client.assertSignedOut();
 
         if(params.length != 2) {
             return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " login <USERNAME> <PASSWORD>";
@@ -55,7 +54,6 @@ public class PreLoginUI extends UI {
 
     private String register(String... params) throws ErrorException {
 
-        client.assertSignedOut();
         if(params.length != 3) {
             return  SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " register <USERNAME> <PASSWORD> <EMAIL>";
         }

@@ -1,8 +1,8 @@
-package handler;
+package server.handler;
 
 import request.CreateGameRequest;
 import response.CreateGameResponse;
-import service.CreateGameService;
+import server.service.CreateGameService;
 import exception.ErrorException;
 import spark.Route;
 

@@ -1,9 +1,9 @@
-package handler;
+package server.handler;
 
 import request.RegisterRequest;
 import response.RegisterResponse;
 import exception.ErrorException;
-import service.RegisterService;
+import server.service.RegisterService;
 import spark.Route;
 
 public class RegisterHandler extends Handler<RegisterRequest, RegisterResponse> implements Route {

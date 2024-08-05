@@ -1,9 +1,9 @@
-package handler;
+package server.handler;
 
 import request.ListGamesRequest;
 import response.ListGamesResponse;
 import exception.ErrorException;
-import service.ListGamesService;
+import server.service.ListGamesService;
 import spark.Route;
 
 public class ListGameHandler extends Handler<ListGamesRequest, ListGamesResponse> implements Route {

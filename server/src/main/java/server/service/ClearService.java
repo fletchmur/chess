@@ -1,4 +1,4 @@
-package service;
+package server.service;
 
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;

@@ -3,7 +3,7 @@ package dataaccess.mysql;
 import chess.ChessGame;
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.GameDAO;
-import handler.Serializer;
+import server.handler.Serializer;
 import model.GameData;
 
 import java.sql.Connection;

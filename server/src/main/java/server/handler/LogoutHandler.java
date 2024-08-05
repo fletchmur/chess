@@ -1,9 +1,9 @@
-package handler;
+package server.handler;
 
 import request.LogoutRequest;
 import response.LogoutResponse;
 import exception.ErrorException;
-import service.LogoutService;
+import server.service.LogoutService;
 import spark.Route;
 
 public class LogoutHandler extends Handler<LogoutRequest, LogoutResponse> implements Route {
