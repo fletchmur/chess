@@ -14,7 +14,7 @@ import serverfacade.ServerFacade;
 
 public class ChessClient {
 
-    private enum State {
+    public enum State {
         SIGNED_IN,
         SIGNED_OUT
     };
@@ -22,6 +22,7 @@ public class ChessClient {
     private final ServerFacade facade;
     private HashMap<Integer,Integer> listToGameID;
     private State state = State.SIGNED_OUT;
+    private PreLoginUI preLoginUI;
 
     //FORMATING
     private final String boldServerFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;
@@ -32,6 +33,8 @@ public class ChessClient {
     public ChessClient(String serverURL) {
         facade = new ServerFacade(serverURL);
         listToGameID = new HashMap<>();
+        preLoginUI = new PreLoginUI(this,facade);
+
     }
 
     public String getStateString() {
@@ -43,7 +46,6 @@ public class ChessClient {
     }
 
     public String eval(String line) {
-        //TODO implement eval
         //This method should take in a line from the repl class, break it down into the command and parameters
         // It should then call the appropriate evaluation command and return a string that is the result of the command
         // being executed
@@ -52,15 +54,18 @@ public class ChessClient {
         String cmd = tokens[0];
         String[] params = Arrays.copyOfRange(tokens,1,tokens.length);
 
+
         try {
+
+            if(this.getState() == State.SIGNED_OUT) {
+                return preLoginUI.eval(cmd,params);
+            }
+
             return switch(cmd) {
                 case "join" -> join(params);
                 case "observe" -> observe(params);
                 case "list" -> list(params);
                 case "create" -> create(params);
-                case "register" -> register(params);
-                case "login" -> login(params);
-                case "quit" -> quit();
                 case "logout" -> logout(params);
                 case "clear" -> clear();
                 default -> help();
@@ -71,6 +76,26 @@ public class ChessClient {
         }
 
     }
+
+    public void assertSignedIn() throws ErrorException {
+        if(state == State.SIGNED_OUT) {
+            throw new ErrorException(400, "Must sign in");
+        }
+    }
+
+    public void assertSignedOut() throws ErrorException {
+        if(state == State.SIGNED_IN) {
+            throw new ErrorException(400, "Must sign out");
+        }
+    }
+
+    public State getState() {
+        return this.state;
+    }
+    public void setState(State state) {
+        this.state = state;
+    }
+
 
     private String observe(String... params) throws ErrorException {
         if(params.length != 1 || params[0].length() > 3) {
@@ -86,7 +111,7 @@ public class ChessClient {
 
         ChessBoard board = new ChessBoard();
         board.resetBoard();
-        ChessBoardRenderer renderer = new ChessBoardRenderer(board, ChessGame.TeamColor.BLACK);
+        ChessBoardRenderer renderer = new ChessBoardRenderer(board, ChessGame.TeamColor.WHITE);
         return renderer.render();
     }
 
@@ -132,9 +157,15 @@ public class ChessClient {
         for(int i = 0; i < games.length-1; i++) {
             listToGameID.put(i + 1, games[i].gameID());
             result.append(boldServerFormat).append(i+1).append(". ").append(serverFormat).append(games[i].gameName()).append("\n");
+            result.append(" <WHITE: ").append(games[i].whiteUsername()).append(">");
+            result.append(" <BLACK: ").append(games[i].blackUsername()).append(">");
         }
+
         listToGameID.put(games.length, games[games.length-1].gameID());
         result.append(boldServerFormat).append(games.length).append(". ").append(serverFormat).append(games[games.length-1].gameName());
+        result.append(" <WHITE: ").append(games[games.length-1].whiteUsername()).append(">");
+        result.append(" <BLACK: ").append(games[games.length-1].blackUsername()).append(">");
+
         return result.toString();
     }
 
@@ -220,18 +251,6 @@ public class ChessClient {
                             boldServerFormat + "help" + serverFormat + " - show possible commands";
         };
         return prelude + helpString;
-    }
-
-    private void assertSignedIn() throws ErrorException {
-        if(state == State.SIGNED_OUT) {
-            throw new ErrorException(400, "Must sign in");
-        }
-    }
-
-    private void assertSignedOut() throws ErrorException {
-        if(state == State.SIGNED_IN) {
-            throw new ErrorException(400, "Must sign out");
-        }
     }
 
     //TODO remove clear method and clear case in eval switch statement

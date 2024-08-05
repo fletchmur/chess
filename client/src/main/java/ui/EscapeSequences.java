@@ -51,6 +51,10 @@ public class EscapeSequences {
     public static final String SET_BG_COLOR_DULL_BLUE = SET_BG_COLOR + "25m";
     public static final String RESET_BG_COLOR = UNICODE_ESCAPE + "[49m";
 
+    public static final String BOLD_SERVER_FORMAT = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;
+    public static final String ERROR_FORMAT = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
+    public static final  String FAINT_SERVER_FORMAT = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;
+
     public static final String WHITE_KING = " ♔ ";
     public static final String WHITE_QUEEN = " ♕ ";
     public static final String WHITE_BISHOP = " ♗ ";
