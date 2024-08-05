@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 import request.*;
 import response.*;
 import server.Server;
-import serverfacade.ServerFacade;
+import facades.ServerFacade;
 
 
 public class ServerFacadeTests {

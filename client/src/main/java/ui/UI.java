@@ -33,6 +33,6 @@ public abstract class UI {
 
     }
     abstract String help();
-    abstract HashMap<String, UIFunction<String[],String>> getValidMethods() throws ErrorException;
+    abstract HashMap<String, UIFunction<String[],String>> getValidMethods();
 
 }

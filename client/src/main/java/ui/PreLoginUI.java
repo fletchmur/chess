@@ -3,7 +3,7 @@ package ui;
 import exception.ErrorException;
 import request.LoginRequest;
 import request.RegisterRequest;
-import serverfacade.ServerFacade;
+import facades.ServerFacade;
 
 import java.util.HashMap;
 
