@@ -1,4 +1,4 @@
-import ui.ChessClient;
+import client.ChessClient;
 
 public class ClientMain {
     public static void main(String[] args) {

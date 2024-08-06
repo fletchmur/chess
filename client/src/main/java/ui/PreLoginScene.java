@@ -1,6 +1,6 @@
 package ui;
 
-import clientdata.ClientData;
+import client.ClientData;
 import exception.ErrorException;
 import request.LoginRequest;
 import request.RegisterRequest;

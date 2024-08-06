@@ -2,7 +2,7 @@ package ui;
 
 import java.util.Arrays;
 
-import clientdata.ClientData;
+import client.ClientData;
 import exception.ErrorException;
 import servermessage.ServerMessageObserver;
 import request.*;

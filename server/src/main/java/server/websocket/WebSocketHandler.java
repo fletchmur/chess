@@ -37,7 +37,9 @@ public class WebSocketHandler {
     private void test(String rootClient) throws IOException {
         Notification notification = new Notification("notifying " + rootClient);
         ErrorMessage error = new ErrorMessage("test error");
-        LoadGameMessage load = new LoadGameMessage(new ChessBoard());
-        connections.broadcast(1,"",notification);
+        ChessBoard board = new ChessBoard();
+        board.resetBoard();
+        LoadGameMessage load = new LoadGameMessage(board);
+        connections.broadcast(1,"",load);
     }
 }

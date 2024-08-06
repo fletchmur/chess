@@ -2,7 +2,7 @@ package ui;
 
 import chess.ChessBoard;
 import chess.ChessGame;
-import clientdata.ClientData;
+import client.ClientData;
 import exception.ErrorException;
 import model.GameData;
 import request.CreateGameRequest;
@@ -67,6 +67,8 @@ public class PostLoginScene extends Scene {
             throw new ErrorException(400, "Invalid join ID");
         }
 
+        data.setTeamColor(ChessGame.TeamColor.WHITE);
+
         ChessBoard board = new ChessBoard();
         board.resetBoard();
         ChessBoardRenderer renderer = new ChessBoardRenderer(board, ChessGame.TeamColor.WHITE);
@@ -83,6 +85,8 @@ public class PostLoginScene extends Scene {
             case "BLACK", "black", "b", "B" -> ChessGame.TeamColor.BLACK;
             default -> throw new ErrorException(400, "Invalid team color");
         };
+        data.setTeamColor(teamColor);
+
         int joinID = Integer.parseInt(params[0]);
         boolean joinIDInRange = (joinID >= 1 && joinID <= listToGameID.keySet().size());
         Integer gameID = listToGameID.get(joinID);
