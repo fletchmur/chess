@@ -3,23 +3,34 @@ package ui;
 import java.util.Arrays;
 
 import exception.ErrorException;
+import facades.ServerMessageObserver;
+import facades.WebSocketFacade;
 import request.*;
 import facades.ServerFacade;
 
 
 public class ChessClient {
 
+
     public enum State {
         SIGNED_IN,
-        SIGNED_OUT
+        SIGNED_OUT,
+        GAMEPLAY
     };
 
     private final ServerFacade facade;
+    private WebSocketFacade ws;
     private State state = State.SIGNED_OUT;
     private final PreLoginUI preLoginUI;
     private final PostLoginUI postLoginUI;
 
-    public ChessClient(String serverURL) {
+    private final String serverURL;
+    private final ServerMessageObserver observer;
+
+    public ChessClient(String serverURL, ServerMessageObserver observer) throws ErrorException {
+        this.serverURL = serverURL;
+        this.observer = observer;
+
         facade = new ServerFacade(serverURL);
         preLoginUI = new PreLoginUI(this,facade);
         postLoginUI = new PostLoginUI(this,facade);
@@ -28,7 +39,7 @@ public class ChessClient {
     public String getStateString() {
         String color = EscapeSequences.SET_TEXT_COLOR_LIGHT_GREY;
         return switch(state) {
-            case SIGNED_IN -> EscapeSequences.SET_TEXT_COLOR_WHITE + "[LOGGED_IN]";
+            case SIGNED_IN,GAMEPLAY -> EscapeSequences.SET_TEXT_COLOR_WHITE + "[LOGGED_IN]";
             case SIGNED_OUT -> color + "[LOGGED_OUT]";
         };
     }
@@ -44,10 +55,14 @@ public class ChessClient {
             if(cmd.equals("clear")) {
                 return clear();
             }
+            if(cmd.equals("ws")) {
+                state = State.GAMEPLAY;
+            }
 
             return switch (state) {
                 case SIGNED_OUT -> preLoginUI.eval(cmd,params);
                 case SIGNED_IN -> postLoginUI.eval(cmd,params);
+                case GAMEPLAY -> webSocketTest();
             };
         }
         catch (ErrorException e) {
@@ -63,6 +78,12 @@ public class ChessClient {
 
     public void setState(State state) {
         this.state = state;
+    }
+
+    private String webSocketTest() throws ErrorException {
+        ws = new WebSocketFacade(serverURL,observer);
+        ws.test();
+        return EscapeSequences.FAINT_SERVER_FORMAT + "sending basic command";
     }
 
     //TODO remove clear method and clear checking if statement

@@ -1,4 +1,4 @@
-package server.handler;
+package serializer;
 
 import java.lang.reflect.Type;
 

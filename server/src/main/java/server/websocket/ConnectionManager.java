@@ -1,7 +1,7 @@
 package server.websocket;
 
 import org.eclipse.jetty.websocket.api.Session;
-import server.handler.Serializer;
+import serializer.Serializer;
 import websocket.messages.ServerMessage;
 
 import java.io.IOException;
@@ -10,22 +10,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ConnectionManager {
 
-    private final ConcurrentHashMap<String, Connection> connections = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Integer, Connection> connections = new ConcurrentHashMap<>();
 
-    public void add(String username, Session session) {
-        Connection connection = new Connection(username, session);
-        connections.put(username, connection);
+    public void add(Integer gameID, Session session) {
+        Connection connection = new Connection(gameID, session);
+        connections.put(gameID, connection);
     }
 
-    public void remove(String username) {
-        connections.remove(username);
+    public void remove(Integer gameID) {
+        connections.remove(gameID);
     }
 
     public void broadcast(String excludeUsername, ServerMessage message) throws IOException {
         ArrayList<Connection> toRemove = new ArrayList<>();
         for (Connection connection : connections.values()) {
             if(connection.session.isOpen()) {
-                if(!connection.username.equals(excludeUsername)) {
+                //TODO implement broadcasting so it excludes the correct username
+                if(!"blah".equals(excludeUsername)) {
                     connection.send(new Serializer().serialize(message));
                 }
             }
@@ -36,7 +37,7 @@ public class ConnectionManager {
 
         //clean up closed connections from connection hashmap
         for(Connection connection : toRemove) {
-            connections.remove(connection.username);
+            remove(connection.gameID);
         }
     }
 }

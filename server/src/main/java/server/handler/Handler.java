@@ -1,5 +1,6 @@
 package server.handler;
 
+import serializer.Serializer;
 import server.service.AuthorizationService;
 import exception.ErrorException;
 

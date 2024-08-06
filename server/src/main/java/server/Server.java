@@ -1,7 +1,7 @@
 package server;
 
-import handler.*;
 import server.handler.*;
+import server.websocket.WebSocketHandler;
 import spark.*;
 
 import java.io.IOException;
@@ -21,12 +21,16 @@ public class Server {
         }
     }
 
+    private final WebSocketHandler webSocketHandler = new WebSocketHandler();
+
     public int run(int desiredPort) {
         Spark.port(desiredPort);
 
         Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
+
+        Spark.webSocket("/ws", webSocketHandler);
 
         Spark.after(this::log);
 

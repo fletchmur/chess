@@ -71,7 +71,7 @@ public class PreLoginUI extends UI {
         ChessClient.State state = client.getState();
         return switch (state) {
             case SIGNED_OUT ->  "quit";
-            case SIGNED_IN -> throw new ErrorException(400, "Must logout before quitting program");
+            case SIGNED_IN,GAMEPLAY -> throw new ErrorException(400, "Must logout before quitting program");
         };
     }
 }
