@@ -21,23 +21,23 @@ public class WebSocketHandler {
     @OnWebSocketMessage
     public void onMessage(Session session, String message) throws IOException {
         UserGameCommand command = (UserGameCommand) new Serializer().deserialize(message, UserGameCommand.class);
-        saveSession(command.getGameID(), session);
+        saveSession(command.getGameID(),command.getRootClient(), session);
 
         switch(command.getCommandType()) {
-            default -> test();
+            default -> test(command.getRootClient());
         }
     }
 
-    private void saveSession(Integer gameID, Session session) {
-        connections.add(gameID,session);
+    private void saveSession(Integer gameID, String rootClient, Session session) {
+        connections.add(gameID,rootClient,session);
     }
 
     //TODO implement action methods and add them to the switch statement
     //TODO remove test action method
-    private void test() throws IOException {
-        Notification notification = new Notification("test notification");
+    private void test(String rootClient) throws IOException {
+        Notification notification = new Notification("notifying " + rootClient);
         ErrorMessage error = new ErrorMessage("test error");
         LoadGameMessage load = new LoadGameMessage(new ChessBoard());
-        connections.broadcast(1,notification);
+        connections.broadcast(1,"",notification);
     }
 }

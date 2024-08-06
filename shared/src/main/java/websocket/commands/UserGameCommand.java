@@ -44,6 +44,10 @@ public class UserGameCommand {
         return gameID;
     }
 
+    public String getRootClient() {
+        return rootClient;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

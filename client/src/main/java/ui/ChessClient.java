@@ -21,18 +21,13 @@ public class ChessClient {
     };
 
     private final ServerFacade facade;
-    private WebSocketFacade ws;
     private State state = State.SIGNED_OUT;
     private final PreLoginUI preLoginUI;
     private final PostLoginUI postLoginUI;
     private  final GameplayUI gameplayUI;
 
-    private final String serverURL;
-    private final ServerMessageObserver observer;
 
     public ChessClient(String serverURL, ServerMessageObserver observer) throws ErrorException {
-        this.serverURL = serverURL;
-        this.observer = observer;
 
         facade = new ServerFacade(serverURL);
         preLoginUI = new PreLoginUI(this,facade,clientData);
@@ -86,7 +81,6 @@ public class ChessClient {
     public void setState(State state) {
         this.state = state;
     }
-
 
     //TODO remove clear method and clear checking if statement
     private String clear() throws ErrorException {

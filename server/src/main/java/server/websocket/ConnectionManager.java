@@ -13,8 +13,8 @@ public class ConnectionManager {
 
     private final ConcurrentHashMap<Integer, Connection> connections = new ConcurrentHashMap<>();
 
-    public void add(Integer gameID, Session session) {
-        Connection connection = new Connection(gameID, session);
+    public void add(Integer gameID, String rootClient, Session session) {
+        Connection connection = new Connection(gameID,rootClient, session);
         connections.put(gameID, connection);
     }
 
@@ -22,11 +22,11 @@ public class ConnectionManager {
         connections.remove(gameID);
     }
 
-    public void broadcast(Integer gameID, ServerMessage message) throws IOException {
+    public void broadcast(Integer gameID,String excludeClient, ServerMessage message) throws IOException {
         ArrayList<Connection> toRemove = new ArrayList<>();
         for (Connection connection : connections.values()) {
             if(connection.session.isOpen()) {
-                if(Objects.equals(connection.gameID, gameID)) {
+                if(Objects.equals(connection.gameID, gameID) && !connection.rootClient.equals(excludeClient)) {
                     connection.send(new Serializer().serialize(message));
                 }
             }
