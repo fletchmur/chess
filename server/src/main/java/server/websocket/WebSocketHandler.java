@@ -21,11 +21,15 @@ public class WebSocketHandler {
     @OnWebSocketMessage
     public void onMessage(Session session, String message) throws IOException {
         UserGameCommand command = (UserGameCommand) new Serializer().deserialize(message, UserGameCommand.class);
-        //TODO implement save session method
-        connections.add(command.getGameID(),session);
+        saveSession(command.getGameID(), session);
+
         switch(command.getCommandType()) {
             default -> test();
         }
+    }
+
+    private void saveSession(Integer gameID, Session session) {
+        connections.add(gameID,session);
     }
 
     //TODO implement action methods and add them to the switch statement
@@ -34,6 +38,6 @@ public class WebSocketHandler {
         Notification notification = new Notification("test notification");
         ErrorMessage error = new ErrorMessage("test error");
         LoadGameMessage load = new LoadGameMessage(new ChessBoard());
-        connections.broadcast("",load);
+        connections.broadcast(1,notification);
     }
 }

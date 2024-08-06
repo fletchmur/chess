@@ -1,5 +1,6 @@
 package ui;
 
+import clientdata.ClientData;
 import exception.ErrorException;
 import request.LoginRequest;
 import request.RegisterRequest;
@@ -12,10 +13,12 @@ public class PreLoginUI extends UI {
     private final ServerFacade facade;
     private final ChessClient client;
     private final HashMap<String, UIFunction<String[],String>> validCommands;
+    private ClientData data;
 
-    public PreLoginUI(ChessClient client, ServerFacade facade) {
+    public PreLoginUI(ChessClient client, ServerFacade facade, ClientData data) {
         this.client = client;
         this.facade = facade;
+        this.data = data;
         validCommands = new HashMap<>();
         validCommands.put("register",this::register);
         validCommands.put("login",this::login);
@@ -49,6 +52,8 @@ public class PreLoginUI extends UI {
         LoginRequest loginRequest = new LoginRequest(username, password);
         facade.login(loginRequest);
         client.setState(ChessClient.State.SIGNED_IN);
+        data.setUser(username);
+
         return SERVER_FORMAT + "Successfully Logged In";
     }
 
@@ -64,6 +69,8 @@ public class PreLoginUI extends UI {
 
         facade.register(new RegisterRequest(username, password, email));
         client.setState(ChessClient.State.SIGNED_IN);
+        data.setUser(username);
+
         return SERVER_FORMAT + "Registered user: " + username;
     }
 

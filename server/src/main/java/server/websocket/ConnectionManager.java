@@ -6,6 +6,7 @@ import websocket.messages.ServerMessage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConnectionManager {
@@ -21,12 +22,11 @@ public class ConnectionManager {
         connections.remove(gameID);
     }
 
-    public void broadcast(String excludeUsername, ServerMessage message) throws IOException {
+    public void broadcast(Integer gameID, ServerMessage message) throws IOException {
         ArrayList<Connection> toRemove = new ArrayList<>();
         for (Connection connection : connections.values()) {
             if(connection.session.isOpen()) {
-                //TODO implement broadcasting so it excludes the correct username
-                if(!"blah".equals(excludeUsername)) {
+                if(Objects.equals(connection.gameID, gameID)) {
                     connection.send(new Serializer().serialize(message));
                 }
             }

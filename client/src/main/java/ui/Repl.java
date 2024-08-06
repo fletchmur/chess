@@ -30,7 +30,9 @@ public class Repl implements ServerMessageObserver {
         Scanner scanner = new Scanner(System.in);
         var result = "";
         while(result != "quit") {
-            printPropmt();
+            if(!client.getState().equals(ChessClient.State.GAMEPLAY)) {
+                printPropmt();
+            }
             String line = scanner.nextLine();
             result = client.eval(line);
             System.out.print(result);
@@ -46,21 +48,22 @@ public class Repl implements ServerMessageObserver {
     @Override
     public void notify(String message, ServerMessage.ServerMessageType type) {
 
+        String ERASE = EscapeSequences.ERASE_SCREEN;
         //TODO create a serverMessageProcessor class to handle processing messages from server
         if (type == ServerMessage.ServerMessageType.NOTIFICATION) {
             Notification notification = (Notification) new Serializer().deserialize(message, Notification.class);
             String msg = notification.getMessage();
-            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + msg);
+            System.out.println(ERASE + "\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + msg);
         }
         else if (type == ServerMessage.ServerMessageType.LOAD_GAME) {
             LoadGameMessage game = (LoadGameMessage) new Serializer().deserialize(message, LoadGameMessage.class);
             String msg = "LOADING GAME...";
-            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_GREEN + "[LOAD] " + msg);
+            System.out.println(ERASE + "\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_GREEN + "[LOAD] " + msg);
         }
         else if (type == ServerMessage.ServerMessageType.ERROR) {
             ErrorMessage error = (ErrorMessage) new Serializer().deserialize(message, ErrorMessage.class);
             String msg = error.getErrorMessage();
-            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_RED + msg);
+            System.out.println(ERASE + "\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_RED + msg);
         }
         printPropmt();
     }

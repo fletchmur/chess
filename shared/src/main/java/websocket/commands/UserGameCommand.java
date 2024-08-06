@@ -16,10 +16,13 @@ public class UserGameCommand {
 
     private final Integer gameID;
 
-    public UserGameCommand(CommandType commandType, String authToken, Integer gameID) {
+    private final String rootClient;
+
+    public UserGameCommand(CommandType commandType,String rootClient, String authToken, Integer gameID) {
         this.commandType = commandType;
         this.authToken = authToken;
         this.gameID = gameID;
+        this.rootClient = rootClient;
     }
 
     public enum CommandType {

@@ -3,9 +3,6 @@ package facades;
 import exception.ErrorException;
 import serializer.Serializer;
 import websocket.commands.UserGameCommand;
-import websocket.messages.ErrorMessage;
-import websocket.messages.LoadGameMessage;
-import websocket.messages.Notification;
 import websocket.messages.ServerMessage;
 
 import javax.websocket.*;
@@ -50,7 +47,7 @@ public class WebSocketFacade extends Endpoint {
 
     public void test() throws ErrorException {
         try {
-            UserGameCommand testCommand = new UserGameCommand(UserGameCommand.CommandType.CONNECT,"abc",1);
+            UserGameCommand testCommand = new UserGameCommand(UserGameCommand.CommandType.CONNECT,"fletcher","abc",1);
             this.session.getBasicRemote().sendText(new Serializer().serialize(testCommand));
         }
         catch (IOException e) {

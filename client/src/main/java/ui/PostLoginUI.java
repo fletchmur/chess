@@ -2,6 +2,7 @@ package ui;
 
 import chess.ChessBoard;
 import chess.ChessGame;
+import clientdata.ClientData;
 import exception.ErrorException;
 import model.GameData;
 import request.CreateGameRequest;
@@ -18,12 +19,14 @@ public class PostLoginUI extends UI {
     private final ServerFacade facade;
     private final ChessClient client;
     private final HashMap<String, UIFunction<String[],String>> validCommands;
+    private ClientData data;
 
     private final HashMap<Integer,Integer> listToGameID;
 
-    public PostLoginUI(ChessClient client, ServerFacade facade) {
+    public PostLoginUI(ChessClient client, ServerFacade facade, ClientData data) {
         this.facade = facade;
         this.client = client;
+        this.data = data;
 
         listToGameID = new HashMap<>();
 
@@ -143,6 +146,8 @@ public class PostLoginUI extends UI {
         LogoutRequest request = new LogoutRequest();
         facade.logout(request);
         client.setState(ChessClient.State.SIGNED_OUT);
+        data.setUser(null);
+
         return SERVER_FORMAT + "Logout successful";
     }
 }

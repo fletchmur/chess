@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Arrays;
 
+import clientdata.ClientData;
 import exception.ErrorException;
 import facades.ServerMessageObserver;
 import facades.WebSocketFacade;
@@ -11,6 +12,7 @@ import facades.ServerFacade;
 
 public class ChessClient {
 
+    private ClientData clientData = new ClientData(null,null);
 
     public enum State {
         SIGNED_IN,
@@ -33,17 +35,19 @@ public class ChessClient {
         this.observer = observer;
 
         facade = new ServerFacade(serverURL);
-        preLoginUI = new PreLoginUI(this,facade);
-        postLoginUI = new PostLoginUI(this,facade);
-        gameplayUI = new GameplayUI(this,serverURL,observer);
+        preLoginUI = new PreLoginUI(this,facade,clientData);
+        postLoginUI = new PostLoginUI(this,facade,clientData);
+        gameplayUI = new GameplayUI(this,serverURL,observer,clientData);
 
     }
 
     public String getStateString() {
         String color = EscapeSequences.SET_TEXT_COLOR_LIGHT_GREY;
         return switch(state) {
-            case SIGNED_IN,GAMEPLAY -> EscapeSequences.SET_TEXT_COLOR_WHITE + "[LOGGED_IN]";
+            case SIGNED_IN -> EscapeSequences.SET_TEXT_COLOR_WHITE + "[LOGGED_IN]";
             case SIGNED_OUT -> color + "[LOGGED_OUT]";
+            case GAMEPLAY -> EscapeSequences.SET_TEXT_COLOR_GREEN + "[GAMEPLAY]";
+
         };
     }
 

@@ -1,5 +1,6 @@
 package ui;
 
+import clientdata.ClientData;
 import exception.ErrorException;
 import facades.ServerMessageObserver;
 import facades.WebSocketFacade;
@@ -12,10 +13,14 @@ public class GameplayUI extends UI {
     private final ServerMessageObserver observer;
     private final HashMap<String, UIFunction<String[],String>> validCommands;
 
-    public GameplayUI(ChessClient client, String serverURL, ServerMessageObserver observer) {
+    private ClientData data;
+
+    public GameplayUI(ChessClient client, String serverURL, ServerMessageObserver observer,ClientData data) {
         this.client = client;
         this.serverURL = serverURL;
         this.observer = observer;
+        this.data = data;
+
         validCommands = new HashMap<>();
         validCommands.put("wstest",this::webSocketTest);
     }
