@@ -11,15 +11,36 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ConnectionManager {
 
-    private final ConcurrentHashMap<Integer, Connection> connections = new ConcurrentHashMap<>();
+    private record  Pair<T,R>(T item1,R item2) {};
+
+    private final ConcurrentHashMap<Pair<Integer,String>, Connection> connections = new ConcurrentHashMap<>();
 
     public void add(Integer gameID, String rootClient, Session session) {
-        Connection connection = new Connection(gameID,rootClient, session);
-        connections.put(gameID, connection);
+        Connection connection = new Connection(gameID,rootClient,session);
+        Pair<Integer,String> idClientPair = new Pair<>(gameID,rootClient);
+        connections.put(idClientPair, connection);
     }
 
-    public void remove(Integer gameID) {
-        connections.remove(gameID);
+    public void remove(Integer gameID,String rootClient) {
+        Pair<Integer,String> idClientPair = new Pair<>(gameID,rootClient);
+        connections.remove(idClientPair);
+    }
+
+    public Connection get(Integer gameID, String rootClient) {
+        Pair<Integer,String> idClientPair = new Pair<>(gameID,rootClient);
+        return connections.get(idClientPair);
+    }
+
+    public void transmit(Integer gameID, String client, ServerMessage message) throws IOException {
+        assert connections.containsKey(new Pair<>(gameID,client));
+
+        Connection connection = get(gameID,client);
+        if(!connection.session.isOpen()) {
+            remove(gameID,client);
+            return;
+        }
+
+        connection.send(new Serializer().serialize(message));
     }
 
     public void broadcast(Integer gameID,String excludeClient, ServerMessage message) throws IOException {
@@ -37,7 +58,7 @@ public class ConnectionManager {
 
         //clean up closed connections from connection hashmap
         for(Connection connection : toRemove) {
-            remove(connection.gameID);
+            remove(connection.gameID,connection.rootClient);
         }
     }
 }
