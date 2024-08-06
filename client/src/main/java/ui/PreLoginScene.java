@@ -5,6 +5,8 @@ import exception.ErrorException;
 import request.LoginRequest;
 import request.RegisterRequest;
 import facades.ServerFacade;
+import response.LoginResponse;
+import response.RegisterResponse;
 
 import java.util.HashMap;
 
@@ -50,7 +52,8 @@ public class PreLoginScene extends Scene {
         String password = params[1];
 
         LoginRequest loginRequest = new LoginRequest(username, password);
-        facade.login(loginRequest);
+        LoginResponse response = facade.login(loginRequest);
+        data.setAuthToken(response.authToken());
         sceneManager.setState(SceneManager.State.SIGNED_IN);
         data.setUser(username);
 
@@ -67,7 +70,8 @@ public class PreLoginScene extends Scene {
         String password = params[1];
         String email = params[2];
 
-        facade.register(new RegisterRequest(username, password, email));
+        RegisterResponse response = facade.register(new RegisterRequest(username, password, email));
+        data.setAuthToken(response.authToken());
         sceneManager.setState(SceneManager.State.SIGNED_IN);
         data.setUser(username);
 

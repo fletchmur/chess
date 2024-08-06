@@ -7,9 +7,6 @@ import serializer.Serializer;
 import servermessage.ServerMessageProcessor;
 import ui.EscapeSequences;
 import ui.SceneManager;
-import websocket.messages.ErrorMessage;
-import websocket.messages.LoadGameMessage;
-import websocket.messages.Notification;
 import websocket.messages.ServerMessage;
 
 import java.util.Scanner;

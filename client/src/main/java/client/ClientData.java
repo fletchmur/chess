@@ -8,6 +8,7 @@ public class ClientData {
     private ChessGame board;
     private String user;
     private ChessGame.TeamColor teamColor;
+    private String authToken = "";
 
     public ClientData(ChessGame chessGame, String user) {
         this.board = chessGame;
@@ -24,6 +25,9 @@ public class ClientData {
     public ChessGame.TeamColor getTeamColor() {
         return teamColor;
     }
+    public String getAuthToken() {
+        return authToken;
+    }
 
     public void setUser(String user) {
         this.user = user;
@@ -33,5 +37,8 @@ public class ClientData {
     }
     public void setTeamColor(ChessGame.TeamColor teamColor) {
         this.teamColor = teamColor;
+    }
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
     }
 }

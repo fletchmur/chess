@@ -28,7 +28,7 @@ public class SceneManager {
 
         facade = new ServerFacade(serverURL);
         preLoginScene = new PreLoginScene(this,facade,clientData);
-        postLoginScene = new PostLoginScene(this,facade,clientData);
+        postLoginScene = new PostLoginScene(this,facade,serverURL,observer,clientData);
         gameplayScene = new GameplayScene(this,serverURL,observer,clientData);
 
     }
@@ -65,8 +65,8 @@ public class SceneManager {
             };
         }
         catch (ErrorException e) {
-            String errorFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
-            return errorFormat + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
+            String errorFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_RED;
+            return errorFormat + "[Error] " + e.getMessage();
         }
 
     }

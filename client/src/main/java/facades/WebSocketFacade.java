@@ -1,5 +1,6 @@
 package facades;
 
+import chess.ChessGame;
 import exception.ErrorException;
 import serializer.Serializer;
 import servermessage.ServerMessageObserver;
@@ -15,9 +16,11 @@ public class WebSocketFacade extends Endpoint {
 
     private Session session;
     ServerMessageObserver observer;
+    private final String authToken;
 
-    public WebSocketFacade(String url, ServerMessageObserver observer) throws ErrorException {
+    public WebSocketFacade(String url, ServerMessageObserver observer,String authToken) throws ErrorException {
         try {
+            this.authToken = authToken;
             url = url.replace("http","ws");
             URI socketURI = new URI(url + "/ws");
             this.observer = observer;
@@ -46,10 +49,20 @@ public class WebSocketFacade extends Endpoint {
     public void onOpen(Session session, EndpointConfig endpointConfig) {
     }
 
+    public void connect(Integer gameID) throws ErrorException {
+        try {
+            UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.CONNECT,authToken,gameID);
+            this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
+        }
+        catch (IOException e) {
+            throw new ErrorException(500,e.getMessage());
+        }
+    }
+
     public void test() throws ErrorException {
         try {
-            UserGameCommand testCommand = new UserGameCommand(UserGameCommand.CommandType.CONNECT,"fletcher","abc",1);
-            this.session.getBasicRemote().sendText(new Serializer().serialize(testCommand));
+            UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.CONNECT,"abc",1);
+            this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
         }
         catch (IOException e) {
             throw new ErrorException(500,e.getMessage());

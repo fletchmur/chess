@@ -4,6 +4,7 @@ import chess.ChessBoard;
 import chess.ChessGame;
 import client.ClientData;
 import exception.ErrorException;
+import facades.WebSocketFacade;
 import model.GameData;
 import request.CreateGameRequest;
 import request.JoinGameRequest;
@@ -11,6 +12,7 @@ import request.ListGamesRequest;
 import request.LogoutRequest;
 import response.ListGamesResponse;
 import facades.ServerFacade;
+import servermessage.ServerMessageObserver;
 
 import java.util.HashMap;
 
@@ -21,12 +23,17 @@ public class PostLoginScene extends Scene {
     private final HashMap<String, UIFunction<String[],String>> validCommands;
     private ClientData data;
 
+    private final String serverURL;
+    private final ServerMessageObserver observer;
+
     private final HashMap<Integer,Integer> listToGameID;
 
-    public PostLoginScene(SceneManager sceneManager, ServerFacade facade, ClientData data) {
+    public PostLoginScene(SceneManager sceneManager, ServerFacade facade, String serverURL, ServerMessageObserver observer, ClientData data) {
         this.facade = facade;
         this.sceneManager = sceneManager;
         this.data = data;
+        this.serverURL = serverURL;
+        this.observer = observer;
 
         listToGameID = new HashMap<>();
 
@@ -96,10 +103,11 @@ public class PostLoginScene extends Scene {
 
         JoinGameRequest request = new JoinGameRequest(teamColor,gameID);
         facade.joinGame(request);
-        ChessBoard board = new ChessBoard();
-        board.resetBoard();
-        ChessBoardRenderer renderer = new ChessBoardRenderer(board, teamColor);
-        return renderer.render();
+        sceneManager.setState(SceneManager.State.GAMEPLAY);
+        WebSocketFacade ws = new WebSocketFacade(serverURL,observer, data.getAuthToken());
+        ws.connect(gameID, data.getUser(),teamColor);
+
+        return EscapeSequences.FAINT_SERVER_FORMAT + "joining game..." + EscapeSequences.RESET_TEXT_COLOR;
     }
 
     private String list(String... params) throws ErrorException {
@@ -149,7 +157,10 @@ public class PostLoginScene extends Scene {
 
         LogoutRequest request = new LogoutRequest();
         facade.logout(request);
+
         sceneManager.setState(SceneManager.State.SIGNED_OUT);
+
+        data.setAuthToken("");
         data.setUser(null);
 
         return SERVER_FORMAT + "Logout successful";

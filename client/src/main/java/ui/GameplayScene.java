@@ -45,7 +45,7 @@ public class GameplayScene extends Scene {
 
     //TODO implement hashmap for methods in gameplay UI
     private String webSocketTest(String... params) throws ErrorException {
-        WebSocketFacade ws = new WebSocketFacade(serverURL,observer);
+        WebSocketFacade ws = new WebSocketFacade(serverURL,observer,data.getAuthToken());
         ws.test();
         return EscapeSequences.FAINT_SERVER_FORMAT + "sending basic command";
     }
