@@ -2,6 +2,9 @@ package ui;
 
 import exception.ErrorException;
 import facades.ServerMessageObserver;
+import serializer.Serializer;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
 import websocket.messages.Notification;
 import websocket.messages.ServerMessage;
 
@@ -41,10 +44,23 @@ public class Repl implements ServerMessageObserver {
     }
 
     @Override
-    public void notify(ServerMessage message) {
-        if (message.getServerMessageType() == ServerMessage.ServerMessageType.NOTIFICATION) {
-           String msg =((Notification) message).getMessage();
-            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + "[Notification] " + msg);
+    public void notify(String message, ServerMessage.ServerMessageType type) {
+
+        //TODO create a serverMessageProcessor class to handle processing messages from server
+        if (type == ServerMessage.ServerMessageType.NOTIFICATION) {
+            Notification notification = (Notification) new Serializer().deserialize(message, Notification.class);
+            String msg = notification.getMessage();
+            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + msg);
+        }
+        else if (type == ServerMessage.ServerMessageType.LOAD_GAME) {
+            LoadGameMessage game = (LoadGameMessage) new Serializer().deserialize(message, LoadGameMessage.class);
+            String msg = "LOADING GAME...";
+            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_GREEN + "[LOAD] " + msg);
+        }
+        else if (type == ServerMessage.ServerMessageType.ERROR) {
+            ErrorMessage error = (ErrorMessage) new Serializer().deserialize(message, ErrorMessage.class);
+            String msg = error.getErrorMessage();
+            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_RED + msg);
         }
         printPropmt();
     }

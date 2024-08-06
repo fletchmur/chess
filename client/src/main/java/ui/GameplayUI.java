@@ -44,4 +44,6 @@ public class GameplayUI extends UI {
         ws.test();
         return EscapeSequences.FAINT_SERVER_FORMAT + "sending basic command";
     }
+
+    //TODO implement methods in gameplay ui help
 }

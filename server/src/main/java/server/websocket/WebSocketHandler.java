@@ -1,10 +1,13 @@
 package server.websocket;
 
+import chess.ChessBoard;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import serializer.Serializer;
 import websocket.commands.UserGameCommand;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
 import websocket.messages.Notification;
 
 import java.io.IOException;
@@ -28,7 +31,9 @@ public class WebSocketHandler {
     //TODO implement action methods and add them to the switch statement
     //TODO remove test action method
     private void test() throws IOException {
-        Notification notification = new Notification("this is a test message");
-        connections.broadcast("",notification);
+        Notification notification = new Notification("test notification");
+        ErrorMessage error = new ErrorMessage("test error");
+        LoadGameMessage load = new LoadGameMessage(new ChessBoard());
+        connections.broadcast("",load);
     }
 }

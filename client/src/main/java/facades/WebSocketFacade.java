@@ -31,13 +31,7 @@ public class WebSocketFacade extends Endpoint {
             this.session.addMessageHandler(new MessageHandler.Whole<String>() {
                 @Override
                 public void onMessage(String message) {
-                    ServerMessage.ServerMessageType type = getMessageType(message);
-                    ServerMessage serverMessage = switch(type) {
-                        case NOTIFICATION -> (Notification) new Serializer().deserialize(message, Notification.class);
-                        case ERROR -> (ErrorMessage) new Serializer().deserialize(message, ErrorMessage.class);
-                        case LOAD_GAME -> (LoadGameMessage) new Serializer().deserialize(message, LoadGameMessage.class);
-                    };
-                    observer.notify(serverMessage);
+                    observer.notify(message,getMessageType(message));
                 }
 
                 private ServerMessage.ServerMessageType getMessageType(String message) {

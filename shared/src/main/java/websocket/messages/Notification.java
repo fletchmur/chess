@@ -8,7 +8,7 @@ public class Notification extends ServerMessage {
 
     public Notification(String msg) {
         super(ServerMessageType.NOTIFICATION);
-        this.msg = msg;
+        this.msg = "[Notification]" + msg;
     }
 
     public String getMessage() {
