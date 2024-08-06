@@ -44,7 +44,7 @@ public class Repl implements ServerMessageObserver {
     public void notify(ServerMessage message) {
         if (message.getServerMessageType() == ServerMessage.ServerMessageType.NOTIFICATION) {
            String msg =((Notification) message).getMessage();
-            System.out.println("\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + "[Notification] " + msg);
+            System.out.println("\n\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + "[Notification] " + msg);
         }
         printPropmt();
     }

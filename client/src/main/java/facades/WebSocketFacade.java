@@ -3,12 +3,13 @@ package facades;
 import exception.ErrorException;
 import serializer.Serializer;
 import websocket.commands.UserGameCommand;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
 import websocket.messages.Notification;
 import websocket.messages.ServerMessage;
 
 import javax.websocket.*;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -30,11 +31,18 @@ public class WebSocketFacade extends Endpoint {
             this.session.addMessageHandler(new MessageHandler.Whole<String>() {
                 @Override
                 public void onMessage(String message) {
+                    ServerMessage.ServerMessageType type = getMessageType(message);
+                    ServerMessage serverMessage = switch(type) {
+                        case NOTIFICATION -> (Notification) new Serializer().deserialize(message, Notification.class);
+                        case ERROR -> (ErrorMessage) new Serializer().deserialize(message, ErrorMessage.class);
+                        case LOAD_GAME -> (LoadGameMessage) new Serializer().deserialize(message, LoadGameMessage.class);
+                    };
+                    observer.notify(serverMessage);
+                }
+
+                private ServerMessage.ServerMessageType getMessageType(String message) {
                     ServerMessage serverMessage = (ServerMessage) new Serializer().deserialize(message,ServerMessage.class);
-                    if(serverMessage.getServerMessageType() == ServerMessage.ServerMessageType.NOTIFICATION) {
-                        Notification notification = (Notification) new Serializer().deserialize(message,Notification.class);
-                        observer.notify(notification);
-                    }
+                    return serverMessage.getServerMessageType();
                 }
             });
         } catch (URISyntaxException | IOException | DeploymentException e) {

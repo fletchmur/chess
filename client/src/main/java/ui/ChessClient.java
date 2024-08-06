@@ -23,6 +23,7 @@ public class ChessClient {
     private State state = State.SIGNED_OUT;
     private final PreLoginUI preLoginUI;
     private final PostLoginUI postLoginUI;
+    private  final GameplayUI gameplayUI;
 
     private final String serverURL;
     private final ServerMessageObserver observer;
@@ -34,6 +35,8 @@ public class ChessClient {
         facade = new ServerFacade(serverURL);
         preLoginUI = new PreLoginUI(this,facade);
         postLoginUI = new PostLoginUI(this,facade);
+        gameplayUI = new GameplayUI(this,serverURL,observer);
+
     }
 
     public String getStateString() {
@@ -62,7 +65,7 @@ public class ChessClient {
             return switch (state) {
                 case SIGNED_OUT -> preLoginUI.eval(cmd,params);
                 case SIGNED_IN -> postLoginUI.eval(cmd,params);
-                case GAMEPLAY -> webSocketTest();
+                case GAMEPLAY -> gameplayUI.eval(cmd,params);
             };
         }
         catch (ErrorException e) {
@@ -80,11 +83,6 @@ public class ChessClient {
         this.state = state;
     }
 
-    private String webSocketTest() throws ErrorException {
-        ws = new WebSocketFacade(serverURL,observer);
-        ws.test();
-        return EscapeSequences.FAINT_SERVER_FORMAT + "sending basic command";
-    }
 
     //TODO remove clear method and clear checking if statement
     private String clear() throws ErrorException {
