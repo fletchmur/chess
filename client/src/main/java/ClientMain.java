@@ -1,8 +1,8 @@
-import ui.Repl;
+import ui.ChessClient;
 
 public class ClientMain {
     public static void main(String[] args) {
-        Repl repl = new Repl("http://localhost:8080");
-        repl.run();
+        ChessClient chessClient = new ChessClient("http://localhost:8080");
+        chessClient.run();
     }
 }

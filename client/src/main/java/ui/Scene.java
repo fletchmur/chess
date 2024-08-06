@@ -4,7 +4,7 @@ import exception.ErrorException;
 
 import java.util.HashMap;
 
-public abstract class UI {
+public abstract class Scene {
 
     static final String BOLD_FORMAT = EscapeSequences.BOLD_SERVER_FORMAT;
     static final String SERVER_FORMAT = EscapeSequences.FAINT_SERVER_FORMAT;

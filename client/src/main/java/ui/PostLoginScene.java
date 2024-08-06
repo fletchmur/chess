@@ -14,18 +14,18 @@ import facades.ServerFacade;
 
 import java.util.HashMap;
 
-public class PostLoginUI extends UI {
+public class PostLoginScene extends Scene {
 
     private final ServerFacade facade;
-    private final ChessClient client;
+    private final SceneManager sceneManager;
     private final HashMap<String, UIFunction<String[],String>> validCommands;
     private ClientData data;
 
     private final HashMap<Integer,Integer> listToGameID;
 
-    public PostLoginUI(ChessClient client, ServerFacade facade, ClientData data) {
+    public PostLoginScene(SceneManager sceneManager, ServerFacade facade, ClientData data) {
         this.facade = facade;
-        this.client = client;
+        this.sceneManager = sceneManager;
         this.data = data;
 
         listToGameID = new HashMap<>();
@@ -145,7 +145,7 @@ public class PostLoginUI extends UI {
 
         LogoutRequest request = new LogoutRequest();
         facade.logout(request);
-        client.setState(ChessClient.State.SIGNED_OUT);
+        sceneManager.setState(SceneManager.State.SIGNED_OUT);
         data.setUser(null);
 
         return SERVER_FORMAT + "Logout successful";

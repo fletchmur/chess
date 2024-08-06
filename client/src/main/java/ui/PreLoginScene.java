@@ -8,15 +8,15 @@ import facades.ServerFacade;
 
 import java.util.HashMap;
 
-public class PreLoginUI extends UI {
+public class PreLoginScene extends Scene {
 
     private final ServerFacade facade;
-    private final ChessClient client;
+    private final SceneManager sceneManager;
     private final HashMap<String, UIFunction<String[],String>> validCommands;
     private ClientData data;
 
-    public PreLoginUI(ChessClient client, ServerFacade facade, ClientData data) {
-        this.client = client;
+    public PreLoginScene(SceneManager sceneManager, ServerFacade facade, ClientData data) {
+        this.sceneManager = sceneManager;
         this.facade = facade;
         this.data = data;
         validCommands = new HashMap<>();
@@ -51,7 +51,7 @@ public class PreLoginUI extends UI {
 
         LoginRequest loginRequest = new LoginRequest(username, password);
         facade.login(loginRequest);
-        client.setState(ChessClient.State.SIGNED_IN);
+        sceneManager.setState(SceneManager.State.SIGNED_IN);
         data.setUser(username);
 
         return SERVER_FORMAT + "Successfully Logged In";
@@ -68,14 +68,14 @@ public class PreLoginUI extends UI {
         String email = params[2];
 
         facade.register(new RegisterRequest(username, password, email));
-        client.setState(ChessClient.State.SIGNED_IN);
+        sceneManager.setState(SceneManager.State.SIGNED_IN);
         data.setUser(username);
 
         return SERVER_FORMAT + "Registered user: " + username;
     }
 
     private String quit(String... params) throws ErrorException {
-        ChessClient.State state = client.getState();
+        SceneManager.State state = sceneManager.getState();
         return switch (state) {
             case SIGNED_OUT ->  "quit";
             case SIGNED_IN,GAMEPLAY -> throw new ErrorException(400, "Must logout before quitting program");

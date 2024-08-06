@@ -2,21 +2,21 @@ package ui;
 
 import clientdata.ClientData;
 import exception.ErrorException;
-import facades.ServerMessageObserver;
+import servermessage.ServerMessageObserver;
 import facades.WebSocketFacade;
 
 import java.util.HashMap;
 
-public class GameplayUI extends UI {
-    private final ChessClient client;
+public class GameplayScene extends Scene {
+    private final SceneManager sceneManager;
     private final String serverURL;
     private final ServerMessageObserver observer;
     private final HashMap<String, UIFunction<String[],String>> validCommands;
 
     private ClientData data;
 
-    public GameplayUI(ChessClient client, String serverURL, ServerMessageObserver observer,ClientData data) {
-        this.client = client;
+    public GameplayScene(SceneManager sceneManager, String serverURL, ServerMessageObserver observer, ClientData data) {
+        this.sceneManager = sceneManager;
         this.serverURL = serverURL;
         this.observer = observer;
         this.data = data;

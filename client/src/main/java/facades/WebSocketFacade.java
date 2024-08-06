@@ -2,6 +2,7 @@ package facades;
 
 import exception.ErrorException;
 import serializer.Serializer;
+import servermessage.ServerMessageObserver;
 import websocket.commands.UserGameCommand;
 import websocket.messages.ServerMessage;
 

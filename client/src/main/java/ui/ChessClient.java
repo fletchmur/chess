@@ -1,91 +1,72 @@
 package ui;
 
-import java.util.Arrays;
-
 import clientdata.ClientData;
 import exception.ErrorException;
-import facades.ServerMessageObserver;
-import facades.WebSocketFacade;
-import request.*;
-import facades.ServerFacade;
+import servermessage.ServerMessageObserver;
+import serializer.Serializer;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
+import websocket.messages.Notification;
+import websocket.messages.ServerMessage;
 
+import java.util.Scanner;
 
-public class ChessClient {
+public class ChessClient implements ServerMessageObserver {
 
+    private SceneManager sceneManager;
     private ClientData clientData = new ClientData(null,null);
 
-    public enum State {
-        SIGNED_IN,
-        SIGNED_OUT,
-        GAMEPLAY
-    };
-
-    private final ServerFacade facade;
-    private State state = State.SIGNED_OUT;
-    private final PreLoginUI preLoginUI;
-    private final PostLoginUI postLoginUI;
-    private  final GameplayUI gameplayUI;
-
-
-    public ChessClient(String serverURL, ServerMessageObserver observer) throws ErrorException {
-
-        facade = new ServerFacade(serverURL);
-        preLoginUI = new PreLoginUI(this,facade,clientData);
-        postLoginUI = new PostLoginUI(this,facade,clientData);
-        gameplayUI = new GameplayUI(this,serverURL,observer,clientData);
-
-    }
-
-    public String getStateString() {
-        String color = EscapeSequences.SET_TEXT_COLOR_LIGHT_GREY;
-        return switch(state) {
-            case SIGNED_IN -> EscapeSequences.SET_TEXT_COLOR_WHITE + "[LOGGED_IN]";
-            case SIGNED_OUT -> color + "[LOGGED_OUT]";
-            case GAMEPLAY -> EscapeSequences.SET_TEXT_COLOR_GREEN + "[GAMEPLAY]";
-
-        };
-    }
-
-    public String eval(String line) {
-        //This method should take in a line from the repl class, break it down into the command and parameters
-        // It should then call the UI class which will hand the command and parameters to correct method
-
-        String[] tokens = line.split(" ");
-        String cmd = tokens[0];
-        String[] params = Arrays.copyOfRange(tokens,1,tokens.length);
+    public ChessClient(String serverUrl) {
         try {
-            if(cmd.equals("clear")) {
-                return clear();
-            }
-            if(cmd.equals("ws")) {
-                state = State.GAMEPLAY;
-            }
-
-            return switch (state) {
-                case SIGNED_OUT -> preLoginUI.eval(cmd,params);
-                case SIGNED_IN -> postLoginUI.eval(cmd,params);
-                case GAMEPLAY -> gameplayUI.eval(cmd,params);
-            };
+            sceneManager = new SceneManager(serverUrl,this,clientData);
         }
         catch (ErrorException e) {
-            String errorFormat = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_RED;
-            return errorFormat + "[Error " + e.getErrorCode() + "] "+ EscapeSequences.SET_TEXT_FAINT + e.getMessage();
+            System.err.println(e.getMessage());
         }
 
     }
 
-    public State getState() {
-        return this.state;
+    public void run() {
+        System.out.print(EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE + "♕ Welcome to Chess. Enter help to get started. ♕");
+
+        Scanner scanner = new Scanner(System.in);
+        var result = "";
+        while(result != "quit") {
+            if(!sceneManager.getState().equals(SceneManager.State.GAMEPLAY)) {
+                printPropmt();
+            }
+            String line = scanner.nextLine();
+            result = sceneManager.eval(line);
+            System.out.print(result);
+            System.out.println();
+        }
     }
 
-    public void setState(State state) {
-        this.state = state;
+    private void printPropmt() {
+        System.out.println();
+        System.out.print(sceneManager.getStateString() + EscapeSequences.SET_TEXT_COLOR_LIGHT_GREY + " >>> ");
     }
 
-    //TODO remove clear method and clear checking if statement
-    private String clear() throws ErrorException {
-        facade.clear(new ClearRequest());
-        String serverFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;
-        return serverFormat + "cleared databases";
+    @Override
+    public void notify(String message, ServerMessage.ServerMessageType type) {
+
+        String ERASE = EscapeSequences.ERASE_SCREEN;
+        //TODO create a serverMessageProcessor class to handle processing messages from server
+        if (type == ServerMessage.ServerMessageType.NOTIFICATION) {
+            Notification notification = (Notification) new Serializer().deserialize(message, Notification.class);
+            String msg = notification.getMessage();
+            System.out.println(ERASE + "\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_YELLOW + msg);
+        }
+        else if (type == ServerMessage.ServerMessageType.LOAD_GAME) {
+            LoadGameMessage game = (LoadGameMessage) new Serializer().deserialize(message, LoadGameMessage.class);
+            String msg = "LOADING GAME...";
+            System.out.println(ERASE + "\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_GREEN + "[LOAD] " + msg);
+        }
+        else if (type == ServerMessage.ServerMessageType.ERROR) {
+            ErrorMessage error = (ErrorMessage) new Serializer().deserialize(message, ErrorMessage.class);
+            String msg = error.getErrorMessage();
+            System.out.println(ERASE + "\n" + EscapeSequences.FAINT_SERVER_FORMAT + EscapeSequences.SET_TEXT_COLOR_RED + msg);
+        }
+        printPropmt();
     }
 }
