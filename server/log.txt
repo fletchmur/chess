@@ -1,50 +1,36 @@
-Aug 07, 2024 9:58:42 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 9:58:42 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 9:58:42 AM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"white","authToken":"b2fd46ef-e538-4c0c-8158-03ac0ff29a4e"}
-Aug 07, 2024 9:58:42 AM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"black","authToken":"9bf6f003-31a3-4c14-a13c-b10b7c9db8a8"}
-Aug 07, 2024 9:58:42 AM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"observer","authToken":"bd4fcfc2-544a-4460-b6ad-82961bb56424"}
-Aug 07, 2024 9:58:42 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"a32ee36b-1d0a-4b2c-b41f-68d9c7d2b770"}
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"0b179434-e763-4c1c-8697-49e8fc427273"}
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"179271da-d526-4f46-9ac0-330c1d95e460"}
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:58 AM server.logger.ServerLogger log
 INFO: [GET]/ws - 200: null
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
 INFO: [GET]/ws - 200: null
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
 FINE: Root Client: <white> : [Notification] black joined game as BLACK player
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
 INFO: [GET]/ws - 200: null
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
 FINE: Root Client: <white> : [Notification] observer joined game as an observer
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
 FINE: Root Client: <black> : [Notification] observer joined game as an observer
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <observer> : [Notification] white moved (g,2) -> (g,4)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <black> : [Notification] white moved (g,2) -> (g,4)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <observer> : [Notification] black moved (e,7) -> (e,6)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <white> : [Notification] black moved (e,7) -> (e,6)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <observer> : [Notification] white moved (f,2) -> (f,3)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <black> : [Notification] white moved (f,2) -> (f,3)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <observer> : [Notification] black moved (d,8) -> (h,4)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <white> : [Notification] black moved (d,8) -> (h,4)
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <observer> : [Notification] white is in checkmate
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <white> : [Notification] white is in checkmate
-Aug 07, 2024 9:58:43 AM server.logger.ServerLogger log
-FINE: Root Client: <black> : [Notification] white is in checkmate
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] black resigned the game
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black resigned the game
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] black resigned the game
+Aug 07, 2024 10:24:59 AM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@6101e198[batching=true]> : [Error] Game is over, can't resign

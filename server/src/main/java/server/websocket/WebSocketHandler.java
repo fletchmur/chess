@@ -13,6 +13,7 @@ import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import serializer.Serializer;
+import server.logger.ServerLogger;
 import server.service.AuthorizationService;
 import websocket.commands.MakeMoveCommand;
 import websocket.commands.UserGameCommand;
@@ -22,6 +23,7 @@ import websocket.messages.Notification;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.logging.Level;
 
 
 @WebSocket
@@ -31,10 +33,11 @@ public class WebSocketHandler {
     private final GameDAO gameDAO = new MySQLGameDAO();
     private final AuthDAO authDAO = new MySQLAuthDAO();
 
+    //ON MESSAGE METHODS
     @OnWebSocketMessage
     public void onMessage(Session session, String message) throws IOException {
+        UserGameCommand command = (UserGameCommand) new Serializer().deserialize(message, UserGameCommand.class);
         try {
-            UserGameCommand command = (UserGameCommand) new Serializer().deserialize(message, UserGameCommand.class);
 
             AuthorizationService authorizationService = new AuthorizationService();
             authorizationService.authorize(command.getAuthToken());
@@ -45,6 +48,7 @@ public class WebSocketHandler {
             switch (command.getCommandType()) {
                 case CONNECT -> connect(command.getGameID(), rootClient);
                 case MAKE_MOVE -> makeMove(message,rootClient);
+                case RESIGN -> resign(command.getGameID(), rootClient);
                 default -> test(rootClient);
             }
         }
@@ -56,19 +60,17 @@ public class WebSocketHandler {
     private void saveSession(Integer gameID, String rootClient, Session session) {
         connections.add(gameID,rootClient,session);
     }
-
     private String getRootClientFromAuth(String authToken) throws DataAccessException {
         AuthData authData = authDAO.getAuth(authToken);
         return authData.username();
     }
-
     private void sendError(Session session, String errorMessage) throws IOException {
         ErrorMessage error = new ErrorMessage(errorMessage);
+        ServerLogger.log(Level.FINE,String.format("Session: <" + session.getRemote().toString() + "> : "  + error.getErrorMessage()));
         session.getRemote().sendString(new Serializer().serialize(error));
     }
 
-
-
+    //CONNECT METHODS
     private void connect(Integer gameID,String rootClient) throws IOException, ErrorException {
         try {
             GameData gameData = gameDAO.getGame(gameID);
@@ -86,6 +88,19 @@ public class WebSocketHandler {
         }
     }
 
+    private String getParticipantString(String username,GameData gameData) {
+        if(username.equals(gameData.whiteUsername())) {
+            return "WHITE player";
+        }
+        else if(username.equals(gameData.blackUsername())) {
+            return "BLACK player";
+        }
+        else {
+            return "an observer";
+        }
+    }
+
+    //MOVE METHODS
     private void makeMove(String message,String rootClient) throws ErrorException, IOException {
         try {
             MakeMoveCommand cmd = (MakeMoveCommand) new Serializer().deserialize(message, MakeMoveCommand.class);
@@ -140,7 +155,6 @@ public class WebSocketHandler {
             throw new ErrorException(500,"Can't move opponent's piece");
         }
     }
-
     private boolean staleMateNotification(GameData gameData) throws IOException {
         ChessGame game = gameData.game();
 
@@ -191,15 +205,25 @@ public class WebSocketHandler {
         return false;
     }
 
-    private String getParticipantString(String username,GameData gameData) {
-        if(username.equals(gameData.whiteUsername())) {
-            return "WHITE player";
+    //RESIGN METHODS
+    public void resign(Integer gameID,String rootClient) throws IOException, ErrorException {
+        try {
+            GameData gameData = gameDAO.getGame(gameID);
+
+            if(!rootClient.equals(gameData.whiteUsername()) && !rootClient.equals(gameData.blackUsername())) {
+                throw new ErrorException(500,"Observers can't resign game");
+            }
+            if(gameData.game().isGameOver()) {
+                throw new ErrorException(500,"Game is over, can't resign");
+            }
+
+            gameData.game().resign();
+            gameDAO.updateGame(gameID, gameData);
+            Notification notification = new Notification(rootClient + " resigned the game");
+            connections.broadcast(gameData.gameID(), "",notification);
         }
-        else if(username.equals(gameData.blackUsername())) {
-            return "BLACK player";
-        }
-        else {
-            return "an observer";
+        catch (DataAccessException e) {
+            throw new ErrorException(500, e.getMessage());
         }
     }
 

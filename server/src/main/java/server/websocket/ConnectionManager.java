@@ -2,10 +2,8 @@ package server.websocket;
 
 import org.eclipse.jetty.websocket.api.Session;
 import serializer.Serializer;
-import server.Server;
 import server.logger.ServerLogger;
-import spark.Request;
-import spark.Response;
+import websocket.messages.ErrorMessage;
 import websocket.messages.Notification;
 import websocket.messages.ServerMessage;
 
@@ -72,6 +70,8 @@ public class ConnectionManager {
     private void log(String rootClient, ServerMessage message) {
         if(message.getServerMessageType().equals(ServerMessage.ServerMessageType.NOTIFICATION)) {
             ServerLogger.log(Level.FINE, String.format("Root Client: <" + rootClient + "> : " + ((Notification) message).getMessage()));
+        } else if(message.getServerMessageType().equals(ServerMessage.ServerMessageType.ERROR)) {
+            ServerLogger.log(Level.FINE,String.format("Root Client: <" + rootClient + "> : " + ((ErrorMessage) message).getErrorMessage()));
         }
     }
 }

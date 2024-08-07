@@ -7,7 +7,7 @@ import java.util.logging.*;
 
 public class ServerLogger {
     private static java.util.logging.Logger logger;
-    private static Level logLevel = Level.SEVERE;
+    private static Level logLevel = Level.FINE;
 
     static {
         try {
