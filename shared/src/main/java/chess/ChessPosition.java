@@ -1,5 +1,6 @@
 package chess;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -47,7 +48,17 @@ public class ChessPosition {
 
     @Override
     public String toString() {
-        return String.format("(%d,%d)", getColumn(), getRow());
+        HashMap<Integer,String> indexToAlphabet = new HashMap<>();
+        indexToAlphabet.put(1,"a");
+        indexToAlphabet.put(2,"b");
+        indexToAlphabet.put(3,"c");
+        indexToAlphabet.put(4,"d");
+        indexToAlphabet.put(5,"e");
+        indexToAlphabet.put(6,"f");
+        indexToAlphabet.put(7,"g");
+        indexToAlphabet.put(8,"h");
+
+        return String.format("(%s,%d)", indexToAlphabet.get(getColumn()), getRow());
     }
 
     @Override

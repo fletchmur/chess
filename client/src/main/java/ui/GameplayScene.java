@@ -25,7 +25,6 @@ public class GameplayScene extends Scene {
         validCommands.put("wstest",this::webSocketTest);
     }
 
-
     @Override
     String help() {
         String prelude = BOLD_FORMAT + "[HELP]\n";

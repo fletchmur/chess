@@ -1,6 +1,6 @@
 package server.websocket;
 
-import chess.ChessBoard;
+import chess.*;
 import dataaccess.DataAccessException;
 import dataaccess.interfaces.AuthDAO;
 import dataaccess.interfaces.GameDAO;
@@ -14,12 +14,14 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import serializer.Serializer;
 import server.service.AuthorizationService;
+import websocket.commands.MakeMoveCommand;
 import websocket.commands.UserGameCommand;
 import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
 import websocket.messages.Notification;
 
 import java.io.IOException;
+import java.util.Collection;
 
 
 @WebSocket
@@ -42,6 +44,7 @@ public class WebSocketHandler {
 
             switch (command.getCommandType()) {
                 case CONNECT -> connect(command.getGameID(), rootClient);
+                case MAKE_MOVE -> makeMove(message,rootClient);
                 default -> test(rootClient);
             }
         }
@@ -64,7 +67,9 @@ public class WebSocketHandler {
         session.getRemote().sendString(new Serializer().serialize(error));
     }
 
-    private void connect(Integer gameID,String rootClient) throws IOException,ErrorException {
+
+
+    private void connect(Integer gameID,String rootClient) throws IOException, ErrorException {
         try {
             GameData gameData = gameDAO.getGame(gameID);
             ChessBoard board = gameData.game().getBoard();
@@ -81,15 +86,120 @@ public class WebSocketHandler {
         }
     }
 
+    private void makeMove(String message,String rootClient) throws ErrorException, IOException {
+        try {
+            MakeMoveCommand cmd = (MakeMoveCommand) new Serializer().deserialize(message, MakeMoveCommand.class);
+            GameData gameData = gameDAO.getGame(cmd.getGameID());
+
+            ChessGame game = gameData.game();
+            ChessMove move = cmd.getMove();
+
+            validateMoveOwnPiece(gameData,rootClient,move);
+
+            game.makeMove(move);
+
+            GameData newGameData = new GameData(gameData.gameID(), gameData.whiteUsername(), gameData.blackUsername(), gameData.gameName(), game);
+            gameDAO.updateGame(gameData.gameID(), newGameData);
+
+            LoadGameMessage loadMsg = new LoadGameMessage(newGameData.game().getBoard());
+            connections.broadcast(gameData.gameID(),"",loadMsg);
+            Notification moveNotification = new Notification(rootClient + " moved " + move.movementString());
+            connections.broadcast(gameData.gameID(),rootClient,moveNotification);
+
+            //using logical short-circuiting to make sure only one of these messages is sent
+            if(staleMateNotification(gameData) || checkMateNotification(gameData) || checkNotification(gameData)) {
+                return;
+            }
+        }
+        catch (DataAccessException | InvalidMoveException e) {
+            throw new ErrorException(500, e.getMessage());
+        }
+
+    }
+
+    private void validateMoveOwnPiece(GameData gameData,String rootClient,ChessMove move) throws ErrorException {
+        ChessGame game = gameData.game();
+
+        ChessGame.TeamColor myColor = null;
+
+        boolean whiteTeam = rootClient.equals(gameData.whiteUsername());
+        boolean blackTeam = rootClient.equals(gameData.blackUsername());
+
+        if(whiteTeam) {
+            myColor = ChessGame.TeamColor.WHITE;
+        }
+        else if(blackTeam) {
+            myColor = ChessGame.TeamColor.BLACK;
+        }
+
+        if(myColor == null) {
+            throw new ErrorException(500,"Can't move pieces when observing");
+        }
+        ChessPiece pieceToMove = game.getBoard().getPiece(move.getStartPosition());
+        if(!myColor.equals(pieceToMove.getTeamColor())) {
+            throw new ErrorException(500,"Can't move opponent's piece");
+        }
+    }
+
+    private boolean staleMateNotification(GameData gameData) throws IOException {
+        ChessGame game = gameData.game();
+
+        boolean stalemateWhite = game.isInStalemate(ChessGame.TeamColor.WHITE);
+        boolean stalemateBlack = game.isInStalemate(ChessGame.TeamColor.BLACK);
+
+        if(stalemateWhite && stalemateBlack) {
+            Notification stalemateNotification = new Notification("Game is in stalemate!");
+            connections.broadcast(gameData.gameID(), "",stalemateNotification);
+            return true;
+        }
+        return false;
+    }
+    private boolean checkMateNotification(GameData gameData) throws IOException {
+        ChessGame game = gameData.game();
+
+        boolean whiteCheckMate = game.isInCheckmate(ChessGame.TeamColor.WHITE);
+        boolean blackCheckMate = game.isInCheckmate(ChessGame.TeamColor.BLACK);
+
+        if(whiteCheckMate) {
+            Notification whiteNotification = new Notification(gameData.whiteUsername() + " is in checkmate");
+            connections.broadcast(gameData.gameID(), "",whiteNotification);
+            return true;
+        }
+        else if(blackCheckMate) {
+            Notification blackNotification = new Notification(gameData.blackUsername() + " is in checkmate");
+            connections.broadcast(gameData.gameID(),"",blackNotification);
+            return true;
+        }
+        return false;
+    }
+    private boolean checkNotification(GameData gameData) throws IOException {
+        ChessGame game = gameData.game();
+
+        boolean whiteCheck = game.isInCheck(ChessGame.TeamColor.WHITE);
+        boolean blackCheck = game.isInCheck(ChessGame.TeamColor.BLACK);
+
+        if(whiteCheck) {
+            Notification whiteCheckNotification = new Notification(gameData.whiteUsername() + " is in check");
+            connections.broadcast(gameData.gameID(), "",whiteCheckNotification);
+            return true;
+        }
+        else if(blackCheck) {
+            Notification blackCheckNotification = new Notification(gameData.blackUsername() + " is in check");
+            connections.broadcast(gameData.gameID(), "",blackCheckNotification);
+            return true;
+        }
+        return false;
+    }
+
     private String getParticipantString(String username,GameData gameData) {
         if(username.equals(gameData.whiteUsername())) {
-            return " WHITE player";
+            return "WHITE player";
         }
         else if(username.equals(gameData.blackUsername())) {
-            return " BLACK player";
+            return "BLACK player";
         }
         else {
-            return " an observer";
+            return "an observer";
         }
     }
 

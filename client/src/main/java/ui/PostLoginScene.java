@@ -105,7 +105,7 @@ public class PostLoginScene extends Scene {
         facade.joinGame(request);
         sceneManager.setState(SceneManager.State.GAMEPLAY);
         WebSocketFacade ws = new WebSocketFacade(serverURL,observer, data.getAuthToken());
-        ws.connect(gameID, data.getUser(),teamColor);
+        ws.connect(gameID);
 
         return EscapeSequences.FAINT_SERVER_FORMAT + "joining game..." + EscapeSequences.RESET_TEXT_COLOR;
     }
@@ -125,9 +125,10 @@ public class PostLoginScene extends Scene {
         StringBuilder result = new StringBuilder();
         for(int i = 0; i < games.length-1; i++) {
             listToGameID.put(i + 1, games[i].gameID());
-            result.append(BOLD_FORMAT).append(i+1).append(". ").append(SERVER_FORMAT).append(games[i].gameName()).append("\n");
+            result.append(BOLD_FORMAT).append(i+1).append(". ").append(SERVER_FORMAT).append(games[i].gameName());
             result.append(" <WHITE: ").append(games[i].whiteUsername()).append(">");
             result.append(" <BLACK: ").append(games[i].blackUsername()).append(">");
+            result.append("\n");
         }
 
         listToGameID.put(games.length, games[games.length-1].gameID());

@@ -1,4 +1,2 @@
-Aug 06, 2024 3:17:09 PM server.Server log
-INFO: [POST]/session - 401: {"message":"unauthorized"}
-Aug 06, 2024 3:17:12 PM server.Server log
-INFO: [POST]/session - 401: {"message":"unauthorized"}
+Aug 06, 2024 4:28:34 PM server.Server log
+INFO: [DELETE]/db - 200: {}

@@ -14,6 +14,7 @@ public class ChessGame {
 
     private final TurnHandler turnHandler;
     private ChessBoard board;
+    private boolean gameOver = false;
 
     /**
      * Enum identifying the 2 possible teams in a chess game
@@ -32,6 +33,13 @@ public class ChessGame {
     /**
      * @return Which team's turn it is
      */
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+    public void resign() {
+        gameOver = true;
+    }
 
     public TeamColor getTeamTurn() {
 
@@ -98,6 +106,10 @@ public class ChessGame {
         ChessPosition startPosition = move.getStartPosition();
         ChessPiece movePiece = board.getPiece(startPosition);
 
+        if(isGameOver()) {
+            throw new InvalidMoveException("Can't move after game over");
+        }
+
         //check to see if the move is illegal
         if(movePiece == null) {throw new InvalidMoveException();}
         TeamColor pieceColor = movePiece.getTeamColor();
@@ -158,6 +170,7 @@ public class ChessGame {
             if(!moves.isEmpty()) {return false;}
         }
         //if we can't move then we are in checkmate
+        gameOver = true;
         return true;
     }
     /**
@@ -175,6 +188,7 @@ public class ChessGame {
             if(!moves.isEmpty()) {return false;}
         }
         //if we can't move then we are in stalemate
+        gameOver = true;
         return true;
 
 

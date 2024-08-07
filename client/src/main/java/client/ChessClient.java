@@ -3,7 +3,6 @@ package client;
 import chess.ChessGame;
 import exception.ErrorException;
 import servermessage.ServerMessageObserver;
-import serializer.Serializer;
 import servermessage.ServerMessageProcessor;
 import ui.EscapeSequences;
 import ui.SceneManager;
@@ -32,9 +31,7 @@ public class ChessClient implements ServerMessageObserver {
         Scanner scanner = new Scanner(System.in);
         var result = "";
         while(result != "quit") {
-            if(!sceneManager.getState().equals(SceneManager.State.GAMEPLAY)) {
-                printPropmt();
-            }
+            printPropmt();
             String line = scanner.nextLine();
             result = sceneManager.eval(line);
             System.out.print(result);

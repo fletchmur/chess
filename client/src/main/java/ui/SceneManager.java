@@ -68,7 +68,6 @@ public class SceneManager {
             String errorFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_RED;
             return errorFormat + "[Error] " + e.getMessage();
         }
-
     }
 
     public State getState() {

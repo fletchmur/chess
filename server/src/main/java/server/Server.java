@@ -1,25 +1,13 @@
 package server;
 
 import server.handler.*;
+import server.logger.ServerLogger;
 import server.websocket.WebSocketHandler;
 import spark.*;
 
-import java.io.IOException;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.util.logging.FileHandler;
-import java.util.logging.SimpleFormatter;
+import java.util.logging.*;
 
 public class Server {
-
-    private static Logger logger;
-    static {
-        try {
-            initLog();
-        } catch (IOException e) {
-            System.out.println("Error initializing log: " + e.getMessage());
-        }
-    }
 
     private final WebSocketHandler webSocketHandler = new WebSocketHandler();
 
@@ -52,17 +40,6 @@ public class Server {
     }
 
     private void log(Request req, Response res) {
-        logger.log(Level.INFO, String.format("[%s]%s - %d: %s", req.requestMethod(), req.pathInfo(), res.status(),res.body()));
-    }
-
-    private static void initLog() throws IOException {
-        Level logLevel = Level.INFO;
-        logger = Logger.getLogger(Server.class.getName());
-        logger.setLevel(logLevel);
-
-        FileHandler fileHandler = new FileHandler("log.txt",false);
-        fileHandler.setLevel(logLevel);
-        fileHandler.setFormatter(new SimpleFormatter());
-        logger.addHandler(fileHandler);
+        ServerLogger.log(Level.INFO, String.format("[%s]%s - %d: %s", req.requestMethod(), req.pathInfo(), res.status(),res.body()));
     }
 }
