@@ -76,6 +76,8 @@ public class PostLoginScene extends Scene {
 
         data.setTeamColor(ChessGame.TeamColor.WHITE);
 
+        data.setGameID(gameID);
+
         sceneManager.setState(SceneManager.State.GAMEPLAY);
         WebSocketFacade ws = new WebSocketFacade(serverURL,observer, data.getAuthToken());
         ws.connect(gameID);
@@ -104,6 +106,8 @@ public class PostLoginScene extends Scene {
 
         JoinGameRequest request = new JoinGameRequest(teamColor,gameID);
         facade.joinGame(request);
+
+        data.setGameID(gameID);
 
         sceneManager.setState(SceneManager.State.GAMEPLAY);
         WebSocketFacade ws = new WebSocketFacade(serverURL,observer, data.getAuthToken());

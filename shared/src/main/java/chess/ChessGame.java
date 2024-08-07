@@ -111,11 +111,11 @@ public class ChessGame {
         }
 
         //check to see if the move is illegal
-        if(movePiece == null) {throw new InvalidMoveException();}
+        if(movePiece == null) {throw new InvalidMoveException("No piece on square");}
         TeamColor pieceColor = movePiece.getTeamColor();
-        if(!turnHandler.myTurn(pieceColor)) {throw new InvalidMoveException();}
+        if(!turnHandler.myTurn(pieceColor)) {throw new InvalidMoveException("Not your turn");}
         Collection<ChessMove> potentialMoves = validMoves(startPosition);
-        if(!potentialMoves.contains(move)) {throw new InvalidMoveException();}
+        if(!potentialMoves.contains(move)) {throw new InvalidMoveException("Invalid move");}
 
         ChessPosition endPosition = move.getEndPosition();
 

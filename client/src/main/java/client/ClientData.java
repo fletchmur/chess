@@ -9,6 +9,7 @@ public class ClientData {
     private String user;
     private ChessGame.TeamColor teamColor;
     private String authToken = "";
+    private Integer gameID;
 
     public ClientData(ChessGame chessGame, String user) {
         this.game = chessGame;
@@ -28,6 +29,9 @@ public class ClientData {
     public String getAuthToken() {
         return authToken;
     }
+    public Integer getGameID() {
+        return gameID;
+    }
 
     public void setUser(String user) {
         this.user = user;
@@ -40,5 +44,8 @@ public class ClientData {
     }
     public void setAuthToken(String authToken) {
         this.authToken = authToken;
+    }
+    public void setGameID(Integer gameID) {
+        this.gameID = gameID;
     }
 }

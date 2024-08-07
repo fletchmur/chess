@@ -1,9 +1,11 @@
 package facades;
 
 import chess.ChessGame;
+import chess.ChessMove;
 import exception.ErrorException;
 import serializer.Serializer;
 import servermessage.ServerMessageObserver;
+import websocket.commands.MakeMoveCommand;
 import websocket.commands.UserGameCommand;
 import websocket.messages.ServerMessage;
 
@@ -52,6 +54,16 @@ public class WebSocketFacade extends Endpoint {
     public void connect(Integer gameID) throws ErrorException {
         try {
             UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.CONNECT,authToken,gameID);
+            this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
+        }
+        catch (IOException e) {
+            throw new ErrorException(500,e.getMessage());
+        }
+    }
+
+    public void move(Integer gameID, ChessMove move) throws ErrorException {
+        try {
+            MakeMoveCommand cmd = new MakeMoveCommand(authToken,gameID,move);
             this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
         }
         catch (IOException e) {

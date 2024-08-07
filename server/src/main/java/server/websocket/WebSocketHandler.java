@@ -103,8 +103,13 @@ public class WebSocketHandler {
     //MOVE METHODS
     private void makeMove(String message,String rootClient) throws ErrorException, IOException {
         try {
+
             MakeMoveCommand cmd = (MakeMoveCommand) new Serializer().deserialize(message, MakeMoveCommand.class);
             GameData gameData = gameDAO.getGame(cmd.getGameID());
+
+            if(!rootClient.equals(gameData.whiteUsername()) && !rootClient.equals(gameData.blackUsername())) {
+                throw new ErrorException(500,"Observers can't move pieces");
+            }
 
             ChessGame game = gameData.game();
             ChessMove move = cmd.getMove();
