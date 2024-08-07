@@ -49,6 +49,7 @@ public class WebSocketHandler {
                 case CONNECT -> connect(command.getGameID(), rootClient);
                 case MAKE_MOVE -> makeMove(message,rootClient);
                 case RESIGN -> resign(command.getGameID(), rootClient);
+                case LEAVE -> leave(command.getGameID(), rootClient);
                 default -> test(rootClient);
             }
         }
@@ -225,6 +226,34 @@ public class WebSocketHandler {
         catch (DataAccessException e) {
             throw new ErrorException(500, e.getMessage());
         }
+    }
+
+    //LEAVE METHODS
+    public void leave(Integer gameID,String rootClient) throws IOException, ErrorException {
+        try {
+            GameData gameData = gameDAO.getGame(gameID);
+            GameData newData = null;
+
+            if(rootClient.equals(gameData.whiteUsername())) {
+                newData = new GameData(gameID,null, gameData.blackUsername(), gameData.gameName(), gameData.game());
+            }
+            else if(rootClient.equals(gameData.blackUsername())) {
+                newData = new GameData(gameID, gameData.whiteUsername(), null, gameData.gameName(), gameData.game());
+            }
+
+            if(newData != null) {
+                gameDAO.updateGame(gameID, newData);
+            }
+
+            Notification notification = new Notification(rootClient + " left the game");
+            connections.broadcast(gameData.gameID(), rootClient,notification);
+            connections.remove(gameID,rootClient);
+
+        }
+        catch (DataAccessException e) {
+            throw new ErrorException(500, e.getMessage());
+        }
+
     }
 
     //TODO implement action methods and add them to the switch statement
