@@ -7,8 +7,10 @@ import client.ClientData;
 import exception.ErrorException;
 import facades.WebSocketFacade;
 import servermessage.ServerMessageObserver;
+import websocket.commands.UserGameCommand;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class GameplayScene extends Scene {
 
@@ -30,6 +32,8 @@ public class GameplayScene extends Scene {
         validCommands = new HashMap<>();
         validCommands.put("redraw", this::redraw);
         validCommands.put("move", this::move);
+        validCommands.put("resign", this::resign);
+        validCommands.put("leave",this::leave);
 
         positionMap = new HashMap<>();
         initPositionMap();
@@ -110,5 +114,39 @@ public class GameplayScene extends Scene {
 
         ws.move(data.getGameID(),move);
         return SERVER_FORMAT + "Moving " + move.movementString() + "...";
+    }
+
+    public String resign(String... params) throws ErrorException {
+        if(params.length != 0) {
+            return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " resign";
+        }
+
+        System.out.println(SERVER_FORMAT + "Are you sure you want to resign (y/n)?" + EscapeSequences.RESET_TEXT_COLOR);
+        System.out.println();
+        System.out.print(sceneManager.getStateString() + EscapeSequences.SET_TEXT_COLOR_LIGHT_GREY + " >>> ");
+
+        Scanner scanner = new Scanner(System.in);
+        String result = scanner.nextLine();
+        if(result.equalsIgnoreCase("y") || result.equalsIgnoreCase("yes")) {
+            WebSocketFacade ws = new WebSocketFacade(serverURL,observer,data.getAuthToken());
+            ws.resign(data.getGameID());
+            return SERVER_FORMAT + "Resigning..." + EscapeSequences.RESET_TEXT_COLOR;
+        }
+
+        return SERVER_FORMAT + "Canceling..." + EscapeSequences.RESET_TEXT_COLOR;
+    }
+
+    public String leave(String... params) throws ErrorException {
+        if(params.length != 0) {
+            return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " leave";
+        }
+
+        WebSocketFacade ws = new WebSocketFacade(serverURL,observer,data.getAuthToken());
+        ws.leave(data.getGameID());
+        data.setGameID(null);
+        data.setTeamColor(null);
+        sceneManager.setState(SceneManager.State.SIGNED_IN);
+
+        return SERVER_FORMAT + "Leaving game..." + EscapeSequences.RESET_TEXT_COLOR;
     }
 }

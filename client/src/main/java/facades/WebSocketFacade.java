@@ -70,4 +70,24 @@ public class WebSocketFacade extends Endpoint {
             throw new ErrorException(500,e.getMessage());
         }
     }
+
+    public void leave(Integer gameID) throws ErrorException {
+        try {
+            UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.LEAVE,authToken,gameID);
+            this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
+        }
+        catch (IOException e) {
+            throw new ErrorException(500,e.getMessage());
+        }
+    }
+
+    public void resign(Integer gameID) throws ErrorException {
+        try {
+            UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.RESIGN,authToken,gameID);
+            this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
+        }
+        catch (IOException e) {
+            throw new ErrorException(500,e.getMessage());
+        }
+    }
 }
