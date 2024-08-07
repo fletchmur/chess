@@ -3,7 +3,6 @@ package ui;
 import client.ClientData;
 import exception.ErrorException;
 import servermessage.ServerMessageObserver;
-import facades.WebSocketFacade;
 
 import java.util.HashMap;
 
@@ -22,7 +21,7 @@ public class GameplayScene extends Scene {
         this.data = data;
 
         validCommands = new HashMap<>();
-        validCommands.put("wstest",this::webSocketTest);
+        validCommands.put("redraw", this::redraw);
     }
 
     @Override
@@ -43,11 +42,10 @@ public class GameplayScene extends Scene {
     }
 
     //TODO implement hashmap for methods in gameplay UI
-    private String webSocketTest(String... params) throws ErrorException {
-        WebSocketFacade ws = new WebSocketFacade(serverURL,observer,data.getAuthToken());
-        ws.test();
-        return EscapeSequences.FAINT_SERVER_FORMAT + "sending basic command";
-    }
-
     //TODO implement methods in gameplay ui help
+
+    public String redraw(String... params) throws ErrorException {
+        ChessBoardRenderer renderer = new ChessBoardRenderer(data.getGame().getBoard(),data.getTeamColor());
+        return renderer.render();
+    }
 }

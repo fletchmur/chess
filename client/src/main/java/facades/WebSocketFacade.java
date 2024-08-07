@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 
 public class WebSocketFacade extends Endpoint {
 
-    private Session session;
+    private final Session session;
     ServerMessageObserver observer;
     private final String authToken;
 
@@ -52,16 +52,6 @@ public class WebSocketFacade extends Endpoint {
     public void connect(Integer gameID) throws ErrorException {
         try {
             UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.CONNECT,authToken,gameID);
-            this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
-        }
-        catch (IOException e) {
-            throw new ErrorException(500,e.getMessage());
-        }
-    }
-
-    public void test() throws ErrorException {
-        try {
-            UserGameCommand cmd = new UserGameCommand(UserGameCommand.CommandType.CONNECT,"abc",1);
             this.session.getBasicRemote().sendText(new Serializer().serialize(cmd));
         }
         catch (IOException e) {

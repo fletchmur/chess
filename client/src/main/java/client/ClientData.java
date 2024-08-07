@@ -5,19 +5,19 @@ import chess.ChessGame;
 
 public class ClientData {
 
-    private ChessGame board;
+    private ChessGame game;
     private String user;
     private ChessGame.TeamColor teamColor;
     private String authToken = "";
 
     public ClientData(ChessGame chessGame, String user) {
-        this.board = chessGame;
+        this.game = chessGame;
         this.user = user;
         this.teamColor = ChessGame.TeamColor.WHITE;
     }
 
-    public ChessGame getBoard() {
-        return board;
+    public ChessGame getGame() {
+        return game;
     }
     public String getUser() {
         return user;
@@ -33,7 +33,7 @@ public class ClientData {
         this.user = user;
     }
     public void updateChessBoard(ChessBoard board) {
-        this.board.setBoard(board);
+        this.game.setBoard(board);
     }
     public void setTeamColor(ChessGame.TeamColor teamColor) {
         this.teamColor = teamColor;

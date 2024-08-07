@@ -76,10 +76,11 @@ public class PostLoginScene extends Scene {
 
         data.setTeamColor(ChessGame.TeamColor.WHITE);
 
-        ChessBoard board = new ChessBoard();
-        board.resetBoard();
-        ChessBoardRenderer renderer = new ChessBoardRenderer(board, ChessGame.TeamColor.WHITE);
-        return renderer.render();
+        sceneManager.setState(SceneManager.State.GAMEPLAY);
+        WebSocketFacade ws = new WebSocketFacade(serverURL,observer, data.getAuthToken());
+        ws.connect(gameID);
+
+        return EscapeSequences.FAINT_SERVER_FORMAT + "observing game..." + EscapeSequences.RESET_TEXT_COLOR;
     }
 
     private String join(String... params) throws ErrorException {
@@ -103,6 +104,7 @@ public class PostLoginScene extends Scene {
 
         JoinGameRequest request = new JoinGameRequest(teamColor,gameID);
         facade.joinGame(request);
+
         sceneManager.setState(SceneManager.State.GAMEPLAY);
         WebSocketFacade ws = new WebSocketFacade(serverURL,observer, data.getAuthToken());
         ws.connect(gameID);

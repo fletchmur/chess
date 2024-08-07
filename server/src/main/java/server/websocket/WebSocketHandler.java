@@ -50,7 +50,6 @@ public class WebSocketHandler {
                 case MAKE_MOVE -> makeMove(message,rootClient);
                 case RESIGN -> resign(command.getGameID(), rootClient);
                 case LEAVE -> leave(command.getGameID(), rootClient);
-                default -> test(rootClient);
             }
         }
         catch (Exception e) {
@@ -254,16 +253,5 @@ public class WebSocketHandler {
             throw new ErrorException(500, e.getMessage());
         }
 
-    }
-
-    //TODO implement action methods and add them to the switch statement
-    //TODO remove test action method
-    private void test(String rootClient) throws IOException {
-        Notification notification = new Notification("notifying " + rootClient);
-        ErrorMessage error = new ErrorMessage("test error");
-        ChessBoard board = new ChessBoard();
-        board.resetBoard();
-        LoadGameMessage load = new LoadGameMessage(board);
-        connections.broadcast(1,"",load);
     }
 }
