@@ -1,5 +1,6 @@
 package ui;
 
+import chess.ChessGame;
 import chess.ChessMove;
 import chess.ChessPiece;
 import chess.ChessPosition;
@@ -9,7 +10,9 @@ import facades.WebSocketFacade;
 import servermessage.ServerMessageObserver;
 import websocket.commands.UserGameCommand;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class GameplayScene extends Scene {
@@ -34,6 +37,7 @@ public class GameplayScene extends Scene {
         validCommands.put("move", this::move);
         validCommands.put("resign", this::resign);
         validCommands.put("leave",this::leave);
+        validCommands.put("highlight", this::highlight);
 
         positionMap = new HashMap<>();
         initPositionMap();
@@ -68,8 +72,6 @@ public class GameplayScene extends Scene {
         return validCommands;
     }
 
-    //TODO implement hashmap for methods in gameplay UI
-    //TODO implement methods in gameplay ui help
 
     public String redraw(String... params) throws ErrorException {
         if(params.length != 0) {
@@ -148,5 +150,27 @@ public class GameplayScene extends Scene {
         sceneManager.setState(SceneManager.State.SIGNED_IN);
 
         return SERVER_FORMAT + "Leaving game..." + EscapeSequences.RESET_TEXT_COLOR;
+    }
+
+    public String highlight(String... params) throws ErrorException {
+        if(params.length != 1) {
+            return SERVER_FORMAT + "Expected Usage:" + BOLD_FORMAT + " highlight <POSITION>";
+        }
+        String positionString = params[0];
+        ChessPosition position = positionMap.get(positionString);
+
+        ChessGame game = data.getGame();
+
+        if(game.getBoard().getPiece(position) == null) {
+            throw new ErrorException(500,"can't find piece at position " + positionString);
+        }
+
+        Collection<ChessMove> validMoves = game.validMoves(position);
+        Collection<ChessPosition> endPositions = new HashSet<>();
+        for(ChessMove move : validMoves) {
+            endPositions.add(move.getEndPosition());
+        }
+
+        return new ChessBoardRenderer(data.getGame().getBoard(),data.getTeamColor()).highlight(position,endPositions);
     }
 }

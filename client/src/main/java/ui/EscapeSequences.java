@@ -49,6 +49,10 @@ public class EscapeSequences {
     public static final String SET_BG_COLOR_BROWN = SET_BG_COLOR + "137m";
     public static final String SET_BG_COLOR_LIGHT_BROWN = SET_BG_COLOR + "179m";
     public static final String SET_BG_COLOR_DULL_BLUE = SET_BG_COLOR + "25m";
+    public static final String SET_BG_COLOR_DULL_GREEN = SET_BG_COLOR + "76m";
+    public static final String SET_BG_COLOR_DULL_DARK_GREEN = SET_BG_COLOR + "70m";
+    public static final String SET_BG_COLOR_DULL_YELLOW = SET_BG_COLOR + "227m";
+    public static final String SET_BG_COLOR_DULL_MAGENTA = SET_BG_COLOR + "170m";
     public static final String RESET_BG_COLOR = UNICODE_ESCAPE + "[49m";
 
     public static final String BOLD_SERVER_FORMAT = EscapeSequences.SET_TEXT_BOLD + EscapeSequences.SET_TEXT_COLOR_BLUE;

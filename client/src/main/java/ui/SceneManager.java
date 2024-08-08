@@ -54,10 +54,6 @@ public class SceneManager {
             if(cmd.equals("clear")) {
                 return clear();
             }
-            if(cmd.equals("ws")) {
-                state = State.GAMEPLAY;
-            }
-
             return switch (state) {
                 case SIGNED_OUT -> preLoginScene.eval(cmd,params);
                 case SIGNED_IN -> postLoginScene.eval(cmd,params);
@@ -78,7 +74,6 @@ public class SceneManager {
         this.state = state;
     }
 
-    //TODO remove clear method and clear checking if statement
     private String clear() throws ErrorException {
         facade.clear(new ClearRequest());
         String serverFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_MAGENTA;

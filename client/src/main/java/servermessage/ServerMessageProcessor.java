@@ -34,7 +34,6 @@ public class ServerMessageProcessor {
     }
 
     private String loadGame(String message) {
-        //TODO make sure that when you leave a game the client color data is reset
         LoadGameMessage loadGameMessage = (LoadGameMessage) new Serializer().deserialize(message,LoadGameMessage.class);
         ChessBoard board = loadGameMessage.getGameBoard();
         data.updateChessBoard(board);
