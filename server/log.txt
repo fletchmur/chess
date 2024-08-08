@@ -1,0 +1,204 @@
+Aug 07, 2024 6:12:41 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:41 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"46a7391f-f8c7-4bba-a5b2-49faa371955d"}
+Aug 07, 2024 6:12:41 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"3089674a-c4da-473a-adff-a5614b5f2058"}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"2f861c2c-f5f8-4eff-b88f-289c0d79480a"}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"b6356de3-c084-492a-b28a-a78b6e465638"}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"8e5e6f09-adc8-4520-9a96-2908ffd65707"}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"4512e0df-8885-4ce2-80be-d7f25cb1e4b6"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"NewUser","authToken":"a84ed47b-b083-4bd7-9e65-a5076d4c13b9"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"ab6cd2f9-eb44-48f2-9195-36ee312eb495"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [POST]/user - 403: {"message":"Error:already taken"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"967e68e7-61c9-4355-8cca-69209fa6299c"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [POST]/user - 400: {"message":"Error:bad request"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"ebcb876a-0621-4a94-8718-dc14def0f1ec"}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"f8ad30e4-11ea-4c4c-b999-e993f9a30846"}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"f2ac18ed-1604-42cb-a129-2a33f6013087"}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"2784c894-8c77-4f4b-9e1e-84cd0a6aabc4"}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [POST]/game - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"6a5ea349-9163-41bf-84df-eb3336fef38f"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"testGame","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"aa6135b8-0452-4e4b-a67a-0fa0f884dd5a"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 400: {"message":"Error:bad request"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"9def7162-f0fc-47d8-ad04-88ef7b71ee44"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"85dd8738-d636-4d8a-a208-27b518c21de4"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 400: {"message":"Error:bad request"}
+Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"8ec3eaef-54bb-45e8-9579-b29d859bd609"}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"NewUser","authToken":"b4617bdc-458d-42da-b9d4-4406623651ee"}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 403: {"message":"Error:already taken"}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"aad6400e-de5d-46f9-848e-1f68c68649d1"}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [GET]/game - 200: {"games":[]}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"c66da9b5-f7af-42f5-9ccb-0f3d51cb71a5"}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"a","authToken":"f3f22eb5-31a8-4c0a-a3b6-a8f85dba1bb6"}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"b","authToken":"f141775c-fcbd-4550-ae9c-bedaf39a5a27"}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"c","authToken":"8389766d-bf01-4924-85d2-957320b90d06"}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":2}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":3}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":4}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"blackUsername":"a","gameName":"I\u0027m numbah one!","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":2,"whiteUsername":"b","gameName":"Lonely","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":3,"whiteUsername":"c","blackUsername":"a","gameName":"GG","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":4,"whiteUsername":"c","blackUsername":"c","gameName":"All by myself","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
+Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"dd883d24-8d60-4f05-986f-fe961d16f5db"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"81c265e2-f64a-42e7-b872-836bd6f86a14"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"594b5494-20a0-4665-b96a-d3b416b28146"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"Bad Join","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"f63a0c38-e01b-4582-bbb6-e5ea460320f3"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":2}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"95f963d4-84ee-490c-85b7-dd892232b8b9"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":3}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+INFO: [GET]/game - 401: {"message":"Error:unauthorized"}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"c544984e-dca6-4a71-b0d4-ae28e5130061"}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [GET]/game - 200: {"games":[]}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e695e76a-5994-499e-95f3-b5c56a9536c6"}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
