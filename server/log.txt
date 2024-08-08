@@ -1,204 +1,780 @@
-Aug 07, 2024 6:12:41 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:08 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:41 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"46a7391f-f8c7-4bba-a5b2-49faa371955d"}
-Aug 07, 2024 6:12:41 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"3089674a-c4da-473a-adff-a5614b5f2058"}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"2f861c2c-f5f8-4eff-b88f-289c0d79480a"}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"b6356de3-c084-492a-b28a-a78b6e465638"}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"8e5e6f09-adc8-4520-9a96-2908ffd65707"}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:42 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"4512e0df-8885-4ce2-80be-d7f25cb1e4b6"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"NewUser","authToken":"a84ed47b-b083-4bd7-9e65-a5076d4c13b9"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"ab6cd2f9-eb44-48f2-9195-36ee312eb495"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [POST]/user - 403: {"message":"Error:already taken"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"967e68e7-61c9-4355-8cca-69209fa6299c"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [POST]/user - 400: {"message":"Error:bad request"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"ebcb876a-0621-4a94-8718-dc14def0f1ec"}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 6:12:43 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"f8ad30e4-11ea-4c4c-b999-e993f9a30846"}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"f2ac18ed-1604-42cb-a129-2a33f6013087"}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:08 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"66cd06e8-628c-45f0-9438-dddefa6d5244"}
+Aug 07, 2024 6:38:08 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"2784c894-8c77-4f4b-9e1e-84cd0a6aabc4"}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [POST]/game - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:44 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"6a5ea349-9163-41bf-84df-eb3336fef38f"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:08 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:08 PM server.logger.ServerLogger log
+INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"Test Game","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
+Aug 07, 2024 6:38:08 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"9ca5b096-3400-4f4f-aa5c-5541c9ad55b2"}
+Aug 07, 2024 6:38:09 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:09 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"ed307fcd-e2f5-4b2d-803b-9e80e792bfb0"}
+Aug 07, 2024 6:38:09 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:09 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:09 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"1beb1f6c-69f0-43a4-957b-8f1664143ec4"}
+Aug 07, 2024 6:38:09 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"796c722f-7977-45fc-8898-0736369076ff"}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"27e1b71e-87e9-432a-875c-c8b4b19cf661"}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"364d9faa-8b80-46d0-abb6-e52d5057c936"}
+Aug 07, 2024 6:38:10 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"72e47a93-3c51-401f-b21c-df6c841b4dc0"}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"1792864a-da02-44d2-a6e5-7e97a2002910"}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@42935c4[batching=true]> : Error:Cannot invoke "model.GameData.game()" because "gameData" is null
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@6ca83117[batching=true]> : Error:Cannot invoke "model.GameData.game()" because "gameData" is null
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"d90f60e3-fdee-42f9-9992-b17180a67a6d"}
+Aug 07, 2024 6:38:11 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"1c1d4ca2-f1cf-421f-a035-e0cc773597e9"}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"845dee7a-2bef-42bd-9644-881511b130f5"}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@3d302dc3[batching=true]> : Error: unauthorized
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@3a27e3e5[batching=true]> : Error: unauthorized
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"013038ff-313e-4e6b-ba13-bc0319086619"}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"738fb024-c2f8-4b3e-8cd6-379db11fa508"}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"ee406707-5904-4037-915d-17b2391d13a5"}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:12 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white moved (e,2) -> (e,3)
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white moved (e,2) -> (e,3)
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"7ab12f02-e7c0-4f6b-ac8d-c37b52233be4"}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"718e558c-c4a9-4faa-a1af-71ccb055ace7"}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"d04bb5ef-ed57-406f-af4e-afa1927609a7"}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:13 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white moved (g,2) -> (g,4)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white moved (g,2) -> (g,4)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] black moved (e,7) -> (e,6)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black moved (e,7) -> (e,6)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white moved (f,2) -> (f,3)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white moved (f,2) -> (f,3)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] black moved (d,8) -> (h,4)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black moved (d,8) -> (h,4)
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white is in checkmate
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] white is in checkmate
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white is in checkmate
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@3c05cb12[batching=true]> : Error: Invalid move
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"8dd81f6c-bc52-46ed-bb79-e7292eb4bd8f"}
+Aug 07, 2024 6:38:14 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"e357fff2-bc08-41c6-9e07-6f789b9a1bae"}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"cd69ae2d-7fe8-4b3a-9748-e4b6b07835e3"}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@7270102d[batching=true]> : Error: Invalid move
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"9943b2b6-bc63-4c08-b4dc-8544ed2cc1cf"}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"1d96de99-8c79-4631-ab57-362f6635a06a"}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"658951f6-0dc0-4247-a9a5-8e3daab78e5e"}
+Aug 07, 2024 6:38:15 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@73829bf9[batching=true]> : Error: Can't move opponent's piece
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"dc7e9b6e-78a3-4d37-9675-a443516ca244"}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"d0e6c1f8-bad1-48e7-bf31-2aa2de9d5170"}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"9dcfdb16-02a3-4ae8-833d-5e96fedd994a"}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:16 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@2ca12e34[batching=true]> : Error: unauthorized
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"0d97f617-22d9-4f0c-a2e1-cc9aeacf4855"}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"9c6bb282-3e4e-4007-a1f2-4ed1bb0d3986"}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"9a1bd1bc-27ae-4a03-8018-3bf009e32227"}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:17 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@18ff30bd[batching=true]> : Error: Not your turn
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"13acd739-5a3d-4f38-af7d-5b638255e3b8"}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"d86750f6-cacc-44da-92fe-dccfeda0f494"}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"c2acbb52-1aa3-425e-b0ed-4bf256e84f7e"}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:18 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@bc9a9a9[batching=true]> : Error: Observers can't move pieces
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"e8722e0d-fd01-47e7-b6fd-e785738f65b0"}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"33065e4f-3b13-45f6-8f6b-70b9c0632886"}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"b0a22c73-77f8-40fa-a226-2457f16a9de8"}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white resigned the game
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] white resigned the game
+Aug 07, 2024 6:38:19 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white resigned the game
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"443625ea-0016-496f-994e-f17ea46ca0f2"}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"37436408-9eb7-4ee4-9b39-3e2b9c25cc32"}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"5cfbd436-8d6b-4afc-bd7c-bb8ef4e08741"}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] black resigned the game
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black resigned the game
+Aug 07, 2024 6:38:20 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] black resigned the game
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@5a61435d[batching=true]> : Error: Can't move after game over
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"ba2f3fc5-879e-4190-8dad-d822b0f057a1"}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"1d64d3c5-e191-41bb-80a3-ade49df33206"}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"92dab685-630a-467f-a8c9-5cd071d61227"}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:21 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@41512a8a[batching=true]> : Error: Observers can't resign game
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"1fc1f95a-74d5-48db-9af6-3fe3b19e4673"}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"af7915d0-a38c-4dd9-8af7-635be200504e"}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"de61c7ac-6a0c-4db7-979a-dd33ac3b6c34"}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] black resigned the game
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black resigned the game
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] black resigned the game
+Aug 07, 2024 6:38:22 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@59e17a4d[batching=true]> : Error: Game is over, can't resign
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"025748c9-a217-481d-8a79-d1429b539edd"}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"315cff52-15d2-47c2-960c-2641a1589fd3"}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"0423e040-9d3b-46fe-925d-2acb4d917786"}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white left the game
+Aug 07, 2024 6:38:23 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white left the game
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer left the game
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"73279bac-da53-4691-a5a0-5c6d17a20a6f"}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"774758ef-05b5-4055-b66b-39939db010fd"}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"6a8bba13-e3a7-41af-addd-5e3cab68d0b6"}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white left the game
+Aug 07, 2024 6:38:24 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white left the game
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white2","authToken":"6ce939a9-362b-456a-805f-3339441e6879"}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white2 joined game as WHITE player
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white2 joined game as WHITE player
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white2 moved (e,2) -> (e,3)
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white2 moved (e,2) -> (e,3)
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white","authToken":"50011c0e-0353-4a99-82f7-8d8a68941226"}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black","authToken":"442d3b44-472c-4a9c-9ed5-290addeffa4b"}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer","authToken":"e3e2611c-7b81-4e81-b9eb-63de99019fcc"}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:25 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] black joined game as BLACK player
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+FINE: Root Client: <white> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] observer joined game as an observer
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"white2","authToken":"632bd51f-e72c-4699-a7bf-8aba4b24d4c7"}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"black2","authToken":"5ba80a34-fab7-40b2-8f1f-0ecb4bed100a"}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"observer2","authToken":"4ea66a40-81a9-4f9b-9e0e-d90861ad4142"}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":2}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+FINE: Root Client: <white2> : [Notification] black2 joined game as BLACK player
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+FINE: Root Client: <black2> : [Notification] observer2 joined game as an observer
+Aug 07, 2024 6:38:26 PM server.logger.ServerLogger log
+FINE: Root Client: <white2> : [Notification] observer2 joined game as an observer
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white moved (e,2) -> (e,3)
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white moved (e,2) -> (e,3)
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <observer2> : [Notification] white2 resigned the game
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <black2> : [Notification] white2 resigned the game
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <white2> : [Notification] white2 resigned the game
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <observer> : [Notification] white left the game
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+FINE: Root Client: <black> : [Notification] white left the game
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"cd3b3de6-4e0b-4c7e-8f5f-41bae678bd01"}
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"15c0d083-226e-4cf6-b930-205431286851"}
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"9d7c63cd-52a6-4623-8d37-b91c21cff20e"}
+Aug 07, 2024 6:38:27 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"bd167aa8-2b22-4367-b5c5-601895d4c535"}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"87e68600-00ad-4a9a-9e96-81cede6f9d81"}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"17c60875-0978-42a4-847f-c0495bf804e4"}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"NewUser","authToken":"3776c3d1-9c92-4829-a508-95b9fbecda17"}
+Aug 07, 2024 6:38:28 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"10b3429d-63ee-45a2-aab6-cedd7c8cb966"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 403: {"message":"Error: already taken"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"65f84288-0bf2-48e6-8577-671aa0d28147"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 400: {"message":"Error: bad request"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e03150d6-a3d1-4eb7-8be5-2fbe254c46b5"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"d3992328-599c-4112-aa59-ceb7d4501baa"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:29 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e78cf6a8-221c-419e-9097-4f443784d952"}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"9d2e6c0b-542a-47c8-b80f-685210cbb5b1"}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [DELETE]/session - 200: {}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [POST]/game - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [DELETE]/db - 200: {}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"c0817a96-7403-44ca-8877-f43bdfe7b0a0"}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [POST]/game - 200: {"gameID":1}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
 INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"testGame","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"aa6135b8-0452-4e4b-a67a-0fa0f884dd5a"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"9bb54be0-6fe3-4f88-806f-7acfaf9dce1e"}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 400: {"message":"Error:bad request"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 400: {"message":"Error: bad request"}
+Aug 07, 2024 6:38:30 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"9def7162-f0fc-47d8-ad04-88ef7b71ee44"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"bb62eaed-1669-4bf1-878a-0be3a3f289e6"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"85dd8738-d636-4d8a-a208-27b518c21de4"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"5e8babd2-f45e-4df7-ae2c-bfe9f512ac33"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 400: {"message":"Error:bad request"}
-Aug 07, 2024 6:12:45 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 400: {"message":"Error: bad request"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"8ec3eaef-54bb-45e8-9579-b29d859bd609"}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"1bfa323e-a6f9-42c7-81da-fc40fe2fe1c6"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"NewUser","authToken":"b4617bdc-458d-42da-b9d4-4406623651ee"}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 403: {"message":"Error:already taken"}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"NewUser","authToken":"267bfdf0-32e2-4d27-8267-b16fb98a2fa8"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 403: {"message":"Error: already taken"}
+Aug 07, 2024 6:38:31 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"aad6400e-de5d-46f9-848e-1f68c68649d1"}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e5f83243-c207-49bf-b5a0-bd8143afbb3b"}
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [GET]/game - 200: {"games":[]}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:46 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"c66da9b5-f7af-42f5-9ccb-0f3d51cb71a5"}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"a","authToken":"f3f22eb5-31a8-4c0a-a3b6-a8f85dba1bb6"}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"b","authToken":"f141775c-fcbd-4550-ae9c-bedaf39a5a27"}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"c","authToken":"8389766d-bf01-4924-85d2-957320b90d06"}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"2f553df8-6234-4cc3-a565-e7388814cb5e"}
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"a","authToken":"c90c372a-4391-41c7-86d3-f044b5a588a9"}
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"b","authToken":"1e0b8194-e0d2-4159-bacd-5a6b904a5abd"}
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"c","authToken":"f42470cd-bd31-4c45-9bed-d2d6d74a88f5"}
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":2}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:32 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":3}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":4}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [GET]/game - 200: {"games":[{"gameID":1,"blackUsername":"a","gameName":"I\u0027m numbah one!","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":2,"whiteUsername":"b","gameName":"Lonely","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":3,"whiteUsername":"c","blackUsername":"a","gameName":"GG","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":4,"whiteUsername":"c","blackUsername":"c","gameName":"All by myself","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 6:12:47 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"dd883d24-8d60-4f05-986f-fe961d16f5db"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"81c265e2-f64a-42e7-b872-836bd6f86a14"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"594b5494-20a0-4665-b96a-d3b416b28146"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"c0850f1f-2a72-4418-b821-f1bf8b8d5588"}
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"611c4567-709c-4438-858c-7d09524aa7f5"}
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"ExistingUser","authToken":"97968ff2-15cc-44ca-9f8c-209f36d1a328"}
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"ExistingUser","gameName":"Bad Join","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"f63a0c38-e01b-4582-bbb6-e5ea460320f3"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"860cba4c-c35c-4436-bde3-d85a4bfa8371"}
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:33 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":2}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"95f963d4-84ee-490c-85b7-dd892232b8b9"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"a06c6050-99fd-42e0-9fdd-497fdde38607"}
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":3}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [POST]/session - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:48 PM server.logger.ServerLogger log
-INFO: [GET]/game - 401: {"message":"Error:unauthorized"}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"c544984e-dca6-4a71-b0d4-ae28e5130061"}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
+INFO: [POST]/session - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
+INFO: [GET]/game - 401: {"message":"Error: unauthorized"}
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ClearMe","authToken":"d4bb1e2a-a678-4ccd-9e01-245ac3d4973a"}
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [GET]/game - 200: {"games":[]}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"e695e76a-5994-499e-95f3-b5c56a9536c6"}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
+INFO: [POST]/user - 200: {"username":"ExistingUser","authToken":"a53ffdc0-6c46-44a6-9b6c-b8811b48b44a"}
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 6:12:49 PM server.logger.ServerLogger log
+Aug 07, 2024 6:38:34 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}

@@ -62,7 +62,7 @@ public class SceneManager {
         }
         catch (ErrorException e) {
             String errorFormat = EscapeSequences.SET_TEXT_FAINT + EscapeSequences.SET_TEXT_COLOR_RED;
-            return errorFormat + "[Error] " + e.getMessage();
+            return errorFormat + e.getMessage();
         }
     }
 

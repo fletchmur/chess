@@ -1,272 +1,52 @@
-Aug 07, 2024 5:31:58 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"35ea0bb3-9360-4700-9f75-27360aa24a0c"}
-Aug 07, 2024 5:31:59 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"fletcher","gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:32:04 PM server.logger.ServerLogger log
+Aug 07, 2024 6:32:31 PM server.logger.ServerLogger log
+INFO: [POST]/session - 200: {"username":"fletcher","authToken":"85866e54-df12-4bf0-89a2-12cde4aae566"}
+Aug 07, 2024 6:32:32 PM server.logger.ServerLogger log
 INFO: [POST]/game - 200: {"gameID":2}
-Aug 07, 2024 5:32:04 PM server.logger.ServerLogger log
+Aug 07, 2024 6:32:32 PM server.logger.ServerLogger log
 INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"fletcher","gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":2,"gameName":"game2","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:32:06 PM server.logger.ServerLogger log
+Aug 07, 2024 6:32:36 PM server.logger.ServerLogger log
 INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:32:06 PM server.logger.ServerLogger log
+Aug 07, 2024 6:32:36 PM server.logger.ServerLogger log
 INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:33:16 PM server.logger.ServerLogger log
+Aug 07, 2024 6:32:39 PM server.logger.ServerLogger log
 INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:33:18 PM server.logger.ServerLogger log
+Aug 07, 2024 6:32:39 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@747e1318[batching=true]> : Error: Can't move opponent's piece
+Aug 07, 2024 6:33:07 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:33:11 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:33:11 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@241eb722[batching=true]> : Error: Not your turn
+Aug 07, 2024 6:33:27 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:33:29 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:33:29 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:33:39 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:33:53 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:34:03 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 403: {"message":"Error: already taken"}
+Aug 07, 2024 6:34:07 PM server.logger.ServerLogger log
+INFO: [PUT]/game - 200: {}
+Aug 07, 2024 6:34:07 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:34:38 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:34:43 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:34:43 PM server.logger.ServerLogger log
+FINE: Root Client: <fletcher> : [Notification] fletcher resigned the game
+Aug 07, 2024 6:34:58 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:34:58 PM server.logger.ServerLogger log
+FINE: Session: <WebSocketRemoteEndpoint@65bb44dc[batching=true]> : Error: Can't move after game over
+Aug 07, 2024 6:35:02 PM server.logger.ServerLogger log
+INFO: [GET]/ws - 200: null
+Aug 07, 2024 6:35:07 PM server.logger.ServerLogger log
 INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:33:26 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"3a4f9fce-7ade-46a4-91e3-828e177adfb4"}
-Aug 07, 2024 5:33:27 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"whiteUsername":"fletcher","gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}},{"gameID":2,"gameName":"game2","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:33:28 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:33:28 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:35:24 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 5:35:27 PM server.logger.ServerLogger log
-INFO: [POST]/session - 401: {"message":"unauthorized"}
-Aug 07, 2024 5:35:37 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"fletcher","authToken":"23a0d2dd-7bcc-4fe3-9663-2534e79491a2"}
-Aug 07, 2024 5:35:44 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[]}
-Aug 07, 2024 5:35:47 PM server.logger.ServerLogger log
-INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 5:35:47 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:35:50 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:35:50 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:40:29 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:40:32 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:40:42 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"8bccf281-5b14-480c-ad1d-9b8a5b0c2883"}
-Aug 07, 2024 5:40:43 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:40:46 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:40:46 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:42:13 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:42:15 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:42:23 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"1d4b8262-6769-4a09-a777-26b9a7a6109b"}
-Aug 07, 2024 5:42:24 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:42:25 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:42:26 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:42:36 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:42:41 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:42:44 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:42:44 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:43:24 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:43:26 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:43:29 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:43:30 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:43:57 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:44:02 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:44:04 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:44:04 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:44:49 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:44:52 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:45:08 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"9ef6b351-6085-418f-8106-a80fdd753dda"}
-Aug 07, 2024 5:45:09 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"BLACK","opponentTeam":"WHITE"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},null,{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},null,{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,{"teamColor":"WHITE","pieceType":"KNIGHT"},null,null],[null,null,null,{"teamColor":"WHITE","pieceType":"PAWN"},null,null,null,null],[null,null,null,null,{"teamColor":"BLACK","pieceType":"PAWN"},null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},null,{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:45:11 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:45:11 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:46:20 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:46:20 PM server.logger.ServerLogger log
-FINE: Session: <WebSocketRemoteEndpoint@3d9447ce[batching=true]> : [Error] Not your turn
-Aug 07, 2024 5:46:26 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:46:29 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:46:29 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:04 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:10 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:14 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:47:14 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:25 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:27 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:28 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:47:28 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:46 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:48 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:47:50 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:47:50 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:48:09 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:48:19 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:48:21 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:48:21 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:48:32 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:48:32 PM server.logger.ServerLogger log
-FINE: Root Client: <fletcher> : [Notification] null is in check
-Aug 07, 2024 5:48:50 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:49:19 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:49:20 PM server.logger.ServerLogger log
-INFO: [DELETE]/db - 200: {}
-Aug 07, 2024 5:52:17 PM server.logger.ServerLogger log
-INFO: [POST]/user - 200: {"username":"fletcher","authToken":"6eadbfe4-b1c2-4ac8-8411-1a4a21e0d66f"}
-Aug 07, 2024 5:52:18 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[]}
-Aug 07, 2024 5:52:25 PM server.logger.ServerLogger log
-INFO: [POST]/game - 200: {"gameID":1}
-Aug 07, 2024 5:52:25 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:52:27 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:52:27 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:53:25 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:53:26 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:53:33 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"c7bd4faf-7f7a-41ba-a50a-3d26cd3245b2"}
-Aug 07, 2024 5:53:33 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:53:35 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:53:35 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:54:34 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:54:36 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:57:16 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"42682732-7b87-486c-b025-c1fed13a5899"}
-Aug 07, 2024 5:57:17 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:57:19 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:57:19 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:58:52 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:58:53 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 5:59:01 PM server.logger.ServerLogger log
-INFO: [POST]/session - 200: {"username":"fletcher","authToken":"13fbe5e3-7ec0-44f8-aa63-a651f89111ed"}
-Aug 07, 2024 5:59:01 PM server.logger.ServerLogger log
-INFO: [GET]/game - 200: {"games":[{"gameID":1,"gameName":"game1","game":{"turnHandler":{"currentTeam":"WHITE","opponentTeam":"BLACK"},"board":{"size":8,"board":[[{"teamColor":"WHITE","pieceType":"ROOK"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"QUEEN"},{"teamColor":"WHITE","pieceType":"KING"},{"teamColor":"WHITE","pieceType":"BISHOP"},{"teamColor":"WHITE","pieceType":"KNIGHT"},{"teamColor":"WHITE","pieceType":"ROOK"}],[{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"},{"teamColor":"WHITE","pieceType":"PAWN"}],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"},{"teamColor":"BLACK","pieceType":"PAWN"}],[{"teamColor":"BLACK","pieceType":"ROOK"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"QUEEN"},{"teamColor":"BLACK","pieceType":"KING"},{"teamColor":"BLACK","pieceType":"BISHOP"},{"teamColor":"BLACK","pieceType":"KNIGHT"},{"teamColor":"BLACK","pieceType":"ROOK"}]]},"gameOver":false}}]}
-Aug 07, 2024 5:59:03 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:59:03 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:59:55 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:59:57 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 5:59:59 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 5:59:59 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:00:28 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:00:29 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:00:32 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:00:32 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:00:57 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:00:58 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:00 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:01:00 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:07 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:08 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:10 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:01:10 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:37 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:38 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:01:45 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:01:45 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:02:04 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:02:05 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:02:07 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:02:07 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:02:23 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:02:23 PM server.logger.ServerLogger log
-FINE: Root Client: <fletcher> : [Notification] null is in check
-Aug 07, 2024 6:02:32 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:02:34 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:02:34 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:03:21 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:03:24 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:03:28 PM server.logger.ServerLogger log
-INFO: [PUT]/game - 200: {}
-Aug 07, 2024 6:03:28 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:03:38 PM server.logger.ServerLogger log
-INFO: [GET]/ws - 200: null
-Aug 07, 2024 6:03:40 PM server.logger.ServerLogger log
-INFO: [DELETE]/session - 200: {}
-Aug 07, 2024 6:03:57 PM server.logger.ServerLogger log
+Aug 07, 2024 6:35:08 PM server.logger.ServerLogger log
 INFO: [DELETE]/db - 200: {}
