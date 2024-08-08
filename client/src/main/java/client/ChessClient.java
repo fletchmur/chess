@@ -46,7 +46,6 @@ public class ChessClient implements ServerMessageObserver {
 
     @Override
     public void notify(String message, ServerMessage.ServerMessageType type) {
-        String ERASE = EscapeSequences.ERASE_SCREEN;
 
         ServerMessageProcessor processor = new ServerMessageProcessor(clientData);
         String msg = processor.process(message,type);

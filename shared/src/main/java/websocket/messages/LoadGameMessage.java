@@ -18,9 +18,9 @@ public class LoadGameMessage extends ServerMessage {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
+        if (!super.equals(o)) {return false;}
         LoadGameMessage that = (LoadGameMessage) o;
         return Objects.equals(getGameBoard(), that.getGameBoard());
     }
